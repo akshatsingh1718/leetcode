@@ -16,8 +16,10 @@ class Solution:
 
         # copy the large elements to left array and small elements to right array
         while left >= 0 and right < n:
-            if nums1[left] >= nums2[right]:
-                nums1[left], nums2[right] = nums2[right], nums2[left]
+            if nums1[left] > nums2[right]:
+                nums1[left], nums2[right] = nums2[right], nums1[left]
+                left -= 1
+                right += 1
             else:
                 break
 
@@ -37,11 +39,11 @@ class Solution:
 # return (low= 2)
 
 ## Que1
-nums1 = [1,2,3,0,0,0]
-m = 3
-nums2 = [2,5,6]
-n = 3
-output= [1,2,2,3,5,6]
+# nums1 = [1,2,3,0,0,0]
+# m = 3
+# nums2 = [2,5,6]
+# n = 3
+# output= [1,2,2,3,5,6]
 
 ## Que2
 # nums1 = [1]
@@ -54,6 +56,14 @@ output= [1,2,2,3,5,6]
 # m = 0
 # nums2 = [1]
 # n = 1
+
+
+## Que4
+nums1 = [1, 8, 8]
+m = 3
+nums2 = [2, 3, 4, 5]
+n = 4
+output= [1, 2, 3, 4, 5, 8, 8]
 
 res = Solution().merge(nums1, m, nums2, n)
 
