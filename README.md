@@ -10,3 +10,6 @@
 ## 05-Apr-23
 - Stock Buy and Sell
 - Merge twp sorted arrays 
+
+## 06-Apr-23
+- [Tortoise & Hare Problem (Floyd's cycle)](./find_duplicate_number)
