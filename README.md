@@ -2,6 +2,7 @@
 
 ## Resources:
 - [Striver SDE Sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
+- [Discuss April leetcode](https://leetcode.com/discuss/general-discussion/655704/April-LeetCoding-Challenge)
 
 ## 04-Apr-23
 - Kadane's Algorithm
@@ -14,3 +15,6 @@
 ## 06-Apr-23
 - [Tortoise & Hare Problem (Floyd's cycle)](./find_duplicate_number) 
 - [Minimum Remove to Make Valid Parentheses](./min_rm_to_make_valid_parenthese/)
+
+## 07-Apr-23
+- [Valid Parenthesis String](./valid_parenthesis_string/)
