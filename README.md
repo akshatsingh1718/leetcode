@@ -12,4 +12,5 @@
 - Merge twp sorted arrays 
 
 ## 06-Apr-23
-- [Tortoise & Hare Problem (Floyd's cycle)](./find_duplicate_number)
+- [Tortoise & Hare Problem (Floyd's cycle)](./find_duplicate_number) 
+- [Minimum Remove to Make Valid Parentheses](./min_rm_to_make_valid_parenthese/)
