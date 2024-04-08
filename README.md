@@ -21,3 +21,4 @@
 
 ## 08-Apr-23
 - [No of stundets unable to eat](./noOfStudentsUnableToEat/)
+- [Repeat and missing number array](./repeatAndMissingNumberArray/)
