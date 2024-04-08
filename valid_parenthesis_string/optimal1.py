@@ -11,7 +11,7 @@ class Solution:
     SC:
 
     Algo: (DP + Recursion)
-    1.  
+    1.  Create a cache for the already visited index level and no of open parenthesis count.
     '''
 
 

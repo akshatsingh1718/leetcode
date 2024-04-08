@@ -18,3 +18,6 @@
 
 ## 07-Apr-23
 - [Valid Parenthesis String](./valid_parenthesis_string/)
+
+## 08-Apr-23
+- [No of stundets unable to eat](./noOfStudentsUnableToEat/)
