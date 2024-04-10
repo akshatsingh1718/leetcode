@@ -25,3 +25,6 @@
 
 ## 09-Apr-23
 - [Time Needed To Buy Tickets](./timeNeededToBuyTickets/)
+
+## 10-Apr-23
+- [Reveal cards in increasing order](./revealCardsInIncreasingOrder/)
