@@ -22,3 +22,6 @@
 ## 08-Apr-23
 - [No of stundets unable to eat](./noOfStudentsUnableToEat/)
 - [Repeat and missing number array](./repeatAndMissingNumberArray/)
+
+## 09-Apr-23
+- [Time Needed To Buy Tickets](./timeNeededToBuyTickets/)
