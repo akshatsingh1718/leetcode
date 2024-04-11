@@ -30,3 +30,7 @@
 - [Reveal cards in increasing order](./revealCardsInIncreasingOrder/)
 - [Count Inversions](./countInversions/)
 - [Merge Sort](./mergeSort/)
+
+
+## 11-Apr-23
+- [Remove K Digits](./removeKDigits/)
