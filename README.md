@@ -28,3 +28,5 @@
 
 ## 10-Apr-23
 - [Reveal cards in increasing order](./revealCardsInIncreasingOrder/)
+- [Count Inversions](./countInversions/)
+- [Merge Sort](./mergeSort/)
