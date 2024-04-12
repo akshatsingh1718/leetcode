@@ -34,7 +34,7 @@ class Solution:
         stack = []
 
         # i = 0 # Optional from step 1
-        i = 0
+        # i = 0
         # n = len(num)
         # while i < n:
         for ni in num:
