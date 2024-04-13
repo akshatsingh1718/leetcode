@@ -51,3 +51,5 @@
 
 - [Largest rectangle in histogram](./largestRectangleInHistogram/)
 - [Maximal rectangle](./maximalRectangle/)
+- [Majority element 1](./majorityElement/)
+- [Majority element 2](./majorityElement2/)
