@@ -46,3 +46,8 @@
 ## 12-Apr-23
 
 - [Trapping water](./trappingRainwater/)
+
+## 13-Apr-23
+
+- [Largest rectangle in histogram](./largestRectangleInHistogram/)
+- [Maximal rectangle](./maximalRectangle/)
