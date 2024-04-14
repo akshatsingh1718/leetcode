@@ -5,6 +5,10 @@ from math import *
 
 
 def getInversions(arr, n):
+    '''
+    TC: O(n^2)
+    SC: O(1)
+    '''
     
     inversions = 0
 

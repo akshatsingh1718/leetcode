@@ -1,84 +1,74 @@
-"""
-    Time complexity : O(N * log(N))
-    Space complexity : O(N)
+from typing import List
 
-    Where 'N' is the total number of elements in the array/list.
-"""
+from sys import stdin, setrecursionlimit
 
-from sys import stdin,setrecursionlimit
 setrecursionlimit(10**7)
 
-# Function to merge the two subarrays.
-def merge(arr, left, mid, right):
-    i = left
-    j = mid
-    k = 0
-    invCount = 0
-    temp = [0 for x in range(right - left + 1)]
 
-    while ((i < mid) and (j <= right)):
-        if (arr[i] <= arr[j]):
-            temp[k] = arr[i]
-            k += 1
+class Solution():
+    def merge(cls, arr: List[int], low: int, mid: int, high: int) -> int:
+        """
+        Algo:
+
+        1. start a while loop over section of arr[low : mid] (left section) and arr[mid:high] (right section).
+        2. The left and right sections are alredy sorted and we want to merge both the sections into a new array which will be sorted as well.
+        4. We want to check the elements which are in left section and are greater than right section elements.
+        5. If the element at i'th position in left is greater than any j'th element in the right then it's evident that all the elements from arr[i: len(left)] will be gt than the j'th element as the array is sorted and starting from i'th elements all the elements further will be gt as well. So increase the counter by no of elements from i'th pos till end and we saved our iterations as well for the rest of the elements for j'th element.
+        """
+        i = low
+        j = mid
+        res = []
+        count = 0
+        while i < mid and j <= high:
+            if arr[i] <= arr[j]:
+                res.append(arr[i])
+                i += 1
+            else:
+                count += mid - i
+                res.append(arr[j])
+                j += 1
+
+        while i < mid:
+            res.append(arr[i])
             i += 1
-        
-        else:
-            temp[k] = arr[j]
-            invCount += (mid - i)
-            k += 1
+
+        while j <= high:
+            res.append(arr[j])
             j += 1
-        
-    while (i < mid):
-        temp[k] = arr[i]
-        k += 1
-        i += 1
 
-    while (j <= right):
-        temp[k] = arr[j]
-        k += 1
-        j += 1
+        for i in range(low, high + 1):
+            arr[i] = res[i - low]  # low is offset
 
-    k = 0
-    for i in range(left, right + 1):
-        arr[i] = temp[k]
-        k += 1
+        return count
 
-    return invCount
+    def merge_sort(cls, arr: List[int], low: int, high: int):
+        count = 0
 
-# Function to split two subarrays and then merge them and count inversions.
-def mergeSort(arr, left, right):
-    invCount = 0
+        if low < high:
 
-    if (right > left):
-        mid = (right + left) // 2
+            mid = (high + low) // 2
 
-        """
-            Divide the array into two parts
-            total inversion count will be the
-            sum of 'INVCOUNT' of left part +
-            'INVCOUNT' of right part + 'INVCOUNT' of
-            their combined part.
-        """
-        invCount = mergeSort(arr, left, mid)
-        invCount += mergeSort(arr, mid + 1, right)
+            count = cls.merge_sort(arr, low, mid)
+            count += cls.merge_sort(arr, mid + 1, high)
+            count += cls.merge(arr, low, mid + 1, high)
 
-        # Merge both parts and count their combined inversions.
-        invCount += merge(arr, left, mid + 1, right)
-    
-    return invCount
-    
-def getInversions(arr, n):
-    return mergeSort(arr, 0, n - 1)
+        return count
+
+    def getInversions(cls, arr, n) -> int:
+        return cls.merge_sort(arr, 0, n - 1)
+
 
 # TS1
-arr = [3, 2, 1]
-output = 3
+# arr = [3, 2, 1]
+# output = 3
 
 # TS2
 # arr=[2, 5, 1, 3, 4]
 # output = 4
 
+# TS2
+arr = [5, 3, 2, 4, 1]
+output = 8
 
 n = len(arr)
-
-print(getInversions(arr, n))
+print(Solution().getInversions(arr, n))
