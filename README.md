@@ -53,3 +53,6 @@
 - [Maximal rectangle](./maximalRectangle/)
 - [Majority element 1](./majorityElement/)
 - [Majority element 2](./majorityElement2/)
+
+## 14-Apr-23
+- [Sum of left leaves](./sumOfLeftLeaves/)
