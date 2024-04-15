@@ -56,8 +56,10 @@
 
 ## 14-Apr-24
 - [Sum of left leaves](./sumOfLeftLeaves/)
+- [Unique Paths](./uniquePaths/)
 - [Reverse pairs](./reversePairs/)
 
 ## 15-Apr-24
 
 - TODO (https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
+- [Sum Root To Leaf Numbers](./sumRootToLeafNumbers/)
