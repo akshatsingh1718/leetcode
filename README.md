@@ -63,3 +63,4 @@
 
 - TODO (https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
 - [Sum Root To Leaf Numbers](./sumRootToLeafNumbers/)
+- [Longest Consecutive Sequence](./longestConsecutiveSequence/)

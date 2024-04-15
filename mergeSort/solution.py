@@ -1,4 +1,8 @@
 def merge(arr: list, low: int, mid: int, high: int):
+    '''
+    TC: O(log n) [dividing the array] * (n) [sorting n elements] = O(n logn) 
+    SC: O(N) result
+    '''
     left = low
     right = mid + 1
     result = []

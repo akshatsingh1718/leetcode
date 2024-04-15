@@ -6,6 +6,15 @@ setrecursionlimit(10**7)
 
 
 class Solution:
+    '''
+    TC: O(log n)[diving the array like a BTree] * O(n [for sorting] + n [for finding out the pairs]) = O(n logn)
+    SC: O(n) [for merging]
+    Algo: (merge sort + count pairs on unsorted array before sorting)
+
+
+    Note:
+    1. Tell the interviewer that you will be distorting the array as sorting will happen and ask if he wants to create a copy for sorting array.
+    '''
 
     def merge(cls, arr: List[int], low: int, mid: int, high: int) -> int:
         i = low
@@ -48,10 +57,15 @@ class Solution:
             mid = (high + low) // 2
 
             # This means add the count for left array (this will also eventually call count_pairs fn)
+            # Here we are checking only within left array which i elements is gt 2 times the jth element
             count += cls.merge_sort(arr, low, mid)
             # add the count for right array 
+            # Here we are checking only within right array which i elements is gt 2 times the jth element
             count += cls.merge_sort(arr, mid + 1, high)
             # count the pairs of the current merged array of left + right
+            # We are counting the pairs before merging because it is not possible to
+            # merge the array in sorted manner since left array elements are only considered 
+            # for pairs when they are are 2 times gt than the jth element from right array 
             count += cls.count_pairs(arr, low, mid + 1, high)
             cls.merge(arr, low, mid + 1, high)
 
