@@ -55,6 +55,7 @@
 - [Majority element 2](./majorityElement2/)
 
 ## 14-Apr-24
+
 - [Sum of left leaves](./sumOfLeftLeaves/)
 - [Unique Paths](./uniquePaths/)
 - [Reverse pairs](./reversePairs/)
@@ -64,3 +65,7 @@
 - TODO (https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
 - [Sum Root To Leaf Numbers](./sumRootToLeafNumbers/)
 - [Longest Consecutive Sequence](./longestConsecutiveSequence/)
+
+## 16-Apr-24
+
+- [Add one row to tree](./addOneRowToTree/)
