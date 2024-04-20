@@ -3,18 +3,23 @@
 class Solution:
     def maxLen(self, n, arr):
         max_seq = 0
-        for i in range(n):
-            curr_seq = 0
-            curr_sum = 0
-            for j in range(i, n):
-                curr_sum += arr[j]
-                curr_seq += 1
 
-            if curr_sum == 0: # check sum
-                max_seq = max(max_seq, curr_seq)
+        hash_map = dict()
+        running_sum = 0
 
+        for i, num in enumerate(arr):
+            running_sum += num
+
+            if running_sum == 0:
+                max_seq = i + 1
+
+            elif hash_map.get(running_sum, None) is not None:
+                max_seq = max(max_seq, i - hash_map[running_sum])
+            else:
+                hash_map[running_sum] = i
 
         return max_seq
+
 
 # {
 # Driver Code Starts

@@ -7,7 +7,7 @@ setrecursionlimit(10**7)
 
 class Solution:
     '''
-    TC: O(log n)[diving the array like a BTree] * O(n [for sorting] + n [for finding out the pairs]) = O(n logn)
+    TC: O(log n)[diving the array like a BTree] * O(n [for merge sorting] + n [for finding out the pairs]) = O(2n logn)
     SC: O(n) [for merging]
     Algo: (merge sort + count pairs on unsorted array before sorting)
 

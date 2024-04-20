@@ -75,5 +75,14 @@
 
 ## 18-Apr-24
 
-- TODO (https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
-- TODO (Largest subarray with zeros sum)
+- [Island Permieter](./islandPerimeter/)
+
+## 19-Apr-24
+
+-[No of islands](./noOfIslands/)
+
+## 20-Apr-24
+
+- [Find all groups of farmland](./findAllGroupsOfFarmland/)
+- [Largest subarray with zeros sum](./largestSubarrayWithZeroSum/)
+- [Count Of Smaller Numbers After Self](./countOfSmallerNumbersAfterSelf/)
