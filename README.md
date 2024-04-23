@@ -86,3 +86,13 @@
 - [Find all groups of farmland](./findAllGroupsOfFarmland/)
 - [Largest subarray with zeros sum](./largestSubarrayWithZeroSum/)
 - [Count Of Smaller Numbers After Self](./countOfSmallerNumbersAfterSelf/)
+
+# 21-Apr-24
+- [Find If Path Exists In Graph](./findIfPathExistsInGraph/)
+- [Subarray Sum Equals K](./subarraySumEqualsK/)
+
+# 22-Apr-24
+- [Open the lock](./openTheLock/)
+
+# 23-Apr-24
+- [Minimum Height Trees](./minimumHeightTrees/)
