@@ -102,3 +102,4 @@
 
 # 25-Apr-24
 - [Longest Ideal Subsequence](./longestIdealSubsequence/)
+- [Subarray With Given XOR](./subarrayWithGivenXOR/)
