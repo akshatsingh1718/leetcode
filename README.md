@@ -96,3 +96,9 @@
 
 # 23-Apr-24
 - [Minimum Height Trees](./minimumHeightTrees/)
+
+# 24-Apr-24
+- [nth Tribonacci Number/](./nthTribonacciNumber/)
+
+# 25-Apr-24
+- [Longest Ideal Subsequence](./longestIdealSubsequence/)
