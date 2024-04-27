@@ -88,18 +88,34 @@
 - [Count Of Smaller Numbers After Self](./countOfSmallerNumbersAfterSelf/)
 
 # 21-Apr-24
+
 - [Find If Path Exists In Graph](./findIfPathExistsInGraph/)
 - [Subarray Sum Equals K](./subarraySumEqualsK/)
 
 # 22-Apr-24
+
 - [Open the lock](./openTheLock/)
 
 # 23-Apr-24
+
 - [Minimum Height Trees](./minimumHeightTrees/)
 
 # 24-Apr-24
+
 - [nth Tribonacci Number/](./nthTribonacciNumber/)
 
 # 25-Apr-24
+
 - [Longest Ideal Subsequence](./longestIdealSubsequence/)
 - [Subarray With Given XOR](./subarrayWithGivenXOR/)
+
+# 26-Apr-24
+
+- [Minimum Falling Path Sum II](./minimumFallingPathSum2/)
+
+# 27-Apr-24
+- TODO [longestSubstringWithoutRepeatingCharacters](./longestSubstringWithoutRepeatingCharacters)
+- [Range Sum Of BST](./rangeSumOfBST/)
+- [Freedom Trial](./freedomTrial/)
+- [Make A Square With The Same Color](./makeASquareWithTheSameColor/)
+- **Biweekly Contest 129 Failed | no submission**
