@@ -119,3 +119,11 @@
 - [Freedom Trial](./freedomTrial/)
 - [Make A Square With The Same Color](./makeASquareWithTheSameColor/)
 - **Biweekly Contest 129 Failed | no submission**
+
+# 28-Apr-24
+- [Find The Integer Added To Array 1](./findTheIntegerAddedToArray1/)
+- [Find The Integer Added To Array 2](./findTheIntegerAddedToArray2/)
+- TODO: GOT TLE [Minimum Array End](./minimumArrayEnd/)
+- TODO: (Submitted without knowing logic) https://leetcode.com/problems/sum-of-distances-in-tree/description/?envType=daily-question&envId=2024-04-28
+
+# 29-Apr-24
