@@ -127,3 +127,4 @@
 - TODO: (Submitted without knowing logic) https://leetcode.com/problems/sum-of-distances-in-tree/description/?envType=daily-question&envId=2024-04-28
 
 # 29-Apr-24
+- [Minimum Number Of Operations To Make Array XOR Equal To K](./minimumNumberOfOperationsToMakeArrayXOREqualToK/)
