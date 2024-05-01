@@ -121,16 +121,17 @@
 - **Biweekly Contest 129 Failed | no submission**
 
 # 28-Apr-24
+- **Weekly Contest 395 | 2 submission**
 - [Find The Integer Added To Array 1](./findTheIntegerAddedToArray1/)
 - [Find The Integer Added To Array 2](./findTheIntegerAddedToArray2/)
 - [Minimum Array End](./minimumArrayEnd/)
 - TODO: (Submitted without knowing logic) https://leetcode.com/problems/sum-of-distances-in-tree/description/?envType=daily-question&envId=2024-04-28
 
 # 29-Apr-24
-- [Minimum Number Of Operations To Make Array XOR Equal To K](./minimumNumberOfOperationsToMakeArrayXOREqualToK/)
+- 🔄 [Minimum Number Of Operations To Make Array XOR Equal To K](./minimumNumberOfOperationsToMakeArrayXOREqualToK/) `bit manipulation`
 
 # 30-Apr-24
-- [Number of wonderful Substrings](./numberOfWonderfulSubstrings/)
+- [Number of wonderful Substrings](./numberOfWonderfulSubstrings/) `bit-masking` `prefix xor`
 
 # 1-May-24
-- [Reverse Prefix Of Word](./reversePrefixOfWord/)
+- [Reverse Prefix Of Word](./reversePrefixOfWord/) `prefix xor`
