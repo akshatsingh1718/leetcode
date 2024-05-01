@@ -14,3 +14,5 @@ class Solution:
             last_num = x | (last_num + 1)
 
         return last_num
+    
+print(Solution().minEnd(n=3, x= 4))

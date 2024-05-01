@@ -123,14 +123,14 @@
 # 28-Apr-24
 - [Find The Integer Added To Array 1](./findTheIntegerAddedToArray1/)
 - [Find The Integer Added To Array 2](./findTheIntegerAddedToArray2/)
-- TODO: GOT TLE [Minimum Array End](./minimumArrayEnd/)
+- [Minimum Array End](./minimumArrayEnd/)
 - TODO: (Submitted without knowing logic) https://leetcode.com/problems/sum-of-distances-in-tree/description/?envType=daily-question&envId=2024-04-28
 
 # 29-Apr-24
 - [Minimum Number Of Operations To Make Array XOR Equal To K](./minimumNumberOfOperationsToMakeArrayXOREqualToK/)
 
 # 30-Apr-24
-- TODO: (Submitted without knowing logic) [Number of wonderful strings]()
+- [Number of wonderful Substrings](./numberOfWonderfulSubstrings/)
 
 # 1-May-24
 - [Reverse Prefix Of Word](./reversePrefixOfWord/)
