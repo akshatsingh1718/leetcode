@@ -128,3 +128,9 @@
 
 # 29-Apr-24
 - [Minimum Number Of Operations To Make Array XOR Equal To K](./minimumNumberOfOperationsToMakeArrayXOREqualToK/)
+
+# 30-Apr-24
+- TODO: (Submitted without knowing logic) [Number of wonderful strings]()
+
+# 1-May-24
+- [Reverse Prefix Of Word](./reversePrefixOfWord/)
