@@ -1,5 +1,12 @@
 # Algos by Me
 
+## Help
+
+| Label | Meaning       |
+| ----- | ------------- |
+| ⭐    | Good question |
+| 🔄    | Try again     |
+
 ## Resources:
 
 - [Striver SDE Sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
@@ -79,7 +86,7 @@
 
 ## 19-Apr-24
 
--[No of islands](./noOfIslands/)
+- [No of islands](./noOfIslands/)
 
 ## 20-Apr-24
 
@@ -114,6 +121,7 @@
 - [Minimum Falling Path Sum II](./minimumFallingPathSum2/)
 
 # 27-Apr-24
+
 - TODO [longestSubstringWithoutRepeatingCharacters](./longestSubstringWithoutRepeatingCharacters)
 - [Range Sum Of BST](./rangeSumOfBST/)
 - [Freedom Trial](./freedomTrial/)
@@ -121,17 +129,25 @@
 - **Biweekly Contest 129 Failed | no submission**
 
 # 28-Apr-24
+
 - **Weekly Contest 395 | 2 submission**
 - [Find The Integer Added To Array 1](./findTheIntegerAddedToArray1/)
 - [Find The Integer Added To Array 2](./findTheIntegerAddedToArray2/)
 - [Minimum Array End](./minimumArrayEnd/)
-- TODO: (Submitted without knowing logic) https://leetcode.com/problems/sum-of-distances-in-tree/description/?envType=daily-question&envId=2024-04-28
+- ⭐ [Sum Of Distances In Tree](./sumOfDistancesInTree/)
 
 # 29-Apr-24
+
 - 🔄 [Minimum Number Of Operations To Make Array XOR Equal To K](./minimumNumberOfOperationsToMakeArrayXOREqualToK/) `bit manipulation`
 
 # 30-Apr-24
-- [Number of wonderful Substrings](./numberOfWonderfulSubstrings/) `bit-masking` `prefix xor`
+
+- ⭐ [Number of wonderful Substrings](./numberOfWonderfulSubstrings/) `bit-masking` `prefix xor`
 
 # 1-May-24
+
 - [Reverse Prefix Of Word](./reversePrefixOfWord/) `prefix xor`
+
+# 2-May-24
+
+- [Largest Positive Integer That Exists With Its Negative](./largestPosIntegerThatExistsWithItsNeg/)

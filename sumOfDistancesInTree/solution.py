@@ -2,6 +2,10 @@ from typing import List
 
 
 class Solution:
+    """
+    TC: O(n^2) [finding distances separately for each node]
+    SC: O(n) [for res] + O(n) [for adj list] + O(n) [for visited] + o(n) [for stack]
+    """
     def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
 
         # create adj list
