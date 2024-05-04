@@ -1,11 +1,23 @@
-# Algos by Me
-
-## Help
+# Help
 
 | Label | Meaning       |
 | ----- | ------------- |
 | ⭐    | Good question |
 | 🔄    | Try again     |
+
+# Add this to start
+
+## Linked List
+
+```py
+from typing import Optional
+import sys
+
+sys.path.insert(0, "utils")
+import ll
+```
+
+# Algos by Me
 
 ## Resources:
 
@@ -161,3 +173,4 @@
 - [Boats To Save People](./boatsToSavePeople/)
 - [Merge Two Sorted Lists](./mergeTwoSortedLists/)
 - [Remove Nth Node From End Of List](./removeNthNodeFromEndOfList/)
+- [Add Two Numbers](./addTwoNumbers/)
