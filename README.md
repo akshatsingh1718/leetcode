@@ -151,3 +151,13 @@
 # 2-May-24
 
 - [Largest Positive Integer That Exists With Its Negative](./largestPosIntegerThatExistsWithItsNeg/)
+
+# 3-May-24
+
+- [Compare Version Numbers](./compareVersionNumbers/)
+
+# 4-May-24
+
+- [Boats To Save People](./boatsToSavePeople/)
+- [Merge Two Sorted Lists](./mergeTwoSortedLists/)
+- [Remove Nth Node From End Of List](./removeNthNodeFromEndOfList/)
