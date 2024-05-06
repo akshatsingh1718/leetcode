@@ -7,3 +7,7 @@
 - 📝 [Minimum Array End](./minimumArrayEnd/) `bit-manipulation`
     - Tried but got TLE.
     
+# [Weekly contest 396](https://leetcode.com/contest/weekly-contest-396/)
+- ✅ [Valid Word](./validWord/)
+- ✅ [Minimum Number of Operations to Make Word K-Periodic](./minNoOfOperationsToMakeWordKPeriodic/)
+- ✅ [Minimum Length of Anagram Concatenation](./minimumLengthofAnagramConcatenation/)
