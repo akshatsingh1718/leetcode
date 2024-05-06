@@ -137,7 +137,7 @@ import ll
 - TODO [longestSubstringWithoutRepeatingCharacters](./longestSubstringWithoutRepeatingCharacters)
 - [Range Sum Of BST](./rangeSumOfBST/)
 - [Freedom Trial](./freedomTrial/)
-- [Make A Square With The Same Color](./makeASquareWithTheSameColor/)  
+- [Make A Square With The Same Color](./makeASquareWithTheSameColor/)
 - **Biweekly Contest 129 Failed | no submission**
 
 # 28-Apr-24
@@ -149,8 +149,6 @@ import ll
 
 - [Find The Integer Added To Array 1](./findTheIntegerAddedToArray1/)
 - [Find The Integer Added To Array 2](./findTheIntegerAddedToArray2/)
-
-
 
 # 29-Apr-24
 
@@ -180,9 +178,11 @@ import ll
 - [Add Two Numbers](./addTwoNumbers/)
 
 # 5-May-24
+
 - [Delete Node in a Linked List](./deleteNodeInALinkedList/)
-    
-    **Weekly Contest 396 | 3 submission**
-    - [Valid Word](./validWord/)
-    - [Minimum Number of Operations to Make Word K-Periodic](./minNoOfOperationsToMakeWordKPeriodic/)
-    - [Minimum Length of Anagram Concatenation](./minimumLengthofAnagramConcatenation/)
+
+**Weekly Contest 396 | 3 submission**
+
+- [Valid Word](./validWord/)
+- [Minimum Number of Operations to Make Word K-Periodic](./minNoOfOperationsToMakeWordKPeriodic/)
+- [Minimum Length of Anagram Concatenation](./minimumLengthofAnagramConcatenation/)
