@@ -186,3 +186,11 @@ import ll
 - [Valid Word](./validWord/)
 - [Minimum Number of Operations to Make Word K-Periodic](./minNoOfOperationsToMakeWordKPeriodic/)
 - [Minimum Length of Anagram Concatenation](./minimumLengthofAnagramConcatenation/)
+
+# 6-May-24
+
+- [Remove Nodes From Linked List](./removeNodesFromLinkedList/)
+
+# 7-May-24
+
+- [Double A Number Represented As A Linked List](./doubleANumberRepresentedAsALinkedList/)

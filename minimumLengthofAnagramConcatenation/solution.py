@@ -22,3 +22,6 @@ class Solution:
                     return len_of_t_String
                 
         return n
+
+
+print(Solution().minAnagramLength("aaaabbbbcccaaaa"))
