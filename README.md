@@ -198,3 +198,7 @@ import ll
 # 8-May-24
 
 - [Relative Ranks](./relativeRanks/)
+
+# 8-May-24
+
+- [Maximize Happiness Of Selected Children](./maximizeHapinessOfSelectedChildren/)
