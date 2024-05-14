@@ -199,6 +199,31 @@ import ll
 
 - [Relative Ranks](./relativeRanks/)
 
-# 8-May-24
+# 9-May-24
 
 - [Maximize Happiness Of Selected Children](./maximizeHapinessOfSelectedChildren/)
+
+# 10-May-24
+
+- [K-th Smallest Prime Fraction](./kthSmallestPrimeFraction/)
+
+# 11-May-24
+
+- [Minimum Cost to Hire K Workers](./minimumCostToHireKWorkers/)
+
+# 12-May-24
+
+- [Largest Local Values In A Matrix](./largestLocalValuesInAMatrix/)
+
+**Weekly Contest 397 | 2 submission**
+
+- [Taking Maximum Energy From the Mystic Dungeon](./takingMaximumEnergyFromtheMysticDungeon/)
+- [Permutation Difference between Two Strings](./permutationDifferenceBetweenTwoStrings/)
+
+# 13-May-24
+
+- [Score After Flipping Matrix](./scoreAfterFlippingMatrix/)
+
+# 14-May-24
+
+- [Path With Maximum Gold](./pathWithMaximumGold/)
