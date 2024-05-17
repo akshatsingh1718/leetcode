@@ -227,3 +227,15 @@ import ll
 # 14-May-24
 
 - [Path With Maximum Gold](./pathWithMaximumGold/)
+
+# 15-May-24
+
+- ⭐ [Find The Safest Path In A Grid](./findTheSafestPathInAGrid/)
+
+# 16-May-24
+
+- [Evaluate Boolean Binary Tree](./evaluateBooleanBinaryTree/)
+
+# 17-May-24
+
+- [Delete Leaves With A Given Value](./deleteLeavesWithAGivenValue/)
