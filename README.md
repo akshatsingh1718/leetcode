@@ -64,7 +64,7 @@ import ll
 
 ## 12-Apr-24
 
-- [Trapping water](./trappingRainwater/)
+- ⭐ [Trapping water](./trappingRainwater/)
 
 ## 13-Apr-24
 
@@ -247,3 +247,5 @@ import ll
 - [Distribute Coins In Binary Tree](./distributeCoinsInBinaryTree/)
 - [Linked List Cycle II](./linkedListCycleII/)
 - [Flattening A Linked List](./flatteningALinkedList/)
+- [3 Sum](./3Sum/)
+- [Remove Duplicates From Sorted Array](./removeDuplicatesFromSortedArray/)
