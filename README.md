@@ -239,12 +239,9 @@ import ll
 # 17-May-24
 
 - [Delete Leaves With A Given Value](./deleteLeavesWithAGivenValue/)
-
-# 18-May-24
-
 - [Palindrome Linked List](./palindromeLinkedList/)
 - [Reverse Nodes In K Group](./reverseNodesInKGroup/)
 
-# 19-May-24
+# 18-May-24
 
 - [Distribute Coins In Binary Tree](./distributeCoinsInBinaryTree/)
