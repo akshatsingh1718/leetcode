@@ -91,9 +91,24 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/palindrome-linked-list/
-Help: by me
+Problem: https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
+Help:
 """
+
+
+class Node:
+    def __init__(self, d):
+        self.data = d
+        self.next = None
+        self.bottom = None
+
+
+def printList(node):
+    while node is not None:
+        print(node.data, end=" ")
+        node = node.bottom
+
+    print()
 
 
 class Solution:
@@ -101,41 +116,44 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n) + O(n)
-    SC: O(n)
+    TC: O(n * m * m * n)
+    SC: O(1)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+    def flatten(self, root):
+        if root is None:
+            return root
 
-        stack = []
-        node = head
+        def add_node(node: Node, new_node: Node):
+
+            while node.next is not None and node.val < new_node.val:
+                node = node.val
+
+            node_next = node.next
+            node.next = new_node
+            new_node.next = node_next
+
+        node = root
         while node is not None:
-            stack.append(node)
+            btm_node = node.bottom
+
+            while btm_node is not None:
+                add_node(node, btm_node)
+                btm_node = btm_node.next
+
+
+            node.bottom = None
             node = node.next
 
-        n = len(stack)
-        node = head
-        while n > len(stack) // 2:
-            from_last = stack.pop()
-            if from_last.val != node.val:
-                return False
-
-            node = node.next
-            n -= 1
-
-        return True
+        return root
 
 
 def main():
     obj = Solution()
-    head = list_to_ll([1, 2, 2, 1])
-    head = list_to_ll([1, 2])
-
-    print(obj.isPalindrome(head))
 
 
 if __name__ == "__main__":

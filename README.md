@@ -245,3 +245,5 @@ import ll
 # 18-May-24
 
 - [Distribute Coins In Binary Tree](./distributeCoinsInBinaryTree/)
+- [Linked List Cycle II](./linkedListCycleII/)
+- [Flattening A Linked List](./flatteningALinkedList/)

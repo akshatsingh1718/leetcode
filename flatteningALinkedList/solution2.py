@@ -91,9 +91,24 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/palindrome-linked-list/
-Help: by me
+Problem: https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
+Help: https://www.youtube.com/watch?v=ysytSSXpAI0&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=39
 """
+
+
+class Node:
+    def __init__(self, d):
+        self.data = d
+        self.next = None
+        self.bottom = None
+
+
+def printList(node):
+    while node is not None:
+        print(node.data, end=" ")
+        node = node.bottom
+
+    print()
 
 
 class Solution:
@@ -101,41 +116,56 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n) + O(n)
-    SC: O(n)
+    N = len of linked list along next axis
+    M = len of linked list along down axis
+    TC: O(N * 2M) ~ O(N * M) [N operations will take place for 2 M ops for checking values]
+    SC: O(N) [if considering recursion stack space]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+    def flatten(self, root):
 
-        stack = []
-        node = head
-        while node is not None:
-            stack.append(node)
-            node = node.next
+        def merge(node1: Node, node2: Node):
+            prv = Node(-1)
+            dummyNode = prv
 
-        n = len(stack)
-        node = head
-        while n > len(stack) // 2:
-            from_last = stack.pop()
-            if from_last.val != node.val:
-                return False
+            while node1 is not None and node2 is not None:
+                if node1.data < node2.data:
+                    prv.bottom = node1
+                    prv = node1
+                    node1 = node1.bottom
+                else:
+                    prv.bottom = node2
+                    prv = node2
+                    node2 = node2.bottom
 
-            node = node.next
-            n -= 1
+            if node2 is not None:
+                prv.bottom = node2
+            if node1 is not None:
+                prv.bottom = node1
 
-        return True
+            return dummyNode.bottom
+
+        def dfs(node: Node):
+            if node is None or node.next is None:
+                return node
+
+            node2 = dfs(node.next)
+
+            # merge
+            node.next = None
+            head = merge(node, node2)
+
+            return head
+
+        return dfs(root)
 
 
 def main():
     obj = Solution()
-    head = list_to_ll([1, 2, 2, 1])
-    head = list_to_ll([1, 2])
-
-    print(obj.isPalindrome(head))
 
 
 if __name__ == "__main__":

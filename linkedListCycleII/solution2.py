@@ -87,12 +87,37 @@ def list_to_binary_tree(lst: List[int]):
     return root
 
 
+def list_to_circular_ll(values, link_info):
+    if not values:
+        return None
+
+    nodes = [ListNode(value) for value in values]
+
+    for i in range(len(nodes) - 1):
+        nodes[i].next = nodes[i + 1]
+
+    nodes[-1].next = nodes[0]  # By default, make it circular
+
+    target_index, next_index = link_info
+    nodes[target_index].next = nodes[next_index]
+
+    return nodes[0]
+
+
+def print_circular_ll(head, count):
+    current = head
+    for _ in range(count):
+        print(current.val, end=" -> ")
+        current = current.next
+    print("...")
+
+
 ###################################################
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/palindrome-linked-list/
-Help: by me
+Problem:
+Help:
 """
 
 
@@ -101,41 +126,46 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n) + O(n)
-    SC: O(n)
+    TC:
+    SC:
 
     ==========================
-    Algorithm:
+    Algorithm: loyd's cycle finding algo
     ==========================
     """
 
-    def isPalindrome(self, head: Optional[ListNode]) -> bool:
-
-        stack = []
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None or head.next is None:
+            return None
+        
+        slow = head
+        fast = head
         node = head
-        while node is not None:
-            stack.append(node)
-            node = node.next
 
-        n = len(stack)
-        node = head
-        while n > len(stack) // 2:
-            from_last = stack.pop()
-            if from_last.val != node.val:
-                return False
+        while fast.next is not None and fast.next.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
 
-            node = node.next
-            n -= 1
+                while node is not slow:
+                    node = node.next
+                    slow = slow.next
+                return node
 
-        return True
-
+        return None
 
 def main():
     obj = Solution()
-    head = list_to_ll([1, 2, 2, 1])
-    head = list_to_ll([1, 2])
+    # Example usage:
+    values = [3, 2, 0, -4]
+    link_info = (3, 1)
+    head = list_to_circular_ll(values, link_info)
 
-    print(obj.isPalindrome(head))
+    head = list_to_circular_ll([1, 2], (1, 0))
+
+    head = list_to_ll([1])
+    res = obj.detectCycle(head)
+    print(res.val)
 
 
 if __name__ == "__main__":

@@ -91,8 +91,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/palindrome-linked-list/
-Help: by me
+Problem:https://leetcode.com/problems/palindrome-linked-list/submissions/1261148430/
+Help: https://www.youtube.com/watch?v=-DtNInqFUXs&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=37
 """
 
 
@@ -101,8 +101,9 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n) + O(n)
-    SC: O(n)
+    TC: O(n // 2) [find middle] + O(n//2) [reversal] + O(n // 2) [check both half]
+    TC (for get back the original list): Above TC + O(n//2) [again find middle] + O(n // 2) [again reverse]
+    SC: O(1)
 
     ==========================
     Algorithm:
@@ -111,21 +112,36 @@ class Solution:
 
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
 
-        stack = []
-        node = head
-        while node is not None:
-            stack.append(node)
-            node = node.next
+        # slow and fast pointer to find the middle of the linked list
+        def find_middle_node(node: ListNode):
+            slow = node
+            fast = node
 
-        n = len(stack)
+            while fast.next is not None and fast.next.next is not None:
+                slow = slow.next
+                fast = fast.next.next
+            return slow
+
+        middle_node = find_middle_node(head)
+
+        # reverse the linked list from the middle
+        def reverse_list(node: ListNode):
+            curr = node
+            prv = None
+            while curr is not None:
+                curr.next, curr, prv = prv, curr.next, curr
+            return prv
+
+        reversed_list_head = reverse_list(middle_node.next)
+
+        # move pointer from starting of linked list and reversed linked list
+        # and check if they both are same or not
         node = head
-        while n > len(stack) // 2:
-            from_last = stack.pop()
-            if from_last.val != node.val:
+        while reversed_list_head is not None:
+            if reversed_list_head.val != node.val:
                 return False
-
+            reversed_list_head = reversed_list_head.next
             node = node.next
-            n -= 1
 
         return True
 
