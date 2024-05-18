@@ -109,11 +109,33 @@ class Solution:
     ==========================
     """
 
-    pass
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+
+        stack = []
+        node = head
+        while node is not None:
+            stack.append(node)
+            node = node.next
+
+        n = len(stack)
+        node = head
+        while n > len(stack) // 2:
+            from_last = stack.pop()
+            if from_last.val != node.val:
+                return False
+
+            node = node.next
+            n -= 1
+
+        return True
 
 
 def main():
     obj = Solution()
+    head = list_to_ll([1, 2, 2, 1])
+    head = list_to_ll([1, 2])
+
+    print(obj.isPalindrome(head))
 
 
 if __name__ == "__main__":

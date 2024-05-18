@@ -109,11 +109,32 @@ class Solution:
     ==========================
     """
 
-    pass
+    def distributeCoins(self, root: Optional[TreeNode]) -> int:
+
+        steps = 0
+
+        def distribute(root: Optional[TreeNode]):
+            nonlocal steps
+
+            if root is None:
+                return 0
+
+            candies_from_left = distribute(root.left)
+            candies_from_right = distribute(root.right)
+
+            steps += abs(candies_from_left) + abs(candies_from_right)
+
+            return candies_from_left + candies_from_right + root.val - 1
+
+        distribute(root)
+
+        return steps
 
 
 def main():
     obj = Solution()
+    root = list_to_binary_tree([3, 0, 0])
+    print(obj.distributeCoins(root))
 
 
 if __name__ == "__main__":
