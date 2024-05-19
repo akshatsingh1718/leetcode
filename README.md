@@ -249,3 +249,13 @@ import ll
 - [Flattening A Linked List](./flatteningALinkedList/)
 - [3 Sum](./3Sum/)
 - [Remove Duplicates From Sorted Array](./removeDuplicatesFromSortedArray/)
+
+# 19-May-24
+
+- [Find The Maximum Sum Of Node Values](.findTheMaximumSumOfNodeValues/)
+- [Special Array II](.specialArrayII/)
+- [Sum Of Digit Differences Of All Pairs](.sumOfDigitDifferencesOfAllPairs/)
+
+**Weekly Contest 398 | 1 submission**
+
+- [Special Array I](./specialArrayI/)

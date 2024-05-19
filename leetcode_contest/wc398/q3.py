@@ -1,6 +1,5 @@
 from typing import List, Optional, Union, Dict, Tuple
-from bisect import bisect, bisect_left, bisect_right
-from collections import Counter
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -110,11 +109,56 @@ class Solution:
     ==========================
     """
 
-    pass
+    def sumDigitDifferences(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 0 or n == 1:
+            return 0
+
+        counts = 0
+
+        def difference(n1, n2):
+            c = 0
+            for c1, c2 in zip(str(n1), str(n2)):
+                if c1 != c2:
+                    c += 1
+            return c
+
+        nums.sort()
+
+        prv = -1
+        prv_count = 0
+        for i in range(n - 1):
+
+            if nums[i] == prv:
+                cnt = prv_count
+                continue
+            else:
+                visited = dict()
+                cnt = 0
+                for j in range(i + 1, n):
+                    if visited.get(nums[j]) is None:
+                        ans = difference(nums[i], nums[j])
+                        cnt += ans
+                        visited[nums[j]] = ans
+                    else:
+                        cnt += visited[nums[j]]
+
+                prv = nums[j]
+                prv_count = cnt
+
+            counts += cnt
+        return counts
 
 
 def main():
     obj = Solution()
+
+    nums = [13, 23, 12]  # 4
+
+    # nums = [6, 5, 3, 6, 4, 3]  # 13
+    # nums = [10,10,10,10] # 0
+
+    print(obj.sumDigitDifferences(nums))
 
 
 if __name__ == "__main__":

@@ -1,6 +1,5 @@
 from typing import List, Optional, Union, Dict, Tuple
-from bisect import bisect, bisect_left, bisect_right
-from collections import Counter
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -110,11 +109,59 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maximumValueSum(self, nums: List[int], k: int, edges: List[List[int]]) -> int:
+        n = len(nums)
+
+        adj = create_adjacency_list(edges)
+
+        visited = set()
+        # sums = 0
+
+        stack = [0]
+        while len(stack) > 0:
+            node = stack.pop()
+
+            for n in adj[node]:
+                if n not in visited:
+                    visited.add(n)
+                    stack.append(n)
+
+                    # xor_val = nums[n] ^ k
+                    if nums[n] ^ k + nums[node] ^ k > nums[n] + nums[node]:
+                        nums[n] ^= k
+                        nums[node] ^= k
+
+                    # sums += nums[n] if xor_val < nums[n] else xor_val
+
+        # return sums
+        return sum(nums)
 
 
 def main():
     obj = Solution()
+    nums = [1, 2, 1]
+    k = 3
+    edges = [[0, 1], [0, 2]]
+    Output= 6
+
+    # TS2
+    # nums = [2, 3]
+    # k = 7
+    # edges = [[0, 1]]
+    # Output= 9
+
+    # TS3
+    # nums = [7, 7, 7, 7, 7, 7]
+    # k = 3
+    # edges = [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]]
+    # Output= 42
+
+    # TS4
+    # nums = [24, 78, 1, 97, 44]
+    # k = 6
+    # edges = [[0, 2], [1, 2], [4, 2], [3, 4]]
+
+    print(obj.maximumValueSum(nums, k, edges))
 
 
 if __name__ == "__main__":

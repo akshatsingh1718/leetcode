@@ -2,6 +2,7 @@ from typing import List, Optional, Union, Dict, Tuple
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter
 
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -92,8 +93,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/sum-of-digit-differences-of-all-pairs/submissions/1262457347/
+Help: https://www.youtube.com/watch?v=fhVU5K4n_-Y
 """
 
 
@@ -102,19 +103,42 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    k = len(nums[0]) [length of number]
+    n = len(nums) [numbers in nums]
+    TC: O(k * (n + k))
+    SC: O(n * k)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def sumDigitDifferences(self, nums: List[int]) -> int:
+        # find the freq of each digit places
+        n = len(nums)
+        k = len(str(nums[0]))
+
+        i = 0
+        diffs = 0
+        while i < k:
+            # get the ith place nums in collections counter
+            freq = Counter([str(x)[i] for x in nums])  # TC: O(n)
+
+            for no, no_freq in freq.items():
+                diffs += no_freq * (n - no_freq)
+
+            i += 1
+
+        return diffs // 2
 
 
 def main():
     obj = Solution()
+
+    nums = [13, 23, 12]
+    output = 4
+
+    print(Solution().sumDigitDifferences(nums))
 
 
 if __name__ == "__main__":

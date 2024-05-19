@@ -1,6 +1,5 @@
 from typing import List, Optional, Union, Dict, Tuple
-from bisect import bisect, bisect_left, bisect_right
-from collections import Counter
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -92,8 +91,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/find-the-maximum-sum-of-node-values/submissions/1262167432/?envType=daily-question&envId=2024-05-19
+Help: https://www.youtube.com/watch?v=QIiQdsVvjNw
 """
 
 
@@ -110,11 +109,58 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maximumValueSum(self, nums: List[int], k: int, edges: List[List[int]]) -> int:
+
+        # calculate the orig sum of all the nums
+        sums = sum(nums)
+
+        # create new array with all nums xor with k
+        xor_arr = list(map( lambda x: x ^ k, nums))
+
+        # create a new array with difference between xor array and original nums
+        diff = [xor - num for (xor, num) in zip(xor_arr, nums)]
+
+        # sort the difference array with desc order
+        diff.sort(reverse=True)
+
+        # start creating pairs and check if pairs sums inc the original sum
+        n = len(diff)
+        i = 0
+
+        while i + 1 < n:
+            if sums > sums + diff[i] + diff[i + 1]:
+                break
+            sums += diff[i] + diff[i + 1]
+            i += 2
+
+        return sums
 
 
 def main():
     obj = Solution()
+    nums = [1, 2, 1]
+    k = 3
+    edges = [[0, 1], [0, 2]]
+    Output = 6
+
+    # TS2
+    nums = [2, 3]
+    k = 7
+    edges = [[0, 1]]
+    Output = 9
+
+    # TS3
+    nums = [7, 7, 7, 7, 7, 7]
+    k = 3
+    edges = [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]]
+    Output = 42
+
+    # TS4
+    nums = [24, 78, 1, 97, 44]
+    k = 6
+    edges = [[0, 2], [1, 2], [4, 2], [3, 4]]
+
+    print(obj.maximumValueSum(nums, k, edges))
 
 
 if __name__ == "__main__":

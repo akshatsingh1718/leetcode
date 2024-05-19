@@ -1,6 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple
-from bisect import bisect, bisect_left, bisect_right
-from collections import Counter
+from bisect import bisect
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -102,19 +102,55 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    n = len(nums)
+    q = len(queries)
+    TC: O(n) [for prefix array] + O(q)
+    SC: O(n) [for prefix array]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+        n = len(nums)
+        # make the index for which the index and its prv cannot make special array
+        pre = [0 for _ in range(n)]
+
+        for i in range(1, n):
+            if nums[i] % 2 == nums[i - 1] % 2:
+                pre[i] = pre[i - 1] + 1
+            else:
+                pre[i] = pre[i - 1]
+
+        res = []
+
+        for start, end in queries:
+            if pre[end] - pre[start] == 0:
+                res.append(True)
+            else:
+                res.append(False)
+        return res
 
 
 def main():
     obj = Solution()
+
+    nums = [3, 4, 1, 2, 6]
+    queries = [[0, 4]]
+
+    # TS2
+    nums = [4, 3, 1, 6]
+    queries = [[0, 2], [2, 3]]
+
+    # TS3
+    # nums = [1,4]
+    # queries = [[0, 1]]
+
+    # TS4
+    # nums = [1, 3, 5, 6, 7, 8, 10, 12]
+    # queries = [[2, 5]]
+    print(obj.isArraySpecial(nums, queries))
 
 
 if __name__ == "__main__":

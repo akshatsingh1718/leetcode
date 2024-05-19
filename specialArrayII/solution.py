@@ -1,6 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple
-from bisect import bisect, bisect_left, bisect_right
-from collections import Counter
+from bisect import bisect
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -92,8 +92,10 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/special-array-ii/description/
 Help:
+- https://www.youtube.com/watch?v=fhVU5K4n_-Y
+- https://www.youtube.com/watch?v=NvM8CJaynrQ
 """
 
 
@@ -102,7 +104,10 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
+    n = len(nums)
+    q = len(queries)
+
+    TC: O(n) * O(q) * O(nlogn) [bisect]
     SC:
 
     ==========================
@@ -110,11 +115,41 @@ class Solution:
     ==========================
     """
 
-    pass
+    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+
+        n = len(nums)
+        bad = []
+        for i in range(1, n):
+            if nums[i] % 2 == nums[i - 1] % 2:
+                bad.append(i)
+
+        res = []
+        for start, end in queries:
+            l = bisect(bad, start)
+            r = bisect(bad, end)
+            res.append(l == r)
+
+        return res
 
 
 def main():
     obj = Solution()
+
+    nums = [3, 4, 1, 2, 6]
+    queries = [[0, 4]]
+
+    # TS2
+    nums = [4, 3, 1, 6]
+    queries = [[0, 2], [2, 3]]
+
+    # TS3
+    # nums = [1,4]
+    # queries = [[0, 1]]
+
+    # TS4
+    nums = [1, 3, 5, 6, 7, 8, 10, 12]
+    queries = [[2, 5]]
+    print(obj.isArraySpecial(nums, queries))
 
 
 if __name__ == "__main__":

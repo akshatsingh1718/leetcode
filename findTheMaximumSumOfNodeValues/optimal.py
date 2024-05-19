@@ -1,6 +1,5 @@
 from typing import List, Optional, Union, Dict, Tuple
-from bisect import bisect, bisect_left, bisect_right
-from collections import Counter
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -92,8 +91,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/find-the-maximum-sum-of-node-values/submissions/1262167432/?envType=daily-question&envId=2024-05-19
+Help: https://www.youtube.com/watch?v=QIiQdsVvjNw
 """
 
 
@@ -110,11 +109,54 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maximumValueSum(self, nums: List[int], k: int, edges: List[List[int]]) -> int:
+
+        min_loss = float("inf")
+        xor_ops = 0
+        sums = 0
+
+        for num in nums:
+
+            xor_val = k ^ num
+            if xor_val > num:
+                sums += xor_val
+                xor_ops += 1
+            else:
+                sums += num
+
+            min_loss = min(min_loss, abs(num - xor_val))
+
+        if xor_ops % 2 == 0:
+            return sums
+
+        return sums - min_loss
 
 
 def main():
     obj = Solution()
+    nums = [1, 2, 1]
+    k = 3
+    edges = [[0, 1], [0, 2]]
+    Output = 6
+
+    # TS2
+    nums = [2, 3]
+    k = 7
+    edges = [[0, 1]]
+    Output = 9
+
+    # TS3
+    nums = [7, 7, 7, 7, 7, 7]
+    k = 3
+    edges = [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]]
+    Output = 42
+
+    # TS4
+    nums = [24, 78, 1, 97, 44]
+    k = 6
+    edges = [[0, 2], [1, 2], [4, 2], [3, 4]]
+
+    print(obj.maximumValueSum(nums, k, edges))
 
 
 if __name__ == "__main__":

@@ -1,6 +1,5 @@
 from typing import List, Optional, Union, Dict, Tuple
-from bisect import bisect, bisect_left, bisect_right
-from collections import Counter
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -109,13 +108,24 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def isArraySpecial(self, nums: List[int]) -> bool:
+        if len(nums) in [1, 0]:
+            return True
+        
+        n = len(nums)
 
-    pass
+        for i in range(n - 1):
+            if nums[i] % 2 == nums[i + 1] % 2:
+                return False
+        return True
+
 
 
 def main():
     obj = Solution()
-
+    # nums = [4,3,1,6]
+    nums = [2, 1, 4]
+    print(obj.isArraySpecial(nums))
 
 if __name__ == "__main__":
     main()
