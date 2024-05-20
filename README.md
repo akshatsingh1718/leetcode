@@ -259,3 +259,11 @@ import ll
 **Weekly Contest 398 | 1 submission**
 
 - [Special Array I](./specialArrayI/)
+
+# 20-May-24
+
+- [Sum Of All Subset Xor Totals](.sumOfAllSubsetXorTotals/)
+- [Job Sequencing Problem/](./jobSequencingProblem/)
+- [Max Consecutive Ones/](./maxConsecutiveOnes/)
+- [Subsets](./subsets/)
+- [Subsets II/](./subsetsII/)
