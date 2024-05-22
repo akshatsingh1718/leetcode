@@ -5,17 +5,6 @@
 | ⭐    | Good question |
 | 🔄    | Try again     |
 
-# Add this to start
-
-## Linked List
-
-```py
-from typing import Optional
-import sys
-
-sys.path.insert(0, "utils")
-import ll
-```
 
 # Algos by Me
 
@@ -265,5 +254,13 @@ import ll
 - [Sum Of All Subset Xor Totals](.sumOfAllSubsetXorTotals/)
 - [Job Sequencing Problem/](./jobSequencingProblem/)
 - [Max Consecutive Ones/](./maxConsecutiveOnes/)
-- [Subsets](./subsets/)
+- [Subsets](./subsets/) `bit-manipulation`
 - [Subsets II/](./subsetsII/)
+
+# 21-May-23
+- [Fractional Knapsack/](.fractionalKnapsack/)
+- [Target Sum/](.targetSum/)
+        
+# 22-May-23
+- 🔄 [Palindrome Partitioning](./palindromePartitioning/)
+- TODO [Expression Add Operators](.expressionAddOperators/)
