@@ -2,6 +2,7 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict
 
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -92,7 +93,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/house-robber/description/
 Help:
 """
 
@@ -102,19 +103,71 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    (TLE)
+    TC: O(2 ^ N)
+    SC: O(2 ^ N)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def rob(self, nums: List[int]) -> int:
+
+        max_robbery = float("-inf")
+        n = len(nums)
+        cache = dict()
+
+        def robbery(idx: int, curr_robbery: int, prv_robbed_idx: int):
+            nonlocal n, nums, max_robbery, cache
+
+            if idx >= n:
+                return curr_robbery
+
+            if cache.get((curr_robbery, prv_robbed_idx)) is None:
+                # rob idx
+                rob1 = float("-inf")
+                if idx - 1 != prv_robbed_idx:
+                    rob1 = robbery(
+                        idx + 1,
+                        curr_robbery=curr_robbery + nums[idx],
+                        prv_robbed_idx=idx,
+                    )
+
+                # not rob idx
+                rob2 = robbery(
+                    idx + 1, curr_robbery=curr_robbery, prv_robbed_idx=prv_robbed_idx
+                )
+                cache[(curr_robbery, prv_robbed_idx)] = max(rob1, rob2)
+
+            return cache[(curr_robbery, prv_robbed_idx)]
+
+        return robbery(0, 0, -401)
 
 
 def main():
     obj = Solution()
+    # TS 1
+    nums = [1, 2, 3, 1]
+    output = 4
+
+    # TS 2
+    nums = [2, 7, 9, 3, 1]
+    output = 12
+
+    # TS 3
+    nums = [1, 2]
+    output = 2
+
+    # TS 4
+    # nums = [1]
+    # output = 1
+
+    # TS 5
+    # nums = [1,2,1,1]
+    # output = 3
+
+    print(Solution().rob(nums))
 
 
 if __name__ == "__main__":

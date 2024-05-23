@@ -2,6 +2,7 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict
 
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -92,29 +93,93 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/house-robber/description/
 Help:
 """
 
 
-class Solution:
+class SolutionSlow:
     """
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    (TLE)
+    TC: O(2 ^ N)
+    SC: O(N) [max recursion stack]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def rob(self, nums: List[int]) -> int:
 
+        def robbery(idx: int):
+            nonlocal nums
+
+            if idx < 0:
+                return 0
+
+            max_robbery = max(nums[idx] + robbery(idx - 2), robbery(idx - 1))
+            return max_robbery
+
+        return robbery(len(nums) - 1)
+
+
+
+class Solution: # optimized using dp
+    """
+    ==========================
+    Time and space complexity:
+    ==========================
+    (TLE)
+    TC: O(N) [only visiting one time for a house]
+    SC: O(N) [max recursion stack] + O(N) [memo] ~ O(N)
+
+    ==========================
+    Algorithm:
+    ==========================
+    """
+
+    def rob(self, nums: List[int]) -> int:
+
+        memo = dict()
+
+        def robbery(idx: int):
+            nonlocal nums, memo
+            if idx in memo:
+                return memo[idx]
+            if idx < 0:
+                return 0
+
+            memo[idx] = max(nums[idx] + robbery(idx - 2), robbery(idx - 1))
+            return memo[idx]
+
+        return robbery(len(nums) - 1)
 
 def main():
     obj = Solution()
+    # TS 1
+    nums = [1, 2, 3, 1]
+    output = 4
+
+    # TS 2
+    nums = [2, 7, 9, 3, 1]
+    output = 12
+
+    # TS 3
+    nums = [1, 2]
+    output = 2
+
+    # TS 4
+    # nums = [1]
+    # output = 1
+
+    # TS 5
+    # nums = [1,2,1,1]
+    # output = 3
+
+    print(Solution().rob(nums))
 
 
 if __name__ == "__main__":

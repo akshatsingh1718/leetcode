@@ -102,8 +102,8 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(N * 2^N)
+    SC: O(N * 2^N)
 
     ==========================
     Algorithm:

@@ -2,6 +2,7 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict
 
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -102,19 +103,54 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(2^N) [recursion]
+    SC: O(N)   [recursion stack]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def findSubsequences(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+
+        def create_monotonic_subsequences(
+            idx: int, subs: List[int], prev: int, result: List[Tuple[int]]
+        ):
+            nonlocal n, nums
+            
+            if idx == n:
+                if len(subs) >= 2:
+                    result.add(tuple(subs))
+                return 
+
+            if prev <= nums[idx]:
+                create_monotonic_subsequences(idx=idx + 1, subs= subs + [nums[idx]], prev=nums[idx], result= result)
+            
+            create_monotonic_subsequences(idx=idx + 1, subs= subs, prev=prev, result= result)
+        
+
+        result = set()
+        create_monotonic_subsequences(0, [], prev= float("-inf"),result=result)
+        return result
 
 
 def main():
     obj = Solution()
+
+    nums = [4, 6, 7, 7]
+    output = [
+        [4, 6],
+        [4, 6, 7],
+        [4, 6, 7, 7],
+        [4, 7],
+        [4, 7, 7],
+        [6, 7],
+        [6, 7, 7],
+        [7, 7],
+    ]
+
+    print(obj.findSubsequences(nums))
 
 
 if __name__ == "__main__":

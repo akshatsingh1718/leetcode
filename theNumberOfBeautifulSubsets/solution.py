@@ -1,6 +1,7 @@
-from typing import List, Optional, Union, Dict, Tuple, Set
+from typing import List, Optional, Union, Dict, Tuple
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict
+from collections import Counter
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -92,8 +93,10 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/the-number-of-beautiful-subsets/submissions/1265601270/?envType=daily-question&envId=2024-05-23
+Help: https://www.youtube.com/watch?v=Dle_SpjHTio
+
+Must see the most optimal one: https://www.youtube.com/watch?v=Dle_SpjHTio
 """
 
 
@@ -102,19 +105,49 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(2 ^ N) [2 decision at each stage to include or exclude]
+    SC: O(2 ^ N)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def beautifulSubsets(self, nums: List[int], k: int) -> int:
+
+        n = len(nums)
+
+        def subsets(idx, subset: List[int]):
+            nonlocal nums, k
+
+            if idx == n:
+                return 1
+
+            num = nums[idx]
+            include = 0
+            for s in subset:
+                if abs(s - num) == k:
+                    break
+            else:
+                include += subsets(idx + 1, subset=subset + [nums[idx]])
+            exclude = subsets(idx + 1, subset=subset)
+            return include + exclude
+
+        return subsets(0, []) - 1
 
 
 def main():
     obj = Solution()
+    # TS 1
+    nums = [2, 4, 6]
+    k = 2
+    output = 4
+
+    # TS 2
+    # nums = [1]
+    # k = 1
+    # output= 1
+    print(Solution().beautifulSubsets(nums, k))
 
 
 if __name__ == "__main__":

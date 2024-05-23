@@ -5,7 +5,6 @@
 | ⭐    | Good question |
 | 🔄    | Try again     |
 
-
 # Algos by Me
 
 ## Resources:
@@ -257,10 +256,18 @@
 - [Subsets](./subsets/) `bit-manipulation`
 - [Subsets II/](./subsetsII/)
 
-# 21-May-23
+# 21-May-24
+
 - [Fractional Knapsack/](.fractionalKnapsack/)
 - [Target Sum/](.targetSum/)
-        
-# 22-May-23
+
+# 22-May-24
+
 - 🔄 [Palindrome Partitioning](./palindromePartitioning/)
-- TODO [Expression Add Operators](.expressionAddOperators/)
+
+# 23-May-24
+
+- [Expression Add Operators](./expressionAddOperators/)
+- [The Number Of Beautiful Subsets](./theNumberOfBeautifulSubsets/)
+- 🔄 [House Robber](./houseRobber/)
+- [Non-decreasing Subsequences](./non-decreasingSubsequences/)

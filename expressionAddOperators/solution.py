@@ -114,78 +114,60 @@ class Solution:
     def addOperators(self, num: str, target: int) -> List[str]:
 
         n = len(num)
-        cache = dict()
+        result = []
 
-        def find(
-            idx: int,
-            curr_val: int,
-            curr_expr: str,
-            result: List[str],
-            has_non_zero_ahead: bool,
-        ):
-            nonlocal num, target, cache
+        def find(idx: int, curr_val: int, prv_val: int, expr: str):
+            nonlocal result, n, target, num
             if idx == n:
                 if curr_val == target:
-                # if eval(curr_expr) == target:
-                    # result.add(curr_expr)
-                    return curr_expr
-                    # return True
-                return ""
+                    result.append(expr)
+                return
 
-            # '+', '-', and/or '*'
-            if cache.get((idx, curr_val)) is None:
-                # Add
-                add_expr = curr_expr + f"+{num[idx]}" if curr_expr else str(num[idx])
-                add_res = find(
-                    idx + 1,
-                    eval(add_expr),
-                    add_expr,
-                    result,
-                    has_non_zero_ahead=num[idx] != "0",
-                )
-                
-                # Subtract
-                sub_expr = curr_expr + f"-{num[idx]}" if curr_expr else str(num[idx])
-                sub_res = find(
-                    idx + 1,
-                    eval(sub_expr),
-                    sub_expr,
-                    result,
-                    has_non_zero_ahead=num[idx] != "0",
-                )
-                # Multiplication
-                mul_expr = curr_expr + f"*{num[idx]}" if curr_expr else str(num[idx])
-                mul_res = find(
-                    idx + 1,
-                    eval(mul_expr),
-                    mul_expr,
-                    result,
-                    has_non_zero_ahead=num[idx] != "0",
-                )
-                # add nothing
-                nothing_res = ""
-                if has_non_zero_ahead:
-                    nothing_expr = curr_expr + str(num[idx])
-                    nothing_res =find(
-                        idx + 1,
-                        eval(nothing_expr),
-                        nothing_expr,
-                        result,
-                        has_non_zero_ahead=has_non_zero_ahead,
+            for i in range(idx, n):
+                # ignore leading zeros
+                # return and not continue because any number after 0 will
+                # be invalid without any in between operand
+                if i > idx and num[idx] == "0":
+                    return
+
+                next_int = int(num[idx : i + 1])
+
+                # if the insertion is for the first time
+                # we dont want to add any operand first only num first
+                if idx == 0:
+                    find(
+                        i + 1,
+                        curr_val=next_int,
+                        prv_val=next_int,
+                        expr=str(next_int),
                     )
+                else:
 
+                    for opr in ["+", "-", "*"]:
+                        if opr == "+":
+                            find(
+                                i + 1,
+                                curr_val=curr_val + next_int,
+                                prv_val=next_int,
+                                expr=f"{expr}+{next_int}",
+                            )
+                        elif opr == "-":
+                            find(
+                                i + 1,
+                                curr_val=curr_val - next_int,
+                                prv_val=-next_int,
+                                expr=f"{expr}-{next_int}",
+                            )
+                        elif opr == "*":
+                            find(
+                                i + 1,
+                                curr_val=curr_val - prv_val + (prv_val * next_int),
+                                prv_val=(prv_val * next_int),
+                                expr=f"{expr}*{next_int}",
+                            )
 
-                cache[(idx, curr_val)] = []
-                for res in [add_res, sub_res, mul_res, nothing_res]:
-                    if res:
-                        print(">", res)
-                        cache[(idx, curr_val)].append(res)
-                
-
-            return cache[(idx, curr_val)]
-
-        result = set()
-        return find(0, 0, "", result, False)
+        find(0, 0, 0, "")
+        return result
 
 
 def main():
@@ -194,10 +176,32 @@ def main():
     target = 6
     output = ["1*2*3", "1+2+3"]
 
+    # TS2
     # num = "105"
     # target = 5
     # output = ["1*0+5", "10-5"]
-    print(Solution().addOperators(num, target))
+
+    # TS 3
+    # num = "3456237490"
+    # target = 9191
+    # output = []
+
+    # TS 4
+    num = "105"
+    target = 5
+    output = ["1*0+5", "10-5"]
+
+    # TS 5
+    # num = "00"
+    # target = 0
+    # output = ["0*0", "0+0", "0-0"]
+
+    # TS 6
+    # num = "123456789"
+    # target = 45
+
+    res = Solution().addOperators(num, target)
+    print(res)
 
 
 if __name__ == "__main__":
