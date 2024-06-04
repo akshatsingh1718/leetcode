@@ -7,6 +7,7 @@ import sys
 
 # Check the current recursion limit
 current_limit = sys.getrecursionlimit()
+print(f"Current recursion limit: {current_limit}")
 
 # Set a new recursion limit
 new_limit = 10**5  # Set this to the desired limit
@@ -107,25 +108,45 @@ Problem:
 Help:
 """
 
-
 class Solution:
     """
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
-
+    TC: O(3^n) [3 possibilities at each stage]
+    SC: O(n) [stack space]
     ==========================
     Algorithm:
     ==========================
     """
+    def checkRecord(self, n: int) -> int:
 
-    pass
+        def dfs(left: int, absent_count: int, late_count: int):
+
+            if absent_count >= 2 or late_count >= 3: # pruning
+                return 0
+            if left == 0:  # string created successfully
+                return 1
+            
+            # present today
+            P = dfs(left - 1, absent_count=absent_count, late_count=0) 
+            # absent today
+            A = dfs(left - 1, absent_count=absent_count + 1, late_count=0) 
+            # late today
+            L = dfs(left - 1, absent_count=absent_count, late_count=late_count + 1) 
+
+            return (L + P + A)
+
+        return dfs(n, 0, 0)
 
 
 def main():
     obj = Solution()
+    n = 1
+    # TS 2
+    # n = 10101
+    # output = 183236316
+    print(Solution().checkRecord(n))
 
 
 if __name__ == "__main__":

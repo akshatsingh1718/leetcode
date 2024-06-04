@@ -7,6 +7,7 @@ import sys
 
 # Check the current recursion limit
 current_limit = sys.getrecursionlimit()
+print(f"Current recursion limit: {current_limit}")
 
 # Set a new recursion limit
 new_limit = 10**5  # Set this to the desired limit
@@ -113,20 +114,51 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
-
+    TC: O(3^n) [3 possibilities at each stage]
+    SC: O(n) [stack space]
     ==========================
-    Algorithm:
+    Algorithm: (Bottom up)
     ==========================
     """
 
-    pass
+    def checkRecord(self, n: int) -> int:
+        # store the possible values at each stage of recursion like
+        # (N, A, L)
+        # N = length = n + 1
+        # A = absent possible values = 2
+        # L = late possible values = 3
+
+        memo = [[[0] * 3 for _ in range(2)] for _ in range(n + 1)]
+        print(memo)
+        M = 1e9 + 7
+        # base case
+        for A in range(2):
+            for L in range(3):
+                print(A, L)
+                memo[0][A][L] = 1
+
+        # find other stages value
+        for i in range(1, n + 1):
+            for A in range(2):
+                for L in range(3):
+                    # Case: When student is present
+                    res = memo[i - 1][A][L]
+                    # Case: When student is absent
+                    res += memo[i - 1][A + 1][0] if (A + 1 <= 1) else 0
+                    # Case: When student is late
+                    res += memo[i - 1][A][L + 1] if (L + 1 <= 2) else 0
+                    memo[i][A][L] = res % M
+
+        return memo[n][0][0]
 
 
 def main():
     obj = Solution()
-
+    n = 1
+    # TS 2
+    # n = 10101
+    # output = 183236316
+    print(Solution().checkRecord(n))
 
 if __name__ == "__main__":
     main()

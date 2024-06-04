@@ -1,16 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
+from collections import Counter, defaultdict
 
 
 class ListNode:
@@ -121,11 +111,49 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maximumSumSubsequence(self, nums: List[int], queries: List[List[int]]) -> int:
+        result = 0
+        def rob(nums: List[int]) -> int:
+
+            memo = dict()
+
+            def robbery(idx: int):
+                nonlocal nums, memo
+                if idx in memo:
+                    return memo[idx]
+                if idx < 0:
+                    return 0
+
+                memo[idx] = max(nums[idx] + robbery(idx - 2), robbery(idx - 1))
+                return memo[idx]
+
+            return robbery(len(nums) - 1)
+
+
+        for pos, set_val in queries:
+            nums[pos] = set_val
+            result += rob(nums)
+        return result
 
 
 def main():
     obj = Solution()
+    nums = [3, 5, 9]
+    queries = [[1, -2], [0, -3]]
+    output = 21
+
+    # TS 2
+    # nums = [0,-1]
+    # queries = [[0,-5]]
+    # output = 0
+
+    # TS 3
+    nums = [4,0,-1,-2,3,1,-1]
+    queries = [[3,1],[0,-2],[1,-1],[0,-2],[5,4],[6,-3],[6,-2],[2,-1]]
+    output = 36
+
+
+    print(Solution().maximumSumSubsequence(nums, queries))
 
 
 if __name__ == "__main__":

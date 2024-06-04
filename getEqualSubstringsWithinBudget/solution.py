@@ -103,8 +103,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/get-equal-substrings-within-budget/solutions/5218554/sliding-window-vs-prefix-sum-binary-search-0ms-beats-100/?envType=daily-question&envId=2024-05-28
+Help: https://www.youtube.com/watch?v=MF2MgJQuFhA
 """
 
 
@@ -113,19 +113,92 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(2*n) [since our i and j pointer is only visiting each element one time]
+    SC: O(1)
 
     ==========================
-    Algorithm:
+    Algorithm: (sliding window)
     ==========================
     """
 
-    pass
+    def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
+        max_length = 0
+
+        diff = lambda a, b: abs(ord(a) - ord(b))
+        n = len(s)
+        i = 0
+        j = 0
+
+        cost = 0
+
+        while i <= j < n:
+            cost += diff(s[j], t[j])
+
+            while i < n and cost > maxCost:
+                cost -= diff(s[i], t[i])
+                i += 1
+
+            max_length = max(max_length, j - i + 1)
+            j += 1
+
+        return max_length
+
+
+
+class Solution:
+    """
+    ==========================
+    Time and space complexity:
+    ==========================
+    TC: O(2*n) [since our i and j pointer is only visiting each element one time]
+    SC: O(1)
+
+    ==========================
+    Algorithm: (sliding window)
+    ==========================
+    """
+
+    def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
+        max_length = 0
+
+        diff = lambda a, b: abs(ord(a) - ord(b))
+        n = len(s)
+        i = 0
+        j = 0
+
+        cost = 0
+
+        while i <= j < n:
+            cost += diff(s[j], t[j]) 
+
+            if cost > maxCost:
+                cost -= diff(s[i], t[i])
+                i += 1
+
+            max_length = max(max_length, j - i + 1)
+            j += 1
+
+        return max_length
 
 
 def main():
     obj = Solution()
+    s = "abcd"
+    t = "bcdf"
+    maxCost = 3
+    output = 3
+
+    # TS 2
+    # s = "abcd"
+    # t = "cdef"
+    # maxCost = 3
+    # output= 1
+
+    # TS 3
+    s = "a"
+    t = "a"
+    maxCost = 1
+    print(obj.equalSubstring(s, t, maxCost))
 
 
 if __name__ == "__main__":

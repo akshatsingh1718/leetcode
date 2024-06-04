@@ -1,17 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
-
+from collections import Counter, defaultdict
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -120,13 +109,33 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        result = 0
+        visited = set()
 
-    pass
+        for n in nums:
+            if n in visited:
+                result ^= n
+            else:
+                visited.add(n)
+
+        return result
 
 
 def main():
     obj = Solution()
+    nums = [1,2,1,3]
+    output= 1
 
+    # TS 2
+    nums = [1,2,3]
+    output= 0
+
+    # TS 3
+    nums = [1,2,2,1]
+
+    output= 3
+    print(obj.duplicateNumbersXOR(nums))
 
 if __name__ == "__main__":
     main()

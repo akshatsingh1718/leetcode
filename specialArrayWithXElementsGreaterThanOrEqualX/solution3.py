@@ -1,16 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
 
 
 class ListNode:
@@ -103,29 +93,66 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/?envType=daily-question&envId=2024-05-27
+Help: https://www.youtube.com/watch?v=pYqncHGUqh4
 """
 
 
-class Solution:
+class Solution: # improvement over sol 1
     """
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n) + O(n) ~ O(n)
+    SC: O(n) [frequency]
 
     ==========================
-    Algorithm:
+    Algorithm: (binary search)
     ==========================
+    1. create an array `counts` of length n.
+    2. Traverse over nums and set the value counts[nums[i]] += 1 as we need to set the count of elements for those indexes and if the nums[i] > len(counts) then add 1 to the counts[-1].
+    3. Transform the counts array to cumulative array by moving from right to left since we need how many elements are greater than the current index of the `count` array.
+    4. if the index matches the count it means that index value has elements counts in array nums greater than or equal to.
     """
 
-    pass
+    def specialArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 0: return 0
+        # frequency of each nums
+        counts = [0 for _ in range(n)] # O(n) space
+        
+        # set the freq of nums in count
+        for num in nums: # O(n) loop
+            if num == 0: continue
+            counts[min(num - 1, n - 1)] += 1
+
+        # find the cumulative sum from right to left
+        for i in range(n-1, -1, -1): # O(n) loop
+            counts[i] += counts[i+1] if i + 1 < n  else 0
+            if i + 1 == counts[i]:
+                return i + 1
+
+        return -1
 
 
 def main():
     obj = Solution()
+    nums = [0, 4, 3, 0, 4]  # 0, 0, 3, 4, 4
+    output = 3
+
+    # TS 2
+    # nums = [0,0]
+    # output= -1
+
+    # TS 3
+    # nums = [3, 5]
+    # output = 2
+
+    # TS 4
+    # nums = [3,6,7,7,0]
+    # output = -1
+
+    print(obj.specialArray(nums))
 
 
 if __name__ == "__main__":

@@ -1,16 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
+from collections import Counter, defaultdict
 
 
 class ListNode:
@@ -121,11 +111,66 @@ class Solution:
     ==========================
     """
 
-    pass
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        result = []
+        n = len(s)
+
+        def dfs(start: int, end: int, curr_res: List[str]):
+            nonlocal n, s, wordDict, result
+
+            if end == n + 1:
+                if len(curr_res) > 0 and start == n:
+                    result.append(" ".join(curr_res))
+                return
+
+            if s[start:end] in wordDict:
+                dfs(end, end + 1, curr_res=curr_res + [s[start:end]])
+
+            dfs(start, end + 1, curr_res=curr_res)
+
+        dfs(0, 1, [])
+        return result
+
+
+class Solution:
+    """
+    ==========================
+    Time and space complexity:
+    ==========================
+    TC:
+    SC:
+
+    ==========================
+    Algorithm:
+    ==========================
+    """
+
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        result = []
+        n = len(s)
+        wordDict_set = set(wordDict)
+
+        def dfs(start: int, curr_res: str):
+            nonlocal n, s, wordDict_set, result
+
+            if start == n:
+                result.append(curr_res.lstrip())
+                return
+
+            for end in range(start + 1, n + 1):
+                if s[start:end] in wordDict_set:
+                    dfs(end, curr_res= curr_res + " " + s[start:end])
+
+        dfs(0, "")
+        return result
 
 
 def main():
     obj = Solution()
+    s = "catsanddog"
+    wordDict = ["cat", "cats", "and", "sand", "dog"]
+    output = ["cats and dog", "cat sand dog"]
+    print(obj.wordBreak(s, wordDict))
 
 
 if __name__ == "__main__":

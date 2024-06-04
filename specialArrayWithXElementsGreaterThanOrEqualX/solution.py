@@ -1,16 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
 
 
 class ListNode:
@@ -103,8 +93,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/?envType=daily-question&envId=2024-05-27
+Help: https://www.youtube.com/watch?v=pYqncHGUqh4
 """
 
 
@@ -113,19 +103,57 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(nlogn) [sorting] + O(n * logn) [for loop + binary search]
+    SC: O(n) [if creating a different array for storing sorted array]
 
     ==========================
     Algorithm:
     ==========================
+    1. sort the array.
+    2. move the x from 0 -> len(nums) as the possible values can only lie between (0, len(nums))
+    3. Find the lower bound in sorted nums for value x and check if from the length of [lower_bound -> len(nums)] is equal to the x.
     """
 
-    pass
+    def specialArray(self, nums: List[int]) -> int:
+        nums.sort()
+        n = len(nums)
 
+        def lower_bound(num: int):
+            nonlocal nums, n
+            low = 0
+            high = n - 1
+            while low <= high:
+                mid = low + (high - low) // 2
+                if nums[mid] >= num:
+                    high = mid - 1
+                else:
+                    low = mid + 1
+
+            return low
+
+        for i in range(n + 1):
+
+            idx = lower_bound(i)
+            if n - idx == i:
+                return i
+
+        return -1
+    
 
 def main():
     obj = Solution()
+    nums = [0, 4, 3, 0, 4]  # 0, 0, 3, 4, 4
+    output = 3
+
+    # TS 2
+    # nums = [0,0]
+    # output= -1
+
+    # TS 3
+    nums = [3, 5]
+    output = 2
+
+    print(obj.specialArray(nums))
 
 
 if __name__ == "__main__":

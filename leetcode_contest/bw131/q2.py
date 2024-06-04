@@ -1,17 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
-
+from collections import Counter, defaultdict
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -120,13 +109,35 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def occurrencesOfElement(self, nums: List[int], queries: List[int], x: int) -> List[int]:
+        # find the occs of x
+        occs = [i for i, val in enumerate(nums) if val ==x ] # capture indexes
+        result = []
 
-    pass
+        for qi, q in enumerate(queries):
+            if q - 1 >= len(occs):
+                result.append(-1)
+            else:
+                print(q)
+                result.append(occs[q- 1])
+        return result
+            
 
 
 def main():
     obj = Solution()
+    nums = [1,3,1,7]
+    queries = [1,3,2,4]
+    x = 1
+    output= [0,-1,2,-1]
 
+    # TS 2
+    nums = [1,2,3]
+    queries = [10]
+    x = 5
+    Output= [-1]
+
+    print(obj.occurrencesOfElement(nums, queries, x))
 
 if __name__ == "__main__":
     main()

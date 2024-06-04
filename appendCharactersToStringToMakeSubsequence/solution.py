@@ -103,7 +103,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/append-characters-to-string-to-make-subsequence/description/?envType=daily-question&envId=2024-06-03
 Help:
 """
 
@@ -113,19 +113,34 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(1)
 
     ==========================
     Algorithm:
     ==========================
     """
+    def appendCharacters(self, s: str, t: str) -> int:
 
-    pass
+        i = 0
+        j = 0
+        while i < len(s) and j < len(t):
+            if s[i] == t[j]:
+                i += 1
+                j += 1
+            else:
+                i += 1
+
+        return len(t) - j
+
 
 
 def main():
     obj = Solution()
+    s = "coaching"
+    t = "coding"
+    Output= 4
+    print(obj.appendCharacters(s, t))
 
 
 if __name__ == "__main__":

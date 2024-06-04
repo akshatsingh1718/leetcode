@@ -103,7 +103,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor
 Help:
 """
 
@@ -113,19 +113,52 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
+    TC: O(n^3) [3 for loops] * n (for xor values) ~ O(n^4)
     SC:
 
     ==========================
-    Algorithm:
+    Algorithm: (brute force)
     ==========================
     """
 
-    pass
+    def countTriplets(self, arr: List[int]) -> int:
+
+        triplets = 0
+
+        def xor(start, end):
+            nonlocal arr, n
+            res = 0
+            for i in range(start, end):
+                res ^= arr[i]
+            return res
+
+        n = len(arr)
+        for i in range(n):
+            a = xor(start=i, end=j)  # excluding j so j-1
+            
+            for j in range(i + 1, n):
+                b = 0
+
+                # for k in range(j, n):
+
+                b ^= arr[]
+
+                # find the xor
+                if a == b:
+                    triplets += 1
+
+        return triplets
 
 
 def main():
     obj = Solution()
+    arr = [2, 3, 1, 6, 7]
+    output = 4
+
+    arr = [1, 1, 1, 1, 1]
+    output = 10
+
+    print(obj.countTriplets(arr))
 
 
 if __name__ == "__main__":

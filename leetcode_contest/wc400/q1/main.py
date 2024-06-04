@@ -120,13 +120,27 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def minimumChairs(self, s: str) -> int:
 
-    pass
+        sitting = 0
+        mx_sitting = 0
+
+        for ele in s:
+            if ele == "E":
+                sitting += 1
+                mx_sitting =max(sitting, mx_sitting)
+            else: # ele == "L"
+                sitting -= 1
+
+        return mx_sitting
 
 
 def main():
-    obj = Solution()
 
+    obj = Solution()
+    s  = "ELELEEL"
+    s = "ELEELEELLL"
+    print(obj.minimumChairs(s))
 
 if __name__ == "__main__":
     main()

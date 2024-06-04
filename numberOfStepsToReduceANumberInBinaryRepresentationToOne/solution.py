@@ -121,11 +121,28 @@ class Solution:
     ==========================
     """
 
-    pass
+    def numSteps(self, s: str) -> int:
+        s_int = int(s, base=2)
+
+        steps = 0
+        while s_int > 1:
+            # even
+            if s_int % 2 == 0:
+                s_int /= 2
+                steps += 1
+            else:
+                s_int = (s_int + 1) / 2
+                steps += 2
+
+        return steps
 
 
 def main():
     obj = Solution()
+    s = "1101"
+    output = 6
+
+    print(obj.numSteps(s))
 
 
 if __name__ == "__main__":

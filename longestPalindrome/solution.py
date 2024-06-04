@@ -103,7 +103,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/longest-palindrome/description/?envType=daily-question&envId=2024-06-04
 Help:
 """
 
@@ -113,19 +113,36 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(n)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def longestPalindrome(self, s: str) -> int:
+        visited = set()
+        res = 0
+
+        for char in s:
+            if char in visited:
+                visited.remove(char)
+                res += 2
+            else:
+                visited.add(char)
+
+        if len(visited) > 0:
+            res += 1
+
+        return res
 
 
 def main():
     obj = Solution()
+    s = "abccccdd"
+    output = 7
+    print(obj.longestPalindrome(s))
 
 
 if __name__ == "__main__":

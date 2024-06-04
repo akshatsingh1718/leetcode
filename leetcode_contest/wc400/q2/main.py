@@ -121,11 +121,58 @@ class Solution:
     ==========================
     """
 
-    pass
+    def countDays(self, days: int, meetings: List[List[int]]) -> int:
+        meetings.sort(key= lambda x: x[0])
+        res = 0
+        starting = 0
+        max_day = 0
+
+        for start, end in meetings:
+            diff = start - starting - 1
+            if diff > 0:
+                # print(f"{start=} {starting=} {diff=}")
+                res += diff
+            max_day = max(max_day, end)
+            starting = max_day
+
+        # for last day
+        diff = days - starting
+        if diff > 0:
+            # print(f"{days=} {start=} {starting=} {diff=}")
+
+            res += diff
+
+        return res
 
 
 def main():
+
     obj = Solution()
+    days = 10
+    meetings = [[5, 7], [1, 3], [9, 10]]
+    output = 2
+
+    # TS 2
+    # days = 5
+    # meetings = [[2,4],[1,3]]
+    # output = 1
+
+    # TS 3
+    # days = 6
+    # meetings = [[1,6]]
+    # output = 0
+
+    # TS 4
+    # days = 8
+    # meetings = [[3,4],[4,8],[2,5],[3,8]]
+    # output = 1
+
+    # TS 5
+    # days = 57
+    # meetings = [[3,49],[23,44],[21,56],[26,55],[23,52],[2,9],[1,48],[3,31]]
+    # output =1
+
+    print(obj.countDays(days, meetings))
 
 
 if __name__ == "__main__":

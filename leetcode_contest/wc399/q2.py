@@ -1,16 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
+from collections import Counter, defaultdict
 
 
 class ListNode:
@@ -121,11 +111,39 @@ class Solution:
     ==========================
     """
 
-    pass
+    def compressedString(self, word: str) -> str:
+        comb = ""
+        i = 0
+        n = len(word)
+        if n == 1:
+            return f"1{word[0]}"
+        
+        while i < n - 1:
+            # increment the running till the word
+            distinct = 1
+            while i < n - 1 and distinct < 9 and word[i + 1] == word[i]:
+                print(word[i + 1] == word[i])
+
+                distinct += 1
+                i += 1
+            
+            comb += f"{distinct}{word[i]}"
+
+            i += 1
+
+        if i < n:
+            comb += f"1{word[i]}"
+        return comb
 
 
 def main():
     obj = Solution()
+    word = "aaaaaaaaaaaaaabb"
+    output = "9a5a2b"
+
+    # word = "aaaaaaaaaaaaaabbc"
+    # output = "9a5a2b"
+    print(Solution().compressedString(word))
 
 
 if __name__ == "__main__":

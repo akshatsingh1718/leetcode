@@ -2,7 +2,6 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-
 import sys
 
 # Check the current recursion limit
@@ -113,19 +112,51 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n * 2 * 3) => (n)[n length string] * [2 * 3](2 times for A and 3 times for late)
+    We can have 2 values for absent where 1 is permissible and 2 will not
+    Same for late, 2 consecutive late and 3rd will be a rule violation.
+    SC: O(n * 2 * 3) [memo]
 
     ==========================
     Algorithm:
     ==========================
     """
+    def checkRecord(self, n: int) -> int:
+        M = 1000000007
+        memo = [[[-1] * 3 for _ in range(2)] for _ in range(n + 1)]
 
-    pass
+        def dfs(left: int, absent_count: int, late_count: int):
+
+            if absent_count >= 2 or late_count >= 3:
+                return 0
+            if left == 0:  # string created successfully
+                return 1
+            
+            if memo[left][absent_count][late_count] != -1:
+                return memo[left][absent_count][late_count]
+
+
+            # present today
+            P = dfs(left - 1, absent_count=absent_count, late_count=0) % M
+            # absent today
+            A = dfs(left - 1, absent_count=absent_count + 1, late_count=0) % M
+            # late today
+            L = dfs(left - 1, absent_count=absent_count, late_count=late_count + 1) % M
+
+            memo[left][absent_count][late_count] = ((L + P)  % M + A) % M
+
+            return memo[left][absent_count][late_count]
+
+        return dfs(n, 0, 0)
 
 
 def main():
     obj = Solution()
+    n = 1
+    # TS 2
+    # n = 10101
+    # output = 183236316
+    print(Solution().checkRecord(n))
 
 
 if __name__ == "__main__":

@@ -103,7 +103,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/reverse-string/?envType=daily-question&envId=2024-06-02
 Help:
 """
 
@@ -120,13 +120,25 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def reverseString(self, s: List[str]) -> None:
+        
+        n = len(s)
+        for i in range(n // 2):
+            s[i], s[n - i - 1] =  s[n - i - 1], s[i]
 
-    pass
+        print(s)
 
 
 def main():
     obj = Solution()
 
+    s = ["h","e","l","l","o"]
+    output= ["o","l","l","e","h"]
+
+    s = ["h"]
+    # s = ["h", "e"]
+
+    obj.reverseString(s)
 
 if __name__ == "__main__":
     main()

@@ -1,17 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
-
+from collections import Counter, defaultdict
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -120,13 +109,45 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def queryResults(self, limit: int, queries: List[List[int]]) -> List[int]:
+        # check for distinct colors
+        n = len(queries)
+        result = []
+        balls= [0 for _ in range(limit + 1)]
 
-    pass
+        distinct = 0
+        for idx, (ball_no, color) in enumerate(queries):
+            # if the ball is not same as prv color then inc distinct balls count
+            distinct_color = 0
+            visited_colors = set()
+
+            # change ball color
+            balls[ball_no] = color
+
+            for i in range(idx + 1):
+                if balls[queries[i][0]] not in visited_colors:
+                    visited_colors.add(balls[queries[i][0]])
+                    distinct_color += 1
+
+            result.append(distinct_color)
+
+        return result
+            
 
 
 def main():
     obj = Solution()
 
+    limit = 4
+    queries = [[0,1],[1,2],[2,2],[3,4],[4,5]]
+    output= [1,2,2,3,4]
+
+    # TS 2
+    # limit = 4
+    # queries = [[1,4],[2,5],[1,3],[3,4]]
+    # output= [1,2,2,3]
+    
+    print(obj.queryResults(limit, queries))
 
 if __name__ == "__main__":
     main()

@@ -103,7 +103,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/score-of-a-string/?envType=daily-question&envId=2024-06-01
 Help:
 """
 
@@ -113,15 +113,21 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(1)
 
     ==========================
     Algorithm:
     ==========================
     """
+    def scoreOfString(self, s: str) -> int:
+        score = 0
 
-    pass
+        for i in range(1, len(s)):
+            score += abs(ord(s[i-1]) - ord(s[i]))
+
+        return score
+        
 
 
 def main():

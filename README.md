@@ -7,6 +7,10 @@
 
 # Algos by Me
 
+## New Terms
+
+- Pruning: Remove/stop the unwanted branches we are creating in recursion.
+
 ## Resources:
 
 - [Striver SDE Sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
@@ -271,3 +275,26 @@
 - [The Number Of Beautiful Subsets](./theNumberOfBeautifulSubsets/)
 - 🔄 [House Robber](./houseRobber/)
 - [Non-decreasing Subsequences](./non-decreasingSubsequences/)
+
+TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
+
+# 24-May-24
+
+- [Find Number Of Ways To Reach The K-Th Stair](./findNumberOfWaysToReachTheK-ThStair/)
+- [Maximum Score Words Formed By Letters](./maximumScoreWordsFormedByLetters/)
+
+# 01-June-24
+
+- [Score Of A String](./scoreOfAString/)
+
+# 02-June-24
+
+- [Reverse String](./reverseString/)
+
+# 03-June-24
+
+- [Append Characters to String to Make Subsequence](./appendCharactersToStringToMakeSubsequence/)
+
+# 04-June-24
+
+- [Longest Palindrome](./longestPalindrome/)

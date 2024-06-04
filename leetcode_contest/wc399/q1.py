@@ -1,17 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
-
+from collections import Counter, defaultdict
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -120,12 +109,27 @@ class Solution:
     Algorithm:
     ==========================
     """
-
-    pass
-
+    def numberOfPairs(self, nums1: List[int], nums2: List[int], k: int) -> int:
+        res = []
+        for i in range(len(nums1)):
+            for j in range(len(nums2)):
+                if nums1[i] % (nums2[j] * k) == 0:
+                    res.append((i, j))
+        return res
 
 def main():
     obj = Solution()
+    nums1 = [1,3,4]
+    nums2 = [1,3,4]
+    k = 1
+
+    # TS 2
+    nums1 = [1,2,4,12]
+    nums2 = [2,4]
+    k = 3
+
+    print(Solution().numberOfPairs(nums1, nums2, k))
+
 
 
 if __name__ == "__main__":

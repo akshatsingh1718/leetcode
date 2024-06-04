@@ -1,16 +1,6 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
-from collections import Counter, defaultdict, deque
-from functools import cache
-
-import sys
-
-# Check the current recursion limit
-current_limit = sys.getrecursionlimit()
-
-# Set a new recursion limit
-new_limit = 10**5  # Set this to the desired limit
-sys.setrecursionlimit(new_limit)
+from collections import Counter, defaultdict
 
 
 class ListNode:
@@ -121,11 +111,61 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maxScoreWords(
+        self, words: List[str], letters: List[str], score: List[int]
+    ) -> int:
+
+        def find_score(words_idx: int, curr_score: int, freq: Dict):
+            nonlocal words, words_len, score
+            if words_idx == words_len:
+                return curr_score
+
+            word = words[words_idx]
+
+            freq_copy = freq.copy()
+            curr_score_copy = curr_score
 
 
+            for char in word:
+                if freq.get(char, 0) == 0:
+                    freq = freq_copy
+                    curr_score = curr_score_copy
+                    break
+                freq[char] -= 1
+                # if word == "dog":
+                    # print(char, ord("a") - ord(char), score[ord(char) - ord("a")])
+                curr_score += score[ord(char) - ord("a")]
+
+            return find_score(words_idx + 1, curr_score, freq)
+
+
+        words_len = len(words)
+        max_score = 0
+        for i in range(words_len):
+            max_score = max(max_score, find_score(i, 0, Counter(letters)))
+
+        return max_score
+    
 def main():
     obj = Solution()
+    words = ["dog", "cat", "dad", "good"]
+    letters = ["a", "a", "c", "d", "d", "d", "g", "o", "o"]
+    score = [1,0,9,5,0,0,3,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0]
+    output= 23
+
+    # TS 2
+    words = ["xxxz","ax","bx","cx"]
+    letters = ["z","a","b","c","x","x","x"]
+    score = [4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,10]
+    output= 27
+
+    # TS 3
+    words = ["leetcode"]
+    letters = ["l","e","t","c","o","d"]
+    score = [0,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0]
+    output= 0
+
+    print(Solution().maxScoreWords(words, letters, score))
 
 
 if __name__ == "__main__":
