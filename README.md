@@ -283,6 +283,26 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 - [Find Number Of Ways To Reach The K-Th Stair](./findNumberOfWaysToReachTheK-ThStair/)
 - [Maximum Score Words Formed By Letters](./maximumScoreWordsFormedByLetters/)
 
+# 25-May-24
+
+- [Word Break II](./wordBreakII/)
+
+# 26-May-24
+
+- [Student Attendance Record II](./studentAttendanceRecordII/)
+
+# 27-May-24
+
+- [Special Array With X Elements Greater Than or Equal X](./specialArrayWithXElementsGreaterThanOrEqualX/)
+
+# 28-May-24
+
+- [Get Equal Substrings Within Budget](./getEqualSubstringsWithinBudget/)
+
+# 29-May-24
+
+- [Number of Steps to Reduce a Number in Binary Representation to One](./numberOfStepsToReduceANumberInBinaryRepresentationToOne/)
+
 # 01-June-24
 
 - [Score Of A String](./scoreOfAString/)
@@ -298,3 +318,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 04-June-24
 
 - [Longest Palindrome](./longestPalindrome/)
+
+# 05-June-24
+
+- [Find Common Characters](./findCommonCharacters/)
+
+# 06-June-24
+
+- [Hand of Straights](./handOfStraights/)

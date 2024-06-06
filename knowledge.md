@@ -1,0 +1,22 @@
+# Binary
+
+## Odd or even ?
+- if the least significant digit is 1 then number is odd else even.
+- Eg 1. Bin(2) = b"10" least significant digit is 0 so its even.
+- Eg 2. Bin(3) = b"11" least significant digit is 1 so its odd.
+
+## Divide by 2 (using >> )
+
+-  Diving any number by 2 can be done using right shift `>>` operator or chopping of the least significant digit from binary representation.
+- For even number division:
+    - Eg. Bin(100) = "0b1100100"; bin(50) = '0b110010'. This example shows that how right shift divides.
+- For odd num division
+    - Eg.  bin(99) = '0b1100011'; bin(49) = '0b110001'. The int value of 99 / 2 will be used given since right shift will give the (num // 2) or the floor value of num / 2.
+
+
+# Numbers
+
+## Powers of 2
+- All the numbers which are powers of 2 when divided by 2 will give even numbers.
+- Its not necessarily the case that dividing every even number by 2 will provide an even num.
+- Diving every odd number by 2 will give odd number.

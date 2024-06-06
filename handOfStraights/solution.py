@@ -1,6 +1,16 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
+from functools import cache
+
+import sys
+
+# Check the current recursion limit
+current_limit = sys.getrecursionlimit()
+
+# Set a new recursion limit
+new_limit = 10**5  # Set this to the desired limit
+sys.setrecursionlimit(new_limit)
 
 
 class ListNode:
@@ -93,66 +103,73 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/?envType=daily-question&envId=2024-05-27
-Help: https://www.youtube.com/watch?v=pYqncHGUqh4
+Problem: https://leetcode.com/problems/hand-of-straights/?envType=daily-question&envId=2024-06-06
+Help: https://www.youtube.com/watch?v=lpVhzcdiHMs
 """
 
 
-class Solution: # improvement over sol 1
+class Solution:
     """
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n) + O(n) ~ O(n)
-    SC: O(n) [frequency]
+    TC: O(nlogn) [adding elements to map] + O(n) [for loop]
+    SC: O(n) [hash map]
 
     ==========================
-    Algorithm: (Frequency table)
+    Algorithm:
     ==========================
-    1. create an array `counts` of length n.
-    2. Traverse over nums and set the value counts[nums[i]] += 1 as we need to set the count of elements for those indexes and if the nums[i] > len(counts) then add 1 to the counts[-1].
-    3. Transform the counts array to cumulative array by moving from right to left since we need how many elements are greater than the current index of the `count` array.
-    4. if the index matches the count it means that index value has elements counts in array nums greater than or equal to.
     """
+    def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
 
-    def specialArray(self, nums: List[int]) -> int:
-        n = len(nums)
-        if n == 0: return 0
-        # frequency of each nums
-        counts = [0 for _ in range(n)] # O(n) space
+        # if there is not enough elements to make group
+        if len(hand) % groupSize != 0:
+            return False
         
-        # set the freq of nums in count
-        for num in nums: # O(n) loop
-            if num == 0: continue
-            counts[min(num - 1, n - 1)] += 1
+        freq = Counter(hand)
 
-        # find the cumulative sum from right to left
-        for i in range(n-1, -1, -1): # O(n) loop
-            counts[i] += counts[i+1] if i + 1 < n  else 0
-            if i + 1 == counts[i]:
-                return i + 1
+        for num, occ in freq.items():
+            
+            # exhaust all the occurences of the num
+            while freq[num] != 0:
+                # decrement the freq
+                freq[num] -= 1
+                # move till the groupsize from current num
+                for i in range(1, groupSize):
+                    # if the next numbers have freq of 0 then we cannot make a grp
+                    # and return false
+                    if freq[num + i] == 0:
+                        return False
+                    # if the grp can be made then decrement the freq of next num as 
+                    # it is consider used now
+                    freq[num + i] -= 1
 
-        return -1
+        return True
 
 
 def main():
     obj = Solution()
-    nums = [0, 4, 3, 0, 4]  # 0, 0, 3, 4, 4
-    output = 3
+    hand = [1, 2, 3, 6, 2, 3, 4, 7, 8]
+    groupSize = 3
+    output = True
 
     # TS 2
-    # nums = [0,0]
-    # output= -1
+
+    # hand = [1,2,3,4,5]
+    # groupSize = 4
+    # output= False
 
     # TS 3
-    # nums = [3, 5]
-    # output = 2
+    # hand = [1]
+    # groupSize = 1
+    # output = True
 
     # TS 4
-    # nums = [3,6,7,7,0]
-    # output = -1
+    # hand = [2, 1]
+    # groupSize = 2
+    # output = True
 
-    print(obj.specialArray(nums))
+    print(obj.isNStraightHand(hand, groupSize))
 
 
 if __name__ == "__main__":

@@ -103,7 +103,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/submissions/1271185468/?envType=daily-question&envId=2024-05-29
 Help:
 """
 
@@ -122,25 +122,47 @@ class Solution:
     """
 
     def numSteps(self, s: str) -> int:
-        s_int = int(s, base=2)
 
-        steps = 0
-        while s_int > 1:
-            # even
-            if s_int % 2 == 0:
-                s_int /= 2
-                steps += 1
+        def addOne(s: str):
+            # move the i from right to left and find the first zero from right
+            # and convert the 1's -> 0's
+            s: list = list(s)
+            i = len(s) - 1
+            while i >= 0 and s[i] == "1":
+                s[i] = "0"
+                i -= 1
+
+            # if i is out of bounds meaning we cannot find any 0
+            # so append the 1 at first
+            if i == -1:
+                s.insert(0, "1")
+            # if i is sitting at index of 0 then change it to 1
             else:
-                s_int = (s_int + 1) / 2
-                steps += 2
+                s[i] = "1"
+            return "".join(s)
 
-        return steps
+        res = 0
+
+        while s != "1":
+            # when odd
+            if s[-1] == "1":
+                s = addOne(s)
+            else:  # even s[-1] == "0"
+                s = s[:-1]
+
+            res += 1
+
+        return res
 
 
 def main():
     obj = Solution()
     s = "1101"
     output = 6
+
+    # TS 2
+    s = "1001111"
+    output = 10
 
     print(obj.numSteps(s))
 

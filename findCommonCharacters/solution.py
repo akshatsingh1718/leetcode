@@ -1,6 +1,16 @@
 from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
+from functools import cache
+
+import sys
+
+# Check the current recursion limit
+current_limit = sys.getrecursionlimit()
+
+# Set a new recursion limit
+new_limit = 10**5  # Set this to the desired limit
+sys.setrecursionlimit(new_limit)
 
 
 class ListNode:
@@ -93,66 +103,71 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/?envType=daily-question&envId=2024-05-27
-Help: https://www.youtube.com/watch?v=pYqncHGUqh4
+Problem: https://leetcode.com/problems/find-common-characters/submissions/1278143310/?envType=daily-question&envId=2024-06-05
+Help:
 """
 
 
-class Solution: # improvement over sol 1
+class Solution:
     """
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n) + O(n) ~ O(n)
-    SC: O(n) [frequency]
+    k = len(words[0])
+    n = len(words)
+    a = avg word length
+    TC: O(k * (n - 1) * a) ~ O(k * n * k) ~ O(k^2 * n)
+    SC: O(k)
 
     ==========================
-    Algorithm: (Frequency table)
+    Algorithm:
     ==========================
-    1. create an array `counts` of length n.
-    2. Traverse over nums and set the value counts[nums[i]] += 1 as we need to set the count of elements for those indexes and if the nums[i] > len(counts) then add 1 to the counts[-1].
-    3. Transform the counts array to cumulative array by moving from right to left since we need how many elements are greater than the current index of the `count` array.
-    4. if the index matches the count it means that index value has elements counts in array nums greater than or equal to.
+    1. Iterate over all the characters of words[0].
+    2. Maintain a frequency of the character and the frequency should be less than or equal to the frequency in other words such that it should account for the duplicates frequency as well.
+    3. if there is sufficient frequency in all the list then add that char to the result.
     """
 
-    def specialArray(self, nums: List[int]) -> int:
-        n = len(nums)
-        if n == 0: return 0
-        # frequency of each nums
-        counts = [0 for _ in range(n)] # O(n) space
-        
-        # set the freq of nums in count
-        for num in nums: # O(n) loop
-            if num == 0: continue
-            counts[min(num - 1, n - 1)] += 1
+    def commonChars(self, words: List[str]) -> List[str]:
 
-        # find the cumulative sum from right to left
-        for i in range(n-1, -1, -1): # O(n) loop
-            counts[i] += counts[i+1] if i + 1 < n  else 0
-            if i + 1 == counts[i]:
-                return i + 1
+        if len(words) == 1:
+            return list(words[0])
 
-        return -1
+        res = []
+        counter = defaultdict(int)
+
+        for word_0 in words[0]:
+            # check this many times in list
+            counter[word_0] += 1
+
+            found = True
+            for word in words[1:]:
+                temp_ctr = 0
+
+                for char in word:
+                    if char == word_0:
+                        temp_ctr += 1
+
+                if temp_ctr < counter[word_0]:  # freq not matched
+                    found = False
+                    break
+
+            if not found:
+                continue
+            else:
+                res.append(word_0)
+
+        return res
 
 
 def main():
     obj = Solution()
-    nums = [0, 4, 3, 0, 4]  # 0, 0, 3, 4, 4
-    output = 3
+    words = ["bella", "label", "roller"]
+    output = ["e", "l", "l"]
 
     # TS 2
-    # nums = [0,0]
-    # output= -1
-
-    # TS 3
-    # nums = [3, 5]
-    # output = 2
-
-    # TS 4
-    # nums = [3,6,7,7,0]
-    # output = -1
-
-    print(obj.specialArray(nums))
+    words = ["acabcddd","bcbdbcbd","baddbadb","cbdddcac","aacbcccd","ccccddda","cababaab","addcaccd"]
+    output = []
+    print(obj.commonChars(words))
 
 
 if __name__ == "__main__":
