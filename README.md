@@ -326,3 +326,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 06-June-24
 
 - [Hand of Straights](./handOfStraights/)
+
+# 07-June-24
+
+- [Replace Words](./replaceWords/)
