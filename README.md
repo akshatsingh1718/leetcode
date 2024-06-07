@@ -330,3 +330,4 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 07-June-24
 
 - [Replace Words](./replaceWords/)
+- [Number Of Coins](./numberOfCoins/)
