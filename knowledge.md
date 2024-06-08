@@ -1,3 +1,8 @@
+# Subsets
+
+- There can be `2^n` subsets we can create from a given n length array.
+
+
 # Binary
 
 ## Odd or even ?
