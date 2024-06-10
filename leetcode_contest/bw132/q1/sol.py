@@ -2,7 +2,6 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
 
 import sys
 
@@ -121,12 +120,51 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def clearDigits(self, s: str) -> str:
+        
+        s = list(s)
+        n = len(s)
+        while True:
+            
+            # for i, char in enumerate(s):
+            i = 0
+            is_digit_found = False
+            while i < len(s):
+                char = s[i]
+                if "0" <= char <= "9":
+                    is_digit_found = True
+                    if i > 0:
+                        del s[i]
+                        del s[i - 1]
+                        break
 
-    pass
+                    else:
+                        del s[i]
+                        # check for non digit
+                        for j in range(n):
+                            if "a" <= s[j] <= "z":
+                                del s[j]
+                                break
+                    
+                if is_digit_found:
+                    break
+                i += 1
+            if not is_digit_found:
+                break
+
+        return "".join(s)
+                    
+
 
 
 def main():
     obj = Solution()
+    s = "cb34"
+    output= ""
+
+    # TS 2
+    s = "abc"
+    print(obj.clearDigits(s))
 
 
 if __name__ == "__main__":

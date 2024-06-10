@@ -2,8 +2,7 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
-
+import math
 import sys
 
 # Check the current recursion limit
@@ -121,12 +120,30 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def valueAfterKSeconds(self, n: int, k: int) -> int:
+        arr = [1 for _ in range(n)]
+        M = 10**9 + 7
 
-    pass
+        for _ in range(k):
 
+            for i in range(1, n):
+                arr[i] = (arr[i-1] + arr[i])% M 
+
+        return arr[n-1]
+                
+
+            
 
 def main():
     obj = Solution()
+    n = 4
+    k = 5
+    Output: 56
+
+    # TS 2
+    n = 5
+    k = 1000
+    print(obj.valueAfterKSeconds(n, k))
 
 
 if __name__ == "__main__":

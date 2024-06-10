@@ -332,6 +332,22 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 - [Replace Words](./replaceWords/)
 - [Number Of Coins](./numberOfCoins/)
 
+**Bi-Weekly Contest 132 | 2 submission**
+
+- [Clear Digits](./clearDigits/)
+- [Find The First Player to win K Games in a Row](./findTheFirstPlayerToWinKGamesInARow/)
+
 # 08-June-24
 
 - ⭐ [Continuous Subarray Sum](./continuousSubarraySum/)
+- [Subarray Sums Divisible By K](./subarraySumsDivisibleByK/)
+- [Longest Increasing Subsequence](./longestIncreasingSubsequence/)
+
+**Weekly Contest 401 | 2 submission**
+
+- [Find the Child Who Has the Ball After K Seconds](./findTheChildWhoHasTheBallAfterKSeconds/)
+- [Find the N-th Value After K Seconds](./findTheN-ThValueAfterKSeconds/)
+
+# 09-June-24
+
+- [Height Checker](./heightChecker/)

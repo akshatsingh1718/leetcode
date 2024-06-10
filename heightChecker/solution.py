@@ -121,8 +121,14 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def heightChecker(self, heights: List[int]) -> int:
+        expected = sorted(heights)
 
-    pass
+        diff = 0
+        for h1, h2 in zip(heights, expected):
+            if h1 != h2:
+                diff += 1
+        return diff
 
 
 def main():

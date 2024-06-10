@@ -2,8 +2,7 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
-
+import math
 import sys
 
 # Check the current recursion limit
@@ -121,12 +120,44 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def numberOfChild(self, n: int, k: int) -> int:
+        if n == 1:
+            return 1
+        if k <= (n - 1):
+            return k
+        
+        n -= 1
 
-    pass
+        # print( math.floor(k / n)) # if this is even then from starting else ending
+        # print( k % n) # this is the offest
 
+        if math.floor(k / n) % 2 == 0:
+            return k % n
+        
+        else:
+            return n - (k % n)
+
+            
 
 def main():
     obj = Solution()
+    n = 3
+    k = 5
+    output= 1
+
+    # TS 2
+    # n = 5
+    # k = 6
+    # output= 2
+
+    # TS 3
+    # n = 4
+    # k = 2
+    # output= 2
+
+    # n = 4
+    # k = 4
+    print(obj.numberOfChild(n, k))
 
 
 if __name__ == "__main__":

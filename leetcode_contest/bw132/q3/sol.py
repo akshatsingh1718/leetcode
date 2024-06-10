@@ -2,7 +2,6 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
 
 import sys
 
@@ -121,8 +120,13 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def maximumLength(self, nums: List[int], k: int) -> int:
 
-    pass
+        def find_max(i: int, k_left: int, curr_len: int):
+            if k_left == 0:
+                return curr_len
+            
+            
 
 
 def main():

@@ -2,8 +2,7 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
-
+import math
 import sys
 
 # Check the current recursion limit
@@ -122,11 +121,42 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maxTotalReward(self, rewardValues: List[int]) -> int:
+        n = len(rewardValues)
 
+        cache = [-1 for _ in range(n)]
+
+        def generate(idx: int, curr_sum):
+            nonlocal n, rewardValues
+            if idx == n:
+                return curr_sum
+
+            if cache[idx] == -1:
+                temp = -1
+                if curr_sum < rewardValues[idx]:
+                    temp = generate(idx + 1, rewardValues[idx] + curr_sum)
+
+                temp = max(temp, generate(idx + 1, curr_sum))
+
+                cache[idx] = temp
+
+            return cache[idx]
+
+        rewardValues.sort()
+        res = generate(0, 0)
+        print(cache)
+        return res
 
 def main():
     obj = Solution()
+    rewardValues = [1, 1, 3, 3]
+    output = 4
+
+    # TS 2
+    rewardValues = [1,6,4,3,2]
+
+    Output: 11
+    print(obj.maxTotalReward(rewardValues))
 
 
 if __name__ == "__main__":

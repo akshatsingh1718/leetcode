@@ -2,7 +2,6 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
 
 import sys
 
@@ -104,7 +103,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/subarray-sums-divisible-by-k/post-solution/?submissionId=1282427978
 Help:
 """
 
@@ -114,19 +113,36 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(n)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def subarraysDivByK(self, nums: List[int], k: int) -> int:
+
+        result = 0
+        curr_sum = 0
+        visited = defaultdict(int)
+        visited[0] = 1
+        for num in nums:
+            curr_sum += num
+            if visited.get(curr_sum % k, None) is not None:
+                result += visited[curr_sum % k]
+
+            visited[curr_sum % k] += 1
+
+        return result
 
 
 def main():
     obj = Solution()
+    nums = [4, 5, 0, -2, -3, 1]
+    k = 5
+    output = 7
+    print(obj.subarraysDivByK(nums, k))
 
 
 if __name__ == "__main__":

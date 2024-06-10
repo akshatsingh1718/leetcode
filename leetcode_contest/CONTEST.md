@@ -22,3 +22,13 @@
   - Tried but got TLE.
 - [Sum Of Digit Differences Of All Pairs](.sumOfDigitDifferencesOfAllPairs/)
   - Tried but got TLE.
+
+# Bi-Weekly Contest 132 | 2 submission
+
+- ✅ [Clear Digits](./clearDigits/)
+- ✅ [Find The First Player to win K Games in a Row](./findTheFirstPlayerToWinKGamesInARow/)
+
+# Weekly Contest 401 | 2 submission
+
+- ✅ [Find the Child Who Has the Ball After K Seconds](./findTheChildWhoHasTheBallAfterKSeconds/)
+- ✅ [Find the N-th Value After K Seconds](./findTheN-ThValueAfterKSeconds/)

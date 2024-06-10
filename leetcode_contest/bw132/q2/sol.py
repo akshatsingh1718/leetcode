@@ -2,7 +2,6 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
 
 import sys
 
@@ -121,13 +120,69 @@ class Solution:
     Algorithm:
     ==========================
     """
+    def findWinningPlayer(self, skills: List[int], k: int) -> int:
 
-    pass
+        n = len(skills)
+        k = k if k <= n else n
+
+        # if k == n
+        if k == n:
+            # find max
+            max_skill = -1
+            max_skill_idx = -1
+            for i, num in enumerate(skills):
+                if num > max_skill:
+                    max_skill = num
+                    max_skill_idx = i
+
+            return max_skill_idx
+
+        # if k < n
+        curr_max= skills[0]
+        curr_max_idx = 0
+        count = 0
+        for i in range(1, n):
+            if curr_max > skills[i]:
+                count += 1
+            else:
+                count = 1
+                curr_max = skills[i]
+                curr_max_idx = i
+
+            if count == k:
+                return curr_max_idx
+
+        return curr_max_idx
+
+
+
 
 
 def main():
     obj = Solution()
+    skills = [4,2,6,3,9]
+    k = 2
+    output= 2
 
+    # Ts 2
+    # skills = [2,5,4]
+    # k = 3
+    # Output: 1
+
+    # TS 3
+    # skills =[16,4,7,17]
+    # k = 562084119
+
+    # TS 4
+    # skills = [11,13]
+    # k = 164383266
+    # output = 1
+
+    # TS 5
+    # skills = [4,8,9,7]
+    # k = 717834084
+    # output = 2
+    print(obj.findWinningPlayer(skills, k))
 
 if __name__ == "__main__":
     main()

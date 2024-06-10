@@ -104,7 +104,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/longest-increasing-subsequence/description/
 Help:
 """
 
@@ -122,11 +122,31 @@ class Solution:
     ==========================
     """
 
-    pass
+    def lengthOfLIS(self, nums: List[int]) -> int:
 
+        n = len(nums)
+
+        longest_at_i = [0 for _ in range(n)]
+        longest_at_i[0] = 1
+
+        for i in range(1, n):
+            temp = []
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    temp.append(longest_at_i[j] + 1)
+
+            longest_at_i[i] = max([1] + temp)
+
+        return max(longest_at_i)
 
 def main():
     obj = Solution()
+    nums = [10, 9, 2, 5, 3, 7, 101, 18]
+    output = 4
+    # TS 2
+    # nums = [0,1,0,3,2,3]
+    # output = 4
+    print(obj.lengthOfLIS(nums))
 
 
 if __name__ == "__main__":

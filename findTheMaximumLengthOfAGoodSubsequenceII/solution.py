@@ -122,11 +122,82 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maximumLength(self, nums: List[int], k: int) -> int:
+        # create array of max length we can create from 0 -> k
+
+        N = len(nums)
+        # for k = 0
+        mx = [0 for _ in range(N)]
+        counts = defaultdict(int)
+        for i, num in enumerate(nums):
+            counts[num] += 1
+            mx[i] = counts[num]
+
+        print(mx)
+
+        # for j = (1 -> k)
+        for j in range(1, k + 1):
+            counts = defaultdict(int)
+            curr = [0 for _ in range(N)]
+
+            for i in range(N):
+                curr_num = nums[i]
+
+                temp = -1
+                counts[curr_num] += 1
+                if i == 0:
+                    curr[i] = 1
+                    continue
+
+                if nums[i - 1] != curr_num:
+                    # extend | dont use k and continue with the current number occurences
+                    temp = max(temp, counts[curr_num])
+                    # switch | use k value and decrement k
+                    temp = max(temp, max(mx[:i]) + 1)
+                else:
+                    # if prv no is same as curr num
+                    temp = curr[i - 1] + 1
+
+                curr[i] = temp
+
+            print(curr)
+            mx[:] = curr[:]
+
+        return max(mx)
 
 
 def main():
     obj = Solution()
+    nums = [1, 2, 1, 1, 3]
+    k = 2
+    output = 4
+
+    # TS 2
+    # nums = [1, 2, 3, 4, 5, 1]
+    # k = 0
+    # output = 2
+
+    # TS 3
+    # nums = [2, 5]
+    # k = 1
+    # output = 2
+
+    # TS 4
+    # nums = [28,28,29]
+    # k = 2
+    # output = 3
+
+    # TS 5
+    # nums = [29, 28, 28]
+    # k = 2
+    # output = 3
+
+    # TS 6
+    nums = [15, 6, 26, 32, 6]
+    k = 1
+    output = 3
+
+    print(obj.maximumLength(nums, k))
 
 
 if __name__ == "__main__":

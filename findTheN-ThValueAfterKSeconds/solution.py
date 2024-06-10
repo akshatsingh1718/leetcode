@@ -122,7 +122,16 @@ class Solution:
     ==========================
     """
 
-    pass
+    def valueAfterKSeconds(self, n: int, k: int) -> int:
+        arr = [1 for _ in range(n)]
+        M = 10**9 + 7
+
+        for _ in range(k):
+
+            for i in range(1, n):
+                arr[i] = (arr[i - 1] + arr[i]) % M
+
+        return arr[n - 1]
 
 
 def main():

@@ -122,11 +122,96 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maximumLength(self, nums: List[int], k: int) -> int:
+        # create array of max length we can create from 0 -> k
+
+        N = len(nums)
+        dp = [0] * N
+        # Max of dp till ith index
+        mx = [0] * N
+
+        last_index = defaultdict(int)
+
+        # for k = 0
+        for i in range(N):
+            num = nums[i]
+            # if already seen
+            if num in last_index:
+                dp[i] = dp[last_index[num]] + 1
+            # if not visited num yet
+            else:
+                dp[i] = 1
+
+            if i < N - 1:
+                mx[i + 1] = max(mx[i], dp[i])
+
+            last_index[num] = i
+
+        dp2 = dp
+        mx2 = mx
+        for r in range(k):
+            last_index = defaultdict(int)
+            dp = [0] * N
+            mx = [0] * N
+
+            for i in range(N):
+                num = nums[i]
+                # extend
+                if num in last_index:
+                    dp[i] = dp[last_index[num]] + 1
+                else:
+                    dp[i] = 1
+
+                # Switch
+                # can i use the previous max ?
+                if mx2[i] + 1 > dp[i]:
+                    dp[i] = mx2[i] + 1
+                if i < N - 1:
+                    mx[i + 1] = max(mx[i], dp[i])
+
+                last_index[num] = i
+            print("=" * 40)
+            print(f"{dp = }")
+            print(f"{mx = }")
+
+            dp2 = dp
+            mx2 = mx
+
+        return max(dp[-1], mx[-1])
 
 
 def main():
     obj = Solution()
+    nums = [1, 2, 1, 1, 3]
+    k = 2
+    output = 4
+
+    # TS 2
+    # nums = [1, 2, 3, 4, 5, 1]
+    # k = 0
+    # output = 2
+
+    # TS 3
+    # nums = [2, 5]
+    # k = 1
+    # output = 2
+
+    # TS 4
+    # nums = [28,28,29]
+    # k = 2
+    # output = 3
+
+    # TS 5
+    # nums = [29, 28, 28]
+    # k = 2
+    # output = 3
+
+    # TS 6
+    nums = [15, 6, 26, 32, 6]
+    k = 1
+    output = 3
+
+    print(obj.maximumLength(nums, k))
 
 
 if __name__ == "__main__":
