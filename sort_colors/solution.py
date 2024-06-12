@@ -31,7 +31,7 @@ class Solution2:
         count_1 = 0
 
         # TC: O(N)
-        # SC: O(2)  ~ O(1) constant 
+        # SC: O(2)  ~ O(1) constant
         for i in range(n):
 
             # check the current number of the list
@@ -40,7 +40,7 @@ class Solution2:
             elif nums[i] == 1:
                 count_1 += 1
 
-        # TC: O(N) 
+        # TC: O(N)
         # SC: O(0)
         for i in range(0, count_0):
             nums[i] = 0

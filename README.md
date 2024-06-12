@@ -340,7 +340,6 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 08-June-24
 
 - ⭐ [Continuous Subarray Sum](./continuousSubarraySum/)
-- [Subarray Sums Divisible By K](./subarraySumsDivisibleByK/)
 - [Longest Increasing Subsequence](./longestIncreasingSubsequence/)
 
 **Weekly Contest 401 | 2 submission**
@@ -350,4 +349,16 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 # 09-June-24
 
+- [Subarray Sums Divisible By K](./subarraySumsDivisibleByK/)
+
+# 10-June-24
+
 - [Height Checker](./heightChecker/)
+
+# 11-June-24
+
+- [Relative Sort Array](./relativeSortArray/)
+
+# 12-June-24
+
+- ⭐ [Sort Colors](./sort_colors/)
