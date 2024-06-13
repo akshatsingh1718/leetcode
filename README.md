@@ -361,4 +361,8 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 # 12-June-24
 
-- ⭐ [Sort Colors](./sort_colors/)
+- ⭐ [Sort Colors](./sort_colors/) `counting-sort`
+
+# 13-June-24
+
+- [Minimum Number Of Moves To Seat Everyone](./minimumNumberOfMovesToSeatEveryone/) `counting-sort`
