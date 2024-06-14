@@ -366,3 +366,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 13-June-24
 
 - [Minimum Number Of Moves To Seat Everyone](./minimumNumberOfMovesToSeatEveryone/) `counting-sort`
+
+# 14-June-24
+
+- [Minimum Increment to Make Array Unique](./minimumIncrementToMakeArrayUnique/) `counting-sort`
