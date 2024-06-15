@@ -123,7 +123,31 @@ class Solution:
     ==========================
     """
 
-    pass
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        prod = 1
+        no_of_zeros = 0
+        for num in nums:
+            if num == 0:
+                no_of_zeros += 1
+            else:
+                prod *= num
+
+        res = []
+
+        for num in nums:
+            if no_of_zeros > 1:
+                res.append(0)
+            elif no_of_zeros == 1:
+                if num == 0:
+                    res.append(prod)
+                else:
+                    res.append(0)
+            else:
+                res.append(prod // num)
+
+        return res
 
 
 def main():

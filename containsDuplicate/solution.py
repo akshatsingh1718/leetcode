@@ -105,7 +105,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/contains-duplicate/
 Help:
 """
 
@@ -115,15 +115,21 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n logn) + O(n) ~ O(nlogn)
+    SC: O(n logn) [if using another sorted array]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                return True
+
+        return False
 
 
 def main():
