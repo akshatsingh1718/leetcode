@@ -11,6 +11,13 @@
 
 - Pruning: Remove/stop the unwanted branches we are creating in recursion.
 
+## Tags:
+
+- `bs-on-answer`: binary search on the answer
+- `heap`: Heap
+- `two-pointers` : two pointers
+- `counting-sort`: counting sort
+
 ## Resources:
 
 - [Striver SDE Sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
@@ -370,3 +377,27 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 14-June-24
 
 - [Minimum Increment to Make Array Unique](./minimumIncrementToMakeArrayUnique/) `counting-sort`
+
+# 15-June-24
+
+- [IPO](./ipo/)
+
+# 16-June-24
+
+- ⭐ [Patching Array](./patchingArray/)
+
+# 17-June-24
+
+- [Sum Of Square Numbers](./sumOfSquareNumbers/) `two-pointers`
+
+# 18-June-24
+
+- [Most Profit Assigning Work](./mostProfitAssigningWork/) `bs-on-answer` `heap`
+
+# 19-June-24
+
+- [Minimum Number Of Days To Make M Bouquets](./minimumNumberOfDaysToMakeMBouquets/) `bs-on-answer`
+
+# 20-June-24
+
+- [Magnetic Force Between Two Balls](./magneticForceBetweenTwoBalls/) `bs-on-answer`
