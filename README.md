@@ -18,6 +18,22 @@
 - `two-pointers` : two pointers
 - `counting-sort`: counting sort
 
+## TODOS
+
+### `bs-on-answer`:
+
+- KOKO EATING BANANA
+- Capacity to ship packages within D Days
+- Split Array Largest Sum
+- Maximize sweetness of chocolate
+- Leetcode 1283
+- Leetcode 2064
+- Leetcode 2187
+- Leetcode 1552 - Magnetic Force Between Two Balls
+- Leetcode 2517
+- Leetcode 2141
+- Leetcode 1760
+
 ## Resources:
 
 - [Striver SDE Sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
@@ -401,3 +417,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 20-June-24
 
 - [Magnetic Force Between Two Balls](./magneticForceBetweenTwoBalls/) `bs-on-answer`
+
+# 21-June-24
+
+- [Grumpy Bookstore Owner](./grumpyBookstoreOwner/)
