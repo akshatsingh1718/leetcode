@@ -17,6 +17,7 @@
 - `heap`: Heap
 - `two-pointers` : two pointers
 - `counting-sort`: counting sort
+- `prefix`: Taking prefix of something like xor, sum or odd numbers
 
 ## TODOS
 
@@ -421,3 +422,21 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 21-June-24
 
 - [Grumpy Bookstore Owner](./grumpyBookstoreOwner/)
+
+# 22-June-24
+
+- [Count Number of Nice Subarrays](./countNumberOfNiceSubarrays/) `prefix`
+- [Binary Subarrays With Sum](./binarySubarraysWithSum/)
+
+**Biweekly Contest 133 | 3 submission**
+
+- [Find Minimum Operations to Make All Elements Divisible by Three](./findMinimumOperationsToMakeAllElementsDivisibleByThree/)
+- [Minimum Operations to Make Binary Array Elements Equal to One I](./minimumOperationsToMakeBinaryArrayElementsEqualToOneI/)
+- [Minimum Operations to Make Binary Array Elements Equal to One II](./minimumOperationsToMakeBinaryArrayElementsEqualToOneIi)
+
+# 23-June-24
+
+**Weekly Contest 403 | 2 submission**
+
+- [Minimum Average of Smallest and Largest Elements](./minimumAverageOfSmallestAndLargestElements/)
+- [Find the Minimum Area to Cover All Ones I](./findTheMinimumAreaToCoverAllOnesI/)

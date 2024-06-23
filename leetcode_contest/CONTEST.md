@@ -32,3 +32,15 @@
 
 - ✅ [Find the Child Who Has the Ball After K Seconds](./findTheChildWhoHasTheBallAfterKSeconds/)
 - ✅ [Find the N-th Value After K Seconds](./findTheN-ThValueAfterKSeconds/)
+
+
+# Biweekly Contest 133 | 3 submission
+
+- ✅ [Find Minimum Operations to Make All Elements Divisible by Three](./findMinimumOperationsToMakeAllElementsDivisibleByThree/)
+- ✅ [Minimum Operations to Make Binary Array Elements Equal to One I](./minimumOperationsToMakeBinaryArrayElementsEqualToOneI/)
+- ✅ [Minimum Operations to Make Binary Array Elements Equal to One II](./minimumOperationsToMakeBinaryArrayElementsEqualToOneIi)
+
+# Weekly Contest 403 | 2 submission
+
+- ✅ [Minimum Average of Smallest and Largest Elements](./minimumAverageOfSmallestAndLargestElements/)
+- ✅ [Find the Minimum Area to Cover All Ones I](./findTheMinimumAreaToCoverAllOnesI/)

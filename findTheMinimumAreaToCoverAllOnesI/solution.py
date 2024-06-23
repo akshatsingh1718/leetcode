@@ -105,8 +105,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/subarray-sum-equals-k/submissions/1296300792/
-Help: https://www.youtube.com/watch?v=xvNwoz-ufXA
+Problem:
+Help:
 """
 
 
@@ -115,42 +115,50 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n)
-    SC: O(n)
+    TC:
+    SC:
 
     ==========================
-    Algorithm: (hash-map) (prefix-sum)
+    Algorithm:
     ==========================
     """
 
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        visited = defaultdict(int)
-        visited[0] = 1
+    def minimumArea(self, grid: List[List[int]]) -> int:
 
-        prefix_sum = 0
-        count = 0
-        for num in nums:
-            prefix_sum += num
+        min_row = None
+        max_row = None
 
-            count += visited[prefix_sum - k] # visited[remove] where remove is the prefix sum we want to remove from current prefix_sum
+        min_col = None
+        max_col = None
 
-            visited[prefix_sum] += 1
-        return count
+        for row_idx, row in enumerate(grid):
+            for col_idx, col_val in enumerate(row):
+                if col_val == 1:
+                    # check for min col
+                    if min_col is None or min_col > col_idx:
+                        min_col = col_idx
+                    # check for min row
+                    if min_row is None or min_row > row_idx:
+                        min_row = row_idx
+                    # check for max col
+                    if max_col is None or max_col < col_idx:
+                        max_col = col_idx
+                    # check for max row
+                    if max_row is None or max_row < row_idx:
+                        max_row = row_idx
 
+        # calculate area of rectangle
+        # upper_left = (min_row, min_col)
+        # lower_right = (max_row, max_col)
+        # print(f"{min_row =}")
+        # print(f"{min_col =}")
+        # print(f"{max_row =}")
+        # print(f"{max_col =}")
+        # area = (lower_right[0] - upper_left[0] + 1) * (
+        #     lower_right[1] - upper_left[1] + 1
+        # )
 
-def main():
-    obj = Solution()
-    nums = [1, 1, 1]
-    k = 2
-    output = 2
-
-    # TS 2
-    nums = [1, 2, 3]
-    k = 3
-    output = 2
-
-    print(obj.subarraySum(nums, k))
-
-
-if __name__ == "__main__":
-    main()
+        area = 0
+        if min_col is not None:
+            area = (max_row - min_row + 1) * (max_col - min_col + 1)
+        return area

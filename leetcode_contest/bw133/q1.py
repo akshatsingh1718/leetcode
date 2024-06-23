@@ -105,8 +105,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/subarray-sum-equals-k/submissions/1296300792/
-Help: https://www.youtube.com/watch?v=xvNwoz-ufXA
+Problem:
+Help:
 """
 
 
@@ -115,42 +115,33 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n)
-    SC: O(n)
+    TC:
+    SC:
 
     ==========================
-    Algorithm: (hash-map) (prefix-sum)
+    Algorithm:
     ==========================
     """
+    def minimumOperations(self, nums: List[int]) -> int:
+        ops = 0
 
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        visited = defaultdict(int)
-        visited[0] = 1
-
-        prefix_sum = 0
-        count = 0
         for num in nums:
-            prefix_sum += num
+            if num % 3 == 0:
+                continue
 
-            count += visited[prefix_sum - k] # visited[remove] where remove is the prefix sum we want to remove from current prefix_sum
+            ops += 1
 
-            visited[prefix_sum] += 1
-        return count
+        return ops
+
+        
 
 
 def main():
     obj = Solution()
-    nums = [1, 1, 1]
-    k = 2
-    output = 2
+    nums = [1,2,3,4]
 
-    # TS 2
-    nums = [1, 2, 3]
-    k = 3
-    output = 2
-
-    print(obj.subarraySum(nums, k))
-
+    Output: 3
+    print(obj.minimumOperations(nums))
 
 if __name__ == "__main__":
     main()

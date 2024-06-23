@@ -105,8 +105,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/subarray-sum-equals-k/submissions/1296300792/
-Help: https://www.youtube.com/watch?v=xvNwoz-ufXA
+Problem:
+Help:
 """
 
 
@@ -115,41 +115,65 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n)
-    SC: O(n)
+    TC:
+    SC:
 
     ==========================
-    Algorithm: (hash-map) (prefix-sum)
+    Algorithm:
     ==========================
     """
 
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        visited = defaultdict(int)
-        visited[0] = 1
+    def minOperations(self, nums: List[int]) -> int:
 
-        prefix_sum = 0
-        count = 0
-        for num in nums:
-            prefix_sum += num
+        n = len(nums)
+        cache = dict()
 
-            count += visited[prefix_sum - k] # visited[remove] where remove is the prefix sum we want to remove from current prefix_sum
+        def flip(i):
+            nonlocal n
+            for j in range(i, min(i + 3, n)):
+                nums[j] = abs(nums[j] - 1)
 
-            visited[prefix_sum] += 1
-        return count
+        def dfs(i: int, ops: int):
+            nonlocal nums, n, cache
+
+            if cache.get(i):
+                return cache[i]
+
+            if i == n:
+                count = sum(nums)
+                if count == n:
+                    return ops
+                return float("inf")
+
+            # flip ith bit
+            if i < n - 2:
+                flip(i)
+            flipped = dfs(i + 1, ops + 1)
+            if i < n - 2:
+                # unlfip
+                flip(i)
+            not_flipped = dfs(i + 1, ops)
+
+            cache[i] = min(flipped, not_flipped)
+            return cache[i]
+        
+        ops = dfs(0, 0)
+        return -1 if ops == float("inf") else ops
 
 
 def main():
     obj = Solution()
-    nums = [1, 1, 1]
-    k = 2
-    output = 2
+    nums = [0, 1, 1, 1, 0, 0]
+    Output: 3
 
     # TS 2
-    nums = [1, 2, 3]
-    k = 3
-    output = 2
+    nums = [0, 1, 1, 1]
+    output = -1
 
-    print(obj.subarraySum(nums, k))
+    # TS 3
+    nums = [0,1,1,1,0,0]
+    output = 3
+    print(obj.minOperations(nums))
 
 
 if __name__ == "__main__":

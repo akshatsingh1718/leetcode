@@ -105,8 +105,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/subarray-sum-equals-k/submissions/1296300792/
-Help: https://www.youtube.com/watch?v=xvNwoz-ufXA
+Problem:
+Help:
 """
 
 
@@ -116,40 +116,73 @@ class Solution:
     Time and space complexity:
     ==========================
     TC: O(n)
-    SC: O(n)
+    SC: O(1)
 
     ==========================
-    Algorithm: (hash-map) (prefix-sum)
+    Algorithm: (sliding-window)
     ==========================
     """
 
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        visited = defaultdict(int)
-        visited[0] = 1
+    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+        i = 0
+        j = 0
+        n = len(nums)
+        window_sum = 0
+        result = 0
+        zeros_count = 0
 
-        prefix_sum = 0
-        count = 0
-        for num in nums:
-            prefix_sum += num
+        while j < n:
 
-            count += visited[prefix_sum - k] # visited[remove] where remove is the prefix sum we want to remove from current prefix_sum
+            # increase the window sum
+            window_sum += nums[j]
 
-            visited[prefix_sum] += 1
-        return count
+            # check for leading zeros till the next 1
+            # if our window_sum == goal then this will
+            # be helpful for how many subsets we can create
+            # since removing 0's from the start of the subset
+            # will change the subset but not the sum
+
+            # And
+
+            # This will move till j because our window is ending at j
+            # There are two conditions till where this loop will run
+            # 1. when window sum is greater than goal
+            # 2. nums[i] is 0.
+
+            while i < j and (window_sum > goal or nums[i] == 0):
+                if nums[i] == 0:
+                    zeros_count += 1
+                else:
+                    zeros_count = 0
+
+                window_sum -= nums[i]
+                i += 1
+
+            # check if we got the goal
+            if window_sum == goal:
+                result += 1 + zeros_count
+            #     print(f"{j=} {i=} {window_sum=} {zeros_count=} +1 ")
+            # else:
+            #     print(f"{j=} {i=} {window_sum=} {zeros_count=}")
+
+            # increase window size
+            j += 1
+
+        return result
+
 
 
 def main():
     obj = Solution()
-    nums = [1, 1, 1]
-    k = 2
-    output = 2
+    nums = [1, 0, 1, 0, 1]
+    goal = 2
+    output = 4
 
     # TS 2
-    nums = [1, 2, 3]
-    k = 3
-    output = 2
-
-    print(obj.subarraySum(nums, k))
+    nums = [0, 0, 0, 1, 0, 0, 1, 0, 1]
+    goal = 2
+    output = 0
+    print(obj.numSubarraysWithSum(nums, goal))
 
 
 if __name__ == "__main__":

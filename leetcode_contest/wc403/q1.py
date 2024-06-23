@@ -105,8 +105,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/subarray-sum-equals-k/submissions/1296300792/
-Help: https://www.youtube.com/watch?v=xvNwoz-ufXA
+Problem:
+Help:
 """
 
 
@@ -115,41 +115,35 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n)
-    SC: O(n)
+    TC:
+    SC:
 
     ==========================
-    Algorithm: (hash-map) (prefix-sum)
+    Algorithm:
     ==========================
     """
+    def minimumAverage(self, nums: List[int]) -> float:
+        nums.sort()
+        n = len(nums)
+        smallest = float("inf")
+        for i in range(n // 2):
+            smallest = min(smallest, (nums[i] + nums[n - i - 1]) / 2)
 
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        visited = defaultdict(int)
-        visited[0] = 1
-
-        prefix_sum = 0
-        count = 0
-        for num in nums:
-            prefix_sum += num
-
-            count += visited[prefix_sum - k] # visited[remove] where remove is the prefix sum we want to remove from current prefix_sum
-
-            visited[prefix_sum] += 1
-        return count
+        return smallest
 
 
 def main():
     obj = Solution()
-    nums = [1, 1, 1]
-    k = 2
-    output = 2
+    # nums = [7,8,3,4,15,13,4,1]
+    # output= 5.5
 
-    # TS 2
-    nums = [1, 2, 3]
-    k = 3
-    output = 2
+    nums = [1,9,8,3,10,5]
+    Output: 5.5
 
-    print(obj.subarraySum(nums, k))
+    # TS 3
+    nums = [1,2,3,7,8,9]
+    Output: 5.0
+    print(obj.minimumAverage(nums))
 
 
 if __name__ == "__main__":

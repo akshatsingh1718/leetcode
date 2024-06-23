@@ -105,8 +105,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/subarray-sum-equals-k/submissions/1296300792/
-Help: https://www.youtube.com/watch?v=xvNwoz-ufXA
+Problem:
+Help:
 """
 
 
@@ -115,41 +115,80 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n)
-    SC: O(n)
+    TC:
+    SC:
 
     ==========================
-    Algorithm: (hash-map) (prefix-sum)
+    Algorithm:
     ==========================
     """
 
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        visited = defaultdict(int)
-        visited[0] = 1
+    def minOperations(self, nums: List[int]) -> int:
 
-        prefix_sum = 0
-        count = 0
-        for num in nums:
-            prefix_sum += num
+        n = len(nums)
+        def flip(i):
+            nonlocal n
+            for j in range(i, n):
+                nums[j] = abs(nums[j] - 1)
 
-            count += visited[prefix_sum - k] # visited[remove] where remove is the prefix sum we want to remove from current prefix_sum
+        i = 0
+        ops = 0
+        ones = 0
+        bits_flipped = 0
+        while i < n:
+            # bit is not fipped
+            if bits_flipped % 2 == 0:
+                # skip 1 bit
+                while i < n and nums[i] == 1:
+                    ones += 1
+                    i += 1
+            else:
+                # skip 1 bit
+                while i < n and abs(nums[i] - 1) == 1:
+                    ones += 1
+                    i += 1
 
-            visited[prefix_sum] += 1
-        return count
+            if i < n:
+                ops += 1
+                bits_flipped += 1
+            
+            # when reached at bit 0
+            # if i < n:
+            #     ops += 1
+            #     bits_flipped += 1
+
+            #     while  i < n:
+            #         # check if bit is 1 or not 
+            #         # not flipped
+            #         if bits_flipped % 2 == 0:
+            #             if nums[i] == 0:
+            #                 break
+            #         # flipped
+            #         else:
+            #             if abs(nums[i] - 1) == 0:
+            #                 break
+
+            #         i += 1
+
+                # # flip(i)
+                # first_zero = n
+                # for j in range(i, n):
+                #     nums[j] = abs(nums[j] - 1)
+                #     first_zero= min(first_zero, j if nums[j] == 0 else first_zero)
+                # i = first_zero
+        return ops if ones == n else -1
 
 
 def main():
     obj = Solution()
-    nums = [1, 1, 1]
-    k = 2
-    output = 2
+    nums = [0,1,1,0,1]
+    Output: 4
 
-    # TS 2
-    nums = [1, 2, 3]
-    k = 3
-    output = 2
+    # Ts 2
+    nums = [1,0,0,0]
 
-    print(obj.subarraySum(nums, k))
+    Output: 1
+    print(obj.minOperations(nums))
 
 
 if __name__ == "__main__":

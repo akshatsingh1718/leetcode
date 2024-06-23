@@ -105,8 +105,8 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem: https://leetcode.com/problems/subarray-sum-equals-k/submissions/1296300792/
-Help: https://www.youtube.com/watch?v=xvNwoz-ufXA
+Problem:
+Help:
 """
 
 
@@ -115,41 +115,48 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n)
-    SC: O(n)
+    TC: O(n) 
+    SC: O(n) [hash map]
 
     ==========================
-    Algorithm: (hash-map) (prefix-sum)
+    Algorithm: (prefix-odd-count)
     ==========================
     """
 
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        visited = defaultdict(int)
+    def numberOfSubarrays(self, nums: List[int], k: int) -> int:
+        res = 0
+
+        visited = dict()
         visited[0] = 1
-
-        prefix_sum = 0
-        count = 0
+        prefix_odd_count = 0
         for num in nums:
-            prefix_sum += num
+            # increment prefix count only if num is odd
+            prefix_odd_count += num % 2
 
-            count += visited[prefix_sum - k] # visited[remove] where remove is the prefix sum we want to remove from current prefix_sum
+            if visited.get(prefix_odd_count - k, None) is not None:
+                res += visited[prefix_odd_count - k]
 
-            visited[prefix_sum] += 1
-        return count
+            visited[prefix_odd_count] = 1 + visited.get(prefix_odd_count, 0)
+
+        return res
 
 
 def main():
     obj = Solution()
-    nums = [1, 1, 1]
-    k = 2
-    output = 2
-
-    # TS 2
-    nums = [1, 2, 3]
+    nums = [1, 1, 2, 1, 1]
     k = 3
     output = 2
 
-    print(obj.subarraySum(nums, k))
+    # TS 2
+    # nums = [2, 2, 2, 1, 2, 2, 1, 2, 2, 2]
+    # k = 2
+    # output = 16
+
+    # TS 3
+    # nums = [1, 1, 1, 1, 1]
+    # k = 1
+    # output = 5
+    print(obj.numberOfSubarrays(nums, k))
 
 
 if __name__ == "__main__":
