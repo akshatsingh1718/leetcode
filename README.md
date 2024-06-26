@@ -440,3 +440,15 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 - [Minimum Average of Smallest and Largest Elements](./minimumAverageOfSmallestAndLargestElements/)
 - [Find the Minimum Area to Cover All Ones I](./findTheMinimumAreaToCoverAllOnesI/)
+
+# 24-June-24
+
+- [Minimum Number of K Consecutive Bit Flips](./minimumNumberOfKConsecutiveBitFlips/)
+
+# 25-June-24
+
+- [Binary Search Tree To Greater Sum Tree](./binarySearchTreeToGreaterSumTree/)
+
+# 25-June-24
+
+- [Balance a Binary Search Tree](./balanceABinarySearchTree/)
