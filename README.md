@@ -18,6 +18,7 @@
 - `two-pointers` : two pointers
 - `counting-sort`: counting sort
 - `prefix`: Taking prefix of something like xor, sum or odd numbers
+- `moore-voting-algo` : Moore Voting Algo for getting the majority element
 
 ## TODOS
 
@@ -449,6 +450,10 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 - [Binary Search Tree To Greater Sum Tree](./binarySearchTreeToGreaterSumTree/)
 
-# 25-June-24
+# 26-June-24
 
 - [Balance a Binary Search Tree](./balanceABinarySearchTree/)
+
+# 27-June-24
+
+- [Find Center of Star Graph](./findCenterOfStarGraph/) `moore-voting-algo`
