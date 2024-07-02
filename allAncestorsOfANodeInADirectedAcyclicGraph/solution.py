@@ -49,10 +49,8 @@ def printList(head: ListNode):
 
 
 # Graph utils
-def create_adjacency_list(edges: List[tuple], directed=False):
-    # When n nodes is told but graph does not have all the nodes present
-    # this will prevent it from keyerror
-    adjacency_list = defaultdict(lambda: [])
+def create_adjacency_list(edges: List[tuple]):
+    adjacency_list = {}
 
     for edge in edges:
         u, v = edge
@@ -60,10 +58,8 @@ def create_adjacency_list(edges: List[tuple], directed=False):
             adjacency_list[u] = []
         if v not in adjacency_list:
             adjacency_list[v] = []
-
         adjacency_list[u].append(v)
-        if not directed:
-            adjacency_list[v].append(u)
+        adjacency_list[v].append(u)
 
     return adjacency_list
 
@@ -119,6 +115,7 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
+    (GOT TLE)
     TC:
     SC:
 
@@ -127,11 +124,31 @@ class Solution:
     ==========================
     """
 
-    pass
+    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+
+        ancestors = [[] for _ in range(n)]
+        for u, v in edges:
+            ancestors[v].append(u)
+
+        for i in range(n):
+
+            for ancestor in ancestors[i]:
+
+                for node in ancestors[ancestor]:
+                    if node not in ancestors[i]:
+                        ancestors[i].append(node)
+
+            ancestors[i].sort()
+
+        return ancestors
 
 
 def main():
     obj = Solution()
+    n = 8
+    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
+    expected = [[], [], [], [0, 1], [0, 2], [0, 1, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3]]
+    print(obj.getAncestors(n, edgeList))
 
 
 if __name__ == "__main__":

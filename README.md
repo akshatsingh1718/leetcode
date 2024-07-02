@@ -19,6 +19,7 @@
 - `counting-sort`: counting sort
 - `prefix`: Taking prefix of something like xor, sum or odd numbers
 - `moore-voting-algo` : Moore Voting Algo for getting the majority element
+- `khans-algo` : Graph traversal using BFS
 
 ## TODOS
 
@@ -457,3 +458,25 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 27-June-24
 
 - [Find Center of Star Graph](./findCenterOfStarGraph/) `moore-voting-algo`
+
+# 28-June-24
+
+- [Maximum Total Importance of Roads](./maximumTotalImportanceOfRoads/)
+
+# 29-June-24
+
+- [All Ancestors of a Node in a Directed Acyclic Graph](./allAncestorsOfANodeInADirectedAcyclicGraph/) `graph-dfs` `graph-bfs`
+
+# 30-June-24
+
+- TODO
+
+# 01-July-24
+
+- [Three Consecutive Odds](./threeConsecutiveOdds/)
+
+# 02-July-24
+
+- [Intersection of Two Arrays II](./intersectionOfTwoArraysIi/)
+- [Topological Sort BFS](./topologicalSortBfs/) `khans-algo`
+- [Topological Sort DFS](./topologicalSortDfs/)

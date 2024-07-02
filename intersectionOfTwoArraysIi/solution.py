@@ -49,10 +49,8 @@ def printList(head: ListNode):
 
 
 # Graph utils
-def create_adjacency_list(edges: List[tuple], directed=False):
-    # When n nodes is told but graph does not have all the nodes present
-    # this will prevent it from keyerror
-    adjacency_list = defaultdict(lambda: [])
+def create_adjacency_list(edges: List[tuple]):
+    adjacency_list = {}
 
     for edge in edges:
         u, v = edge
@@ -60,10 +58,8 @@ def create_adjacency_list(edges: List[tuple], directed=False):
             adjacency_list[u] = []
         if v not in adjacency_list:
             adjacency_list[v] = []
-
         adjacency_list[u].append(v)
-        if not directed:
-            adjacency_list[v].append(u)
+        adjacency_list[v].append(u)
 
     return adjacency_list
 
@@ -119,15 +115,23 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(n)
 
     ==========================
     Algorithm:
     ==========================
     """
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        nums2_dict = Counter(nums2)
 
-    pass
+        res = []
+        for n in nums1:
+            if nums2_dict[n] > 0:
+                res.append(n)
+                nums2_dict[n] -= 1
+
+        return res
 
 
 def main():

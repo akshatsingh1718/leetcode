@@ -123,15 +123,50 @@ class Solution:
     SC:
 
     ==========================
-    Algorithm:
+    Algorithm: (Khan's Algo)
     ==========================
     """
 
-    pass
+    def topologicalSort(self, edgeList: List[List[int]], V: int):
+        indegree = [0 for _ in range(V)]
+
+        adj_list = create_adjacency_list(edgeList, directed=True)
+
+        # create the in-degree of each node
+        for node in range(V):
+            for child in adj_list[node]:
+                indegree[child] += 1
+
+        # create queue
+        queue = []
+
+        # find the node with 0 indegree
+        for node in range(V):
+            if indegree[node] == 0:
+                queue.append(node)
+
+        # bfs start
+        # we need to exhaust all the indegree before adding them
+        # into the result meaning all the in arrows are taken into
+        # consideration so all the parents are before the child
+        res = []
+        while queue:
+            node = queue.pop(0)
+            res.append(node)
+
+            for child in adj_list[node]:
+                indegree[child] -= 1
+                if indegree[child] == 0:
+                    queue.append(child)
+
+        return res
 
 
 def main():
     obj = Solution()
+    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
+    n = 8
+    print(obj.topologicalSort(edgeList, n))
 
 
 if __name__ == "__main__":

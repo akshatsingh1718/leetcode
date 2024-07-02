@@ -109,7 +109,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem:)
 Help:
 """
 
@@ -119,19 +119,54 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(E) [adj list] + O(V * (V + V + E)) ~ O(V * (V + E))
+    SC: O(E) [adj list] + O(E * E) [result; since worst case every E can have (E-1) ancestors]
 
     ==========================
-    Algorithm:
+    Algorithm: `graph-dfs`
     ==========================
     """
 
-    pass
+    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+
+        def dfs(currNode: int, visited: List[int]):
+            nonlocal  adjacency_list
+
+            for child in adjacency_list[currNode]:
+                if visited[child] == 0: # not visited
+                    visited[child] = 1
+                    dfs(currNode=child, visited=visited)
+
+
+        # create adj list and reverse the direction for the graph
+        adjacency_list = defaultdict(lambda : [])
+        for u, v in edges:
+            adjacency_list[v].append(u) # connection is reversed
+
+        result = [[] for _ in range(n)]  # O(V) or O(N)
+
+        # start the dfs and append the reversed graph visited nodes to the result
+        for node_i in range(n):  # O(V)
+            visited = [0 for _ in range(n)]
+            dfs(currNode=node_i, visited=visited)  # O(V+ E)
+
+            for j in range(n):
+                if visited[j] == 1:
+                    result[node_i].append(j)
+
+        return result
 
 
 def main():
     obj = Solution()
+    n = 8
+    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
+    expected = [[], [], [], [0, 1], [0, 2], [0, 1, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3]]
+
+    # TS 2
+    edgeList = [[7, 5], [2, 5], [0, 7], [0, 1], [6, 1], [2, 4], [3, 5]]
+    n = 9
+    print(obj.getAncestors(n, edgeList))
 
 
 if __name__ == "__main__":

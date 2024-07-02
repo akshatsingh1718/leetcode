@@ -119,19 +119,45 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(E) [adj list] + O(V * (V + E)) ~ O(V * (V + E))
+    SC: O(E+V) [adj list] + O(E * E) [result; since worst case every E can have (E-1) ancestors]
 
     ==========================
-    Algorithm:
+    Algorithm: `graph-dfs`
     ==========================
+    1. DFS on nodes/Edges of graph and carry the ancestor from top to bottom.
+    2. check if childs result if empty of last ancestor is not same as the current ancestor we have since a child node can have multiple routes which comes from same ancestor.
     """
 
-    pass
+    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+
+        # DFS
+        def dfs(ancestor: int, currNode: int):
+            nonlocal adjacency_list, result
+
+            for child in adjacency_list[currNode]:
+                if (len(result[child]) == 0) or (result[child][-1] != ancestor):
+                    result[child].append(ancestor)
+                    dfs(ancestor=ancestor, currNode=child)
+
+        adjacency_list = create_adjacency_list(edges, directed=True)  # O(E)
+        result = [[] for _ in range(n)]  # O(V) or O(N)
+        for node_i in range(n):  # O(V)
+            dfs(ancestor=node_i, currNode=node_i)  # O(V+ E)
+
+        return result
 
 
 def main():
     obj = Solution()
+    n = 8
+    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
+    expected = [[], [], [], [0, 1], [0, 2], [0, 1, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3]]
+
+    # TS 2
+    edgeList = [[7, 5], [2, 5], [0, 7], [0, 1], [6, 1], [2, 4], [3, 5]]
+    n = 9
+    print(obj.getAncestors(n, edgeList))
 
 
 if __name__ == "__main__":

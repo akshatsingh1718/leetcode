@@ -123,15 +123,64 @@ class Solution:
     SC:
 
     ==========================
-    Algorithm:
+    Algorithm: `graph-dfs` `kahns-algo`
     ==========================
     """
 
-    pass
+    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+        # create adj list
+        adj = create_adjacency_list(edges, directed=True)
+
+        # create in-degreee
+        indegree = [0 for _ in range(n)]
+
+        # fill the indegrees
+        for node in range(n):
+            for child in adj[node]:
+                indegree[child] += 1
+
+        # find out the 0 indegree nodes
+        queue = []
+        for node in range(n):
+            if indegree[node] == 0:
+                queue.append(node)
+
+        topo_sort = []
+        # start the traversal
+        while queue:
+            node = queue.pop(0)
+            topo_sort.append(node)
+
+            for child in adj[node]:
+                indegree[child] -= 1
+                if indegree[child] == 0:
+                    queue.append(child)
+
+        # find the ancestor
+        res = [set() for _ in range(n)]
+        for node in topo_sort:
+            for child in adj[node]:
+                res[child].add(node)  # add node to ancestor of child
+                res[child].update(res[node])  # add the ancestor of node as well
+
+        # convert set to list and sort
+        for node in range(n):
+            res[node] = list(res[node])
+            res[node].sort()
+
+        return res
 
 
 def main():
     obj = Solution()
+    n = 8
+    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
+    expected = [[], [], [], [0, 1], [0, 2], [0, 1, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3]]
+
+    # TS 2
+    # edgeList = [[7, 5], [2, 5], [0, 7], [0, 1], [6, 1], [2, 4], [3, 5]]
+    # n = 9
+    print(obj.getAncestors(n, edgeList))
 
 
 if __name__ == "__main__":

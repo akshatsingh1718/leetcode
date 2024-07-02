@@ -127,11 +127,36 @@ class Solution:
     ==========================
     """
 
-    pass
+    def topologicalSort(self, edgeList: List[List[int]], n : int):
 
+        def dfs(node: int, stack: List[int], visited : Set[int]):
+            nonlocal edgeList, adj_list
+
+            visited.add(node)
+
+            for child in adj_list[node]:
+                if child not in visited:
+                    dfs(child, stack, visited)
+            stack.append(node)
+
+
+        adj_list = create_adjacency_list(edgeList, directed=True)
+        stack = []
+        visited = set()
+        for node in range(n):
+            if node not in visited:
+                dfs(node, stack, visited)
+
+        res = []
+        while stack:
+            res.append(stack.pop())
+        return res
 
 def main():
     obj = Solution()
+    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
+    n = 8
+    print(obj.topologicalSort(edgeList, n))
 
 
 if __name__ == "__main__":

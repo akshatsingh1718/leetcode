@@ -49,10 +49,8 @@ def printList(head: ListNode):
 
 
 # Graph utils
-def create_adjacency_list(edges: List[tuple], directed=False):
-    # When n nodes is told but graph does not have all the nodes present
-    # this will prevent it from keyerror
-    adjacency_list = defaultdict(lambda: [])
+def create_adjacency_list(edges: List[tuple]):
+    adjacency_list = {}
 
     for edge in edges:
         u, v = edge
@@ -60,10 +58,8 @@ def create_adjacency_list(edges: List[tuple], directed=False):
             adjacency_list[u] = []
         if v not in adjacency_list:
             adjacency_list[v] = []
-
         adjacency_list[u].append(v)
-        if not directed:
-            adjacency_list[v].append(u)
+        adjacency_list[v].append(u)
 
     return adjacency_list
 
@@ -127,11 +123,39 @@ class Solution:
     ==========================
     """
 
-    pass
+    def maximumImportance(self, n: int, roads: List[List[int]]) -> int:
+        # find the max to min connected roads
+        nodes_connected = [0] * n
+
+        for u, v in roads:
+            nodes_connected[u] += 1
+            nodes_connected[v] += 1
+
+        result = 0
+        label = 1
+        for count in sorted(nodes_connected):
+            result += (label * count)
+            label += 1
+
+        return result
 
 
 def main():
     obj = Solution()
+    n = 5
+    roads = [[0, 1], [1, 2], [2, 3], [0, 2], [1, 3], [2, 4]]
+    expected = 43
+
+    # TS 2
+    n = 5
+    roads = [[0,3],[2,4],[1,3]]
+    expected= 20
+
+    # TS 3
+    n = 5
+    roads = [[0, 1]]
+    expected = 9
+    print(obj.maximumImportance(n, roads))
 
 
 if __name__ == "__main__":
