@@ -480,3 +480,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 - [Intersection of Two Arrays II](./intersectionOfTwoArraysIi/)
 - [Topological Sort BFS](./topologicalSortBfs/) `khans-algo`
 - [Topological Sort DFS](./topologicalSortDfs/)
+
+# 03-July-24
+
+- [Minimum Difference Between Largest and Smallest Value in Three Moves](./minimumDifferenceBetweenLargestAndSmallestValueInThreeMoves/)
+
+# 04-July-24
+
+- [Merge Nodes in Between Zeros](./mergeNodesInBetweenZeros/)
