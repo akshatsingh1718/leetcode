@@ -128,11 +128,50 @@ class Solution:
     ==========================
     """
 
-    pass
+    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
+
+        critical_min = [float("-inf"), float("inf")]  # [max, min]
+        critical_max = [float("-inf"), float("inf")]
+        idx = 1
+
+        prv = None
+        while head is not None:
+            if prv is not None and head.next is not None:
+                if prv.val < head.val and head.next.val < head.val:
+                    critical_max[0] = max(idx, critical_max[0])
+                    critical_max[1] = min(idx, critical_max[1])
+                if prv.val > head.val and head.next.val > head.val:
+                    critical_min[0] = max(critical_min[0], idx)
+                    critical_min[1] = min(critical_min[1], idx)
+
+            idx += 1
+            prv = head
+            head = head.next
+        # print(critical_max)
+        # print(critical_min)
+        # # [minDistance, maxDistance]
+        # print(float("inf") in critical_max, float("inf") in critical_max)
+        if float("inf") in critical_max or float("inf") in critical_min:
+            return [-1, -1]
+
+        critical_points = []
+        print(critical_min)
+        print(critical_max)
+        for num in [*critical_min, *critical_max]:
+            if num not in [float("inf"), float("-inf")]:
+                critical_points.append(num)
+        largest2 = heapq.nlargest(2, critical_points)
+        minDistance = largest2[0] - largest2[1]
+        maxDistance = abs(max(critical_points) - min(critical_points))
+        return [minDistance, maxDistance]
 
 
 def main():
     obj = Solution()
+    head = list_to_ll([5, 3, 1, 2, 5, 1, 2])
+    head = list_to_ll([2, 2, 1, 3])
+    expected = [1, 3]
+    print(obj.nodesBetweenCriticalPoints(head))
 
 
 if __name__ == "__main__":

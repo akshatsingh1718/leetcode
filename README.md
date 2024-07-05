@@ -488,3 +488,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 04-July-24
 
 - [Merge Nodes in Between Zeros](./mergeNodesInBetweenZeros/)
+
+# 05-July-24
+
+- [Find the Minimum and Maximum Number of Nodes Between Critical Points](./findTheMinimumAndMaximumNumberOfNodesBetweenCriticalPoints/)

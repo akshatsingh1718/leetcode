@@ -32,4 +32,9 @@ def printList(head: ListNode):
         lstr += str(head.val) + ", "
         head = head.next
     
+
+
     print(lstr)
+
+
+x = 0

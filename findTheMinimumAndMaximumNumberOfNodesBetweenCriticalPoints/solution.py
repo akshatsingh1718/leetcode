@@ -128,11 +128,50 @@ class Solution:
     ==========================
     """
 
-    pass
+    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
+        minDistance, maxDistance = float("inf"), -1
+
+        prev = head
+        curr = head.next
+        nxt = head.next.next
+        idx = 1  # pointing to the head.next since we are moving from 1st index and 0th idx can never be a critical
+
+        # first critical point and prv critical point
+        first_crit_idx = 0
+        prv_crit_idx = 0
+
+        def critical(prv, curr, nxt):
+            return (prv.val < curr.val > nxt.val) or (prv.val > curr.val < nxt.val)
+
+        while nxt is not None:  # only move till the 2nd last node
+
+            if critical(prev, curr, nxt):
+                # if first idx is found already
+                if first_crit_idx != 0:
+                    maxDistance = idx - first_crit_idx
+                    minDistance = min(minDistance, idx - prv_crit_idx)
+
+                else:
+                    first_crit_idx = idx
+
+                prv_crit_idx = idx  # update the last crit idx we found
+
+            prev, curr, nxt = curr, nxt, nxt.next
+
+            idx += 1
+
+        if minDistance == float("inf"):
+            minDistance = -1
+
+        return [minDistance, maxDistance]
 
 
 def main():
     obj = Solution()
+    head = list_to_ll([5, 3, 1, 2, 5, 1, 2])
+    head = list_to_ll([2, 2, 1, 3])
+    expected = [1, 3]
+    print(obj.nodesBetweenCriticalPoints(head))
 
 
 if __name__ == "__main__":
