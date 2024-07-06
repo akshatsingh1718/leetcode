@@ -492,3 +492,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 05-July-24
 
 - [Find the Minimum and Maximum Number of Nodes Between Critical Points](./findTheMinimumAndMaximumNumberOfNodesBetweenCriticalPoints/)
+
+# 06-July-24
+
+- [Pass the Pillow](./passThePillow/)
