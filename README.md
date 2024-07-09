@@ -504,3 +504,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 08-July-24
 
 - [Find the Winner of the Circular Game](./findTheWinnerOfTheCircularGame/)
+
+# 09-July-24
+
+- [Average Waiting Time](./averageWaitingTime/)
