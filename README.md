@@ -508,3 +508,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 09-July-24
 
 - [Average Waiting Time](./averageWaitingTime/)
+
+# 10-July-24
+
+- [Crawler Log Folder](./crawlerLogFolder/)
