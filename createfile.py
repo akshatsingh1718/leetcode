@@ -11,7 +11,7 @@ PREP_DIR = "../prep"
 
 def heading_to_camel_case(heading: str) -> str:
     words = heading.split()
-    camel_case_heading = words[0].lower() + "".join(word.title() for word in words[1:])
+    camel_case_heading = words[0].lower() + "".join(word for word in words[1:])
     return camel_case_heading
 
 

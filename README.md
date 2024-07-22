@@ -512,3 +512,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 10-July-24
 
 - [Crawler Log Folder](./crawlerLogFolder/)
+
+# 22-July-24
+
+- [Sort the People](./sortthePeople/)
