@@ -516,3 +516,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 22-July-24
 
 - [Sort the People](./sortthePeople/)
+
+# 23-July-24
+
+- [Sort Array by Increasing Frequency](./sortArraybyIncreasingFrequency/)
+
+# 24-July-24
+
+- [Sort the Jumbled Numbers](./sorttheJumbledNumbers/)
