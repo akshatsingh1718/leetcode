@@ -524,3 +524,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 24-July-24
 
 - [Sort the Jumbled Numbers](./sorttheJumbledNumbers/)
+
+# 25-July-24
+
+- [Sort An Array](./sortanArray/)
