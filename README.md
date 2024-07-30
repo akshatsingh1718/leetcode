@@ -528,3 +528,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 25-July-24
 
 - [Sort An Array](./sortanArray/)
+
+# 29-July-24
+
+- [Count Number of Teams](./countNumberofTeams/)
+
+# 30-July-24
+
+- [Minimum Deletions to Make String Balanced](./minimumDeletionstoMakeStringBalanced/)
