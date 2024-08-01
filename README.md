@@ -536,3 +536,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 30-July-24
 
 - [Minimum Deletions to Make String Balanced](./minimumDeletionstoMakeStringBalanced/)
+
+# 31-July-24
+
+- [Filling Bookcase Shelves](./fillingBookcaseShelves/)
+
+# 01-Aug-24
+
+- [Number of Senior Citizens](./numberofSeniorCitizens/)
