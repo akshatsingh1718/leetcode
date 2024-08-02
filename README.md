@@ -544,3 +544,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 01-Aug-24
 
 - [Number of Senior Citizens](./numberofSeniorCitizens/)
+
+# 02-Aug-24
+
+- [Minimum Swaps to Group All 1's Together II](./minimumSwapstoGroupAll1sTogetherII/)
