@@ -548,3 +548,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 02-Aug-24
 
 - [Minimum Swaps to Group All 1's Together II](./minimumSwapstoGroupAll1sTogetherII/)
+
+# 03-Aug-24
+
+- [Make Two Arrays Equal by Reversing Subarrays](./makeTwoArraysEqualbyReversingSubarrays/)
