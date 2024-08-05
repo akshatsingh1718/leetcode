@@ -552,3 +552,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 03-Aug-24
 
 - [Make Two Arrays Equal by Reversing Subarrays](./makeTwoArraysEqualbyReversingSubarrays/)
+
+# 04-Aug-24
+
+- [Range Sum of Sorted Subarray Sums](./rangeSumofSortedSubarraySums/)
+
+# 05-Aug-24
+
+- [Kth Distinct String in an Array](./kthDistinctStringinanArray/)
