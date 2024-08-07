@@ -560,3 +560,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 05-Aug-24
 
 - [Kth Distinct String in an Array](./kthDistinctStringinanArray/)
+
+# 06-Aug-24
+
+- [Minimum Number of Pushes to Type Word II](./minimumNumberofPushestoTypeWordII/)
+
+# 07-Aug-24
+
+- [Integer to English Words](./integertoEnglishWords/)
