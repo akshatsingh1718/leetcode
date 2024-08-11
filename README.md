@@ -568,3 +568,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 07-Aug-24
 
 - [Integer to English Words](./integertoEnglishWords/)
+
+# 10-Aug-24
+
+- [Regions Cut By Slashes](./regionsCutBySlashes/)
+
+# 11-Aug-24
+
+- [Minimum Number of Days to Disconnect Island](./minimumNumberofDaystoDisconnectIsland/)
