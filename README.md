@@ -584,3 +584,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 13-Aug-24
 
 - [Combination Sum II](./combinationSumII/)
+
+# 15-Aug-24
+
+- [Lemonade Change](./lemonadeChange/)
+
+# 16-Aug-24
+
+- [Maximum Distance in Arrays](./maximumDistanceinArrays/)
