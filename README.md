@@ -592,3 +592,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 16-Aug-24
 
 - [Maximum Distance in Arrays](./maximumDistanceinArrays/)
+
+# 17-Aug-24
+
+- [Maximum Number of Points with Cost](./maximumNumberofPointswithCost)
