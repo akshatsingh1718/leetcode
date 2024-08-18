@@ -596,3 +596,13 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 17-Aug-24
 
 - [Maximum Number of Points with Cost](./maximumNumberofPointswithCost)
+- [Find the Power of K-Size Subarrays II](./findthePowerofK-SizeSubarraysII/)
+
+**Biweekly Contest 137 | 1 submission**
+
+- [Find the Power of K-Size Subarrays I](./findthePowerofK-SizeSubarraysI/)
+
+# 18-Aug-24
+
+- [Ugly Number](./uglyNumber/)
+- [Ugly Number II](./uglyNumberII/)
