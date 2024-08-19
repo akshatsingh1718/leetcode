@@ -606,3 +606,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 - [Ugly Number](./uglyNumber/)
 - [Ugly Number II](./uglyNumberII/)
+
+# 19-Aug-24
+
+- [2 Keys Keyboard](./2KeysKeyboard/) `maths` `prime-factor`
