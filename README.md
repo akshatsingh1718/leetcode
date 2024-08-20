@@ -610,3 +610,8 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 19-Aug-24
 
 - [2 Keys Keyboard](./2KeysKeyboard/) `maths` `prime-factor`
+
+# 20-Aug-24
+
+- [Stone Game](./stoneGame/)
+- [Stone Game II](./stoneGameII/)

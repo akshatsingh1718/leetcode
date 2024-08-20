@@ -13,6 +13,7 @@
 - if the least significant digit is 1 then number is odd else even.
 - Eg 1. Bin(2) = b"10" least significant digit is 0 so its even.
 - Eg 2. Bin(3) = b"11" least significant digit is 1 so its odd.
+- odd & 1 => 1; even & 1 => 0
 
 ## Divide by 2 (using >> )
 
