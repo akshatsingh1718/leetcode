@@ -8,6 +8,21 @@
 
 # Binary
 
+## Create a binary of all 1's given a number
+
+- We left shift 1 with the length of the binary num and negating 1 from it will give us that last all ones before becoming the 1000...
+  as left shift will create the binary nums staring with a single one and rest all zeros.
+
+```py
+num = 5
+length = num.bit_length()
+all_ones = (1 << length) - 1
+
+# 5 -> 101
+# length = 3
+# (b0001 << 3) - 1 = (b1000) - 1= 8 - 1 = 7 => b111
+```
+
 ## Odd or even ?
 
 - if the least significant digit is 1 then number is odd else even.

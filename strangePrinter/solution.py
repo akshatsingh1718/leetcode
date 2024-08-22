@@ -120,19 +120,54 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n) [remove dups] +  O(n) [for each index k] * O(n * (n+1) / 2) [substrings] ~ O(n^3)
+    SC: O(n^2) [memo]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def strangePrinter(self, s: str) -> int:
+        # remove consecutive characters to make problem input simples
+        # "aabbca" -> "abca"
+        new_s = "".join(char for char, _ in it.groupby(s))
+        n = len(new_s)
+        memo = [([-1] * n) for _ in range(n)]
+
+        # helper to find the min no of printers needed between start -> end
+        def find_min_prints(start: int, end: int):
+            nonlocal new_s, memo
+            if start > end:
+                return 0
+
+            if memo[start][end] != -1:
+                return memo[start][end]
+
+            # set the worst case scenario where we are assuming all the
+            # characters are printed separately
+            min_prints = 1 + find_min_prints(start + 1, end)
+
+            # find out if there is a kth index that is same as start index
+            for k in range(start + 1, end + 1):
+                if new_s[start] == new_s[k]:  # found the match
+                    min_prints_with_match = find_min_prints(
+                        start, k - 1
+                    ) + find_min_prints(k + 1, end)
+
+                    min_prints = min(min_prints, min_prints_with_match)
+
+            memo[start][end] = min_prints
+            return min_prints
+
+        return find_min_prints(start=0, end=n - 1)
 
 
 def main():
     obj = Solution()
+    s = "aaabbb"
+    expected = 2
+    print(obj.strangePrinter(s))
 
 
 if __name__ == "__main__":

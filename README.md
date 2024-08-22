@@ -615,3 +615,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 - [Stone Game](./stoneGame/)
 - [Stone Game II](./stoneGameII/)
+
+# 21-Aug-24
+
+- [Strange Printer](./strangePrinter/)
+
+# 22-Aug-24
+
+- [Number Complement](./numberComplement/)

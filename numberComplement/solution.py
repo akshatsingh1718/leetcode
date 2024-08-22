@@ -5,7 +5,7 @@ from functools import cache
 from math import floor, ceil
 import heapq
 from heapq import heapify, heappop, heappush
-import itertools as it
+
 import sys
 
 # Check the current recursion limit
@@ -120,19 +120,27 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(1)
+    SC: O(1)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def findComplement(self, num: int) -> int:
+        binary = "".join("1" if b == "0" else "0" for b in bin(num)[2:])
+        print(num.bit_length())
+        return int(binary, 2)
 
 
 def main():
     obj = Solution()
+    num = 5
+    # TS 2
+    # num = 1
+    # expected = 0
+    print(obj.findComplement(num))
 
 
 if __name__ == "__main__":
