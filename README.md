@@ -20,6 +20,7 @@
 - `prefix`: Taking prefix of something like xor, sum or odd numbers
 - `moore-voting-algo` : Moore Voting Algo for getting the majority element
 - `khans-algo` : Graph traversal using BFS
+- `simulation` : Perform simple simulation
 
 ## TODOS
 
@@ -618,8 +619,12 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 # 21-Aug-24
 
-- [Strange Printer](./strangePrinter/)
+- [Strange Printer](./strangePrinter/) `dp`
 
 # 22-Aug-24
 
-- [Number Complement](./numberComplement/)
+- [Number Complement](./numberComplement/) `xor`
+
+# 23-Aug-24
+
+- [Fraction Addition and Subtraction](./fractionAdditionandSubtraction/) `simulation`

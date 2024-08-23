@@ -120,19 +120,75 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(1)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    pass
+    def fractionAddition(self, expression: str) -> str:
+        nume = 0
+        deno = 1
+
+        n = len(expression)
+
+        i = 0
+        while i < n:
+            is_negative = False
+            curr_nume = 0
+            curr_deno = 0
+            if expression[i] in ["+", "-"]:
+                is_negative = expression[i] == "-"
+                i += 1
+
+            # find the numenator
+            while i < n and expression[i].isdigit():
+                val = ord(expression[i]) - ord("0")
+                curr_nume = (curr_nume * 10) + val
+                i += 1
+
+            # change the sign of nume
+            curr_nume *= -1 if is_negative else 1
+
+            # skip the division
+            i += 1  # expression[i] is "/"
+
+            # find the denomenator
+            while i < n and expression[i].isdigit():
+                val = ord(expression[i]) - ord("0")
+                curr_deno = (curr_deno * 10) + val
+                i += 1
+
+            # calculate the new nume and deno
+            # print(f"{nume=} {deno=} {curr_nume=} {curr_deno=} {is_negative}")
+            nume = nume * curr_deno + curr_nume * deno
+            deno = curr_deno * deno
+
+        # we have the nume and deno
+        # get the irreducible fraction terms
+        _gcd = abs(gcd(nume, deno))
+
+        nume //= _gcd
+        deno //= _gcd
+
+        return f"{nume}/{deno}"
 
 
 def main():
     obj = Solution()
+    expression = "-1/2+1/2"
+    expected = "0/1"
+
+    # TS 2
+    expression = "-1/2+1/2+1/3"
+    expected = "1/3"
+
+    # TS 3
+    expression = "1/3-1/2"
+    output = "-1/6"
+    print(obj.fractionAddition(expression))
 
 
 if __name__ == "__main__":
