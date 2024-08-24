@@ -628,3 +628,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 23-Aug-24
 
 - [Fraction Addition and Subtraction](./fractionAdditionandSubtraction/) `simulation`
+
+# 24-Aug-24
+
+- [Find the Closest Palindrome](./findtheClosestPalindrome/)
