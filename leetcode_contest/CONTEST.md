@@ -33,7 +33,6 @@
 - ✅ [Find the Child Who Has the Ball After K Seconds](./findTheChildWhoHasTheBallAfterKSeconds/)
 - ✅ [Find the N-th Value After K Seconds](./findTheN-ThValueAfterKSeconds/)
 
-
 # Biweekly Contest 133 | 3 submission
 
 - ✅ [Find Minimum Operations to Make All Elements Divisible by Three](./findMinimumOperationsToMakeAllElementsDivisibleByThree/)
@@ -44,3 +43,13 @@
 
 - ✅ [Minimum Average of Smallest and Largest Elements](./minimumAverageOfSmallestAndLargestElements/)
 - ✅ [Find the Minimum Area to Cover All Ones I](./findTheMinimumAreaToCoverAllOnesI/)
+
+# Biweekly Contest 137 | 1 submission\*\*
+
+- ✅ [Find the Power of K-Size Subarrays I](./findthePowerofK-SizeSubarraysI/)
+
+# Biweekly Contest 138 | 3 submission\*\*
+
+- ✅ [Hash Divided String](./hashDividedString/)
+- ✅ [Find the Key of the Numbers](./findtheKeyoftheNumbers/)
+- ✅ [Minimum Amount of Damage Dealt to Bob](./minimumAmountofDamageDealttoBob/)
