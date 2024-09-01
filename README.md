@@ -657,8 +657,18 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 - [Path with Maximum Probability](./pathwithMaximumProbability/)
 
-**Biweekly Contest 138 | 1 submission**
+**Biweekly Contest 138 | 3 submission**
 
 - [Hash Divided String](./hashDividedString/)
 - [Find the Key of the Numbers](./findtheKeyoftheNumbers/)
 - [Minimum Amount of Damage Dealt to Bob](./minimumAmountofDamageDealttoBob/) `math`
+
+# 1-Sep-24
+
+- [Convert 1D Array Into 2D Array](./convert1DArrayInto2DArray/)
+
+**Weekly Contest 413 | 2 submission**
+
+- [Check if Two Chessboard Squares Have the Same Color](./checkifTwoChessboardSquaresHavetheSameColor/)
+- [K-th Nearest Obstacle Queries](./k-thNearestObstacleQueries/)
+- (\*TLE) [Select Cells in Grid With Maximum Score](./selectCellsinGridWithMaximumScore/)
