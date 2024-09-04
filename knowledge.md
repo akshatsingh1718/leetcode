@@ -49,3 +49,21 @@ all_ones = (1 << length) - 1
 # Heap
 
 - If asked about kth smallest take max heap and vice versa because heap can pop the top elements and if we take an example of kth smallest then max heap will have larger elements on the top and we can easily pop bigger elements. The size of the heap will be k. If a new element is added to the heap and its length gets greater than k then we will pop the largest (top element) and at the end out heap will have the smallest element at the top.
+
+# DSU
+
+- used for dynamic graphs which are constantly changing.
+- Takes O(1) constant time to find if a node is connected with another given node.
+- It has 2 things:
+  - `find_parent()`: finds the parent of the node.
+  - `union`: has `rank` and `size`.
+
+## Pseudo code:
+
+1. find ultimate parent of u & v which is pu & pv.
+2. Find rank of pu & pv.
+3. Connect smaller rank to larger rank always.
+
+- **path compression**:
+  - Make the ultimate parent of all nodes as their parent.
+  - Eg.- 1 -> 2 -> 3 -> 4 -> 5. The parent of 5 should be 1 (ultimate parent) and not 4 as we want to get the parent in O(1) constant time to know whether two nodes are in the same component or not.

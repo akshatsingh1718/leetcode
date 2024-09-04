@@ -672,3 +672,15 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 - [Check if Two Chessboard Squares Have the Same Color](./checkifTwoChessboardSquaresHavetheSameColor/)
 - [K-th Nearest Obstacle Queries](./k-thNearestObstacleQueries/)
 - (\*TLE) [Select Cells in Grid With Maximum Score](./selectCellsinGridWithMaximumScore/)
+
+# 2-Sep-24
+
+- [Find the Student that Will Replace the Chalk](./findtheStudentthatWillReplacetheChalk/)
+
+# 3-Sep-24
+
+- [Sum of Digits of String After Convert](./sumofDigitsofStringAfterConvert/)
+
+# 4-Sep-24
+
+- [Walking Robot Simulation](./walkingRobotSimulation/)
