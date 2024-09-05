@@ -684,3 +684,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 4-Sep-24
 
 - [Walking Robot Simulation](./walkingRobotSimulation/)
+
+# 5-Sep-24
+
+- [Find Missing Observations](./findMissingObservations/)
