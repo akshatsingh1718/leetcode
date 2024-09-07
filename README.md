@@ -688,3 +688,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 5-Sep-24
 
 - [Find Missing Observations](./findMissingObservations/)
+
+# 6-Sep-24
+
+- [Delete Nodes From Linked List Present in Array](./deleteNodesFromLinkedListPresentinArray/)
+
+# 7-Sep-24
+
+- [Linked List in Binary Tree](./linkedListinBinaryTree/)
