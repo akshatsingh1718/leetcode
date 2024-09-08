@@ -696,3 +696,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 7-Sep-24
 
 - [Linked List in Binary Tree](./linkedListinBinaryTree/)
+
+# 8-Sep-24
+
+- [Split Linked List in Parts](./splitLinkedListinParts/)
