@@ -663,7 +663,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 - [Find the Key of the Numbers](./findtheKeyoftheNumbers/)
 - [Minimum Amount of Damage Dealt to Bob](./minimumAmountofDamageDealttoBob/) `math`
 
-# 1-Sep-24
+# 01-Sep-24
 
 - [Convert 1D Array Into 2D Array](./convert1DArrayInto2DArray/)
 
@@ -673,30 +673,38 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 - [K-th Nearest Obstacle Queries](./k-thNearestObstacleQueries/)
 - (\*TLE) [Select Cells in Grid With Maximum Score](./selectCellsinGridWithMaximumScore/)
 
-# 2-Sep-24
+# o2-Sep-24
 
 - [Find the Student that Will Replace the Chalk](./findtheStudentthatWillReplacetheChalk/)
 
-# 3-Sep-24
+# 03-Sep-24
 
 - [Sum of Digits of String After Convert](./sumofDigitsofStringAfterConvert/)
 
-# 4-Sep-24
+# 04-Sep-24
 
 - [Walking Robot Simulation](./walkingRobotSimulation/)
 
-# 5-Sep-24
+# 05-Sep-24
 
 - [Find Missing Observations](./findMissingObservations/)
 
-# 6-Sep-24
+# 06-Sep-24
 
 - [Delete Nodes From Linked List Present in Array](./deleteNodesFromLinkedListPresentinArray/)
 
-# 7-Sep-24
+# 07-Sep-24
 
 - [Linked List in Binary Tree](./linkedListinBinaryTree/)
 
-# 8-Sep-24
+# 08-Sep-24
 
 - [Split Linked List in Parts](./splitLinkedListinParts/)
+
+# 09-Sep-24
+
+- [Spiral Matrix IV](./spiralMatrixIV/)
+
+# 10-Sep-24
+
+- [Insert Greatest Common Divisors in Linked List](./insertGreatestCommonDivisorsinLinkedList/)
