@@ -8,6 +8,14 @@
 
 # Binary
 
+## what is a set bit?
+
+A set bit is a bit in a binary number that has a value of 1
+
+## Count no of set bits / count no of 1's in a binary representation.
+
+- brian kernighan’s algorithm
+
 ## Create a binary of all 1's given a number
 
 - We left shift 1 with the length of the binary num and negating 1 from it will give us that last all ones before becoming the 1000...

@@ -708,3 +708,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 10-Sep-24
 
 - [Insert Greatest Common Divisors in Linked List](./insertGreatestCommonDivisorsinLinkedList/)
+
+# 11-Se-24
+
+- ⭐ [Minimum Bit Flips to Convert Number](./minimumBitFlipstoConvertNumber/) `bit-manipulation`
