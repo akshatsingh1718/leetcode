@@ -709,6 +709,10 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 - [Insert Greatest Common Divisors in Linked List](./insertGreatestCommonDivisorsinLinkedList/)
 
-# 11-Se-24
+# 11-Sep-24
 
 - ⭐ [Minimum Bit Flips to Convert Number](./minimumBitFlipstoConvertNumber/) `bit-manipulation`
+
+# 12-Sep-24
+
+- [Count the Number of Consistent Strings](./counttheNumberofConsistentStrings/)
