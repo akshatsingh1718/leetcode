@@ -1,0 +1,199 @@
+from typing import List, Optional, Union, Dict, Tuple, Set
+from bisect import bisect, bisect_left, bisect_right
+from collections import Counter, defaultdict, deque
+from functools import cache
+from math import floor, ceil, gcd
+import heapq
+from heapq import heapify, heappop, heappush
+import itertools as it
+import sys
+
+# Check the current recursion limit
+current_limit = sys.getrecursionlimit()
+
+# Set a new recursion limit
+new_limit = 10**5  # Set this to the desired limit
+sys.setrecursionlimit(new_limit)
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+def isListsSame(list1: ListNode, list2: ListNode):
+    head1, head2 = list1, list2
+    while (head1 != None) or (head2 != None):
+        if head1.val != head2.val:
+            return False
+        head1 = head1.next
+        head2 = head2.next
+
+    return True
+
+
+def printList(head: ListNode):
+    lstr: str = ""
+    while head is not None:
+        lstr += str(head.val) + ", "
+        head = head.next
+
+    print(lstr)
+
+
+# Graph utils
+def create_adjacency_list(edges: List[tuple], directed=False):
+    # When n nodes is told but graph does not have all the nodes present
+    # this will prevent it from keyerror
+    adjacency_list = defaultdict(lambda: [])
+
+    for edge in edges:
+        u, v = edge
+        if u not in adjacency_list:
+            adjacency_list[u] = []
+        if v not in adjacency_list:
+            adjacency_list[v] = []
+
+        adjacency_list[u].append(v)
+        if not directed:
+            adjacency_list[v].append(u)
+
+    return adjacency_list
+
+
+# List utils
+
+
+def list_to_ll(vector: List[int]):
+    prv_node = None
+    for i, val in enumerate(vector[::-1]):
+        prv_node = ListNode(val, prv_node)
+    return prv_node
+
+
+# Tree Utils
+def list_to_binary_tree(lst: List[int]):
+    if not lst:
+        return None
+
+    root = TreeNode(lst[0])
+    queue = [root]
+    i = 1
+
+    while queue and i < len(lst):
+        current_node = queue.pop(0)
+
+        if lst[i] is not None:
+            current_node.left = TreeNode(lst[i])
+            queue.append(current_node.left)
+
+        i += 1
+
+        if i < len(lst) and lst[i] is not None:
+            current_node.right = TreeNode(lst[i])
+            queue.append(current_node.right)
+
+        i += 1
+
+    return root
+
+
+###################################################
+################# Code Goes Here ##################
+###################################################
+"""
+Problem:
+Help:
+"""
+
+
+class Solution:
+    """
+    ==========================
+    Time and space complexity:
+    ==========================
+    TC: O(m * n)
+    SC: O(m* n) [for hp array]
+
+    ==========================
+    Algorithm: `dijkstra` `path-finding`
+    ==========================
+    1. Create directions, queue and hp (act as visited positions with max possible health).
+    2. Start a while loop until we reach the bottom right end or ran out of health
+    """
+
+    def findSafeWalk(self, grid: List[List[int]], health: int) -> bool:
+        ROWS = len(grid)
+        COLS = len(grid[0])
+
+        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+        queue = [((0, 0), health - grid[0][0])]
+
+        hp = [[-1] * COLS for _ in range(ROWS)]
+        hp[0][0] = health - grid[0][0]
+
+        while queue:
+
+            (x, y), current_h = queue.pop(0)
+
+            # print(f"{x, y} | health={current_h}")
+            if x == ROWS - 1 and y == COLS - 1 and current_h > 0:
+                return True
+
+            for dx, dy in directions:
+                new_x = x + dx
+                new_y = y + dy
+
+                if new_x >= 0 and new_x < ROWS and new_y >= 0 and new_y < COLS:
+                    new_h = current_h - grid[new_x][new_y]
+                    if new_h > 0 and new_h > hp[new_x][new_y]:
+                        queue.append(((new_x, new_y), new_h))
+                        hp[new_x][new_y] = new_h
+
+        return False
+
+
+def main():
+    obj = Solution()
+    grid = [[0, 1, 0, 0, 0], [0, 1, 0, 1, 0], [0, 0, 0, 1, 0]]
+    health = 1
+    expected = True
+
+    # TS 2
+    grid = [
+        [0, 1, 1, 0, 0, 0],
+        [1, 0, 1, 0, 0, 0],
+        [0, 1, 1, 1, 0, 1],
+        [0, 0, 1, 0, 1, 0],
+    ]
+    health = 3
+    expected = False
+
+    # TS 3
+    # grid = [[1, 1, 1, 1]]
+    # health = 4
+    # expected = False
+
+    # TS 4
+    # grid = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
+    # health = 5
+    # expected = True
+
+    # TS 5
+    # grid = [[1, 0, 1, 1], [0, 0, 0, 1], [1, 0, 1, 1], [0, 1, 1, 0], [1, 0, 0, 1]]
+    # health = 4
+    # expected = True
+    print(obj.findSafeWalk(grid, health))
+
+
+if __name__ == "__main__":
+    main()

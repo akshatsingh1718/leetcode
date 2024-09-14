@@ -724,3 +724,8 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 14-Sep-24
 
 -   [Longest Subarray With Maximum Bitwise AND](./longestSubarrayWithMaximumBitwiseAND/)
+
+**Biweekly Contest 139 | 2 submission**
+
+-   [Find Indices of Stable Mountains](./findIndicesofStableMountains/)
+-   [Find a Safe Walk Through a Grid](./findaSafeWalkThroughaGrid/) `dijkstra` `path-finding`
