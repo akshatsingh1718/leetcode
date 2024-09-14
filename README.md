@@ -720,3 +720,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 13-Sep-24
 
 -   [XOR Queries of a Subarray](./xorQueriesofaSubarray/) `prefix-xor`
+
+# 14-Sep-24
+
+-   [Longest Subarray With Maximum Bitwise AND](./longestSubarrayWithMaximumBitwiseAND/)
