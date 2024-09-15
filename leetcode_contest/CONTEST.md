@@ -58,3 +58,8 @@
 
 -   ✅ [Find Indices of Stable Mountains](./findIndicesofStableMountains/)
 -   ✅ [Find a Safe Walk Through a Grid](./findaSafeWalkThroughaGrid/) `dijkstra` `path-finding`
+
+# Weekly Contest 415 | 2 submission
+
+-   ✅ [The Two Sneaky Numbers of Digitville](./theTwoSneakyNumbersofDigitville/)
+-   ✅ [Maximum Multiplication Score](./maximumMultiplicationScore/) `dp`
