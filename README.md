@@ -730,7 +730,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 -   [Find Indices of Stable Mountains](./findIndicesofStableMountains/)
 -   [Find a Safe Walk Through a Grid](./findaSafeWalkThroughaGrid/) `dijkstra` `path-finding`
 
-# 15-sep-24
+# 15-Sep-24
 
 -   ⭐ [Find the Longest Substring Containing Vowels in Even Counts](./findtheLongestSubstringContainingVowelsinEvenCounts/) `bit-manipulation`
 
@@ -738,3 +738,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [The Two Sneaky Numbers of Digitville](./theTwoSneakyNumbersofDigitville/)
 -   [Maximum Multiplication Score](./maximumMultiplicationScore/) `dp`
+
+# 16-Sep-24
+
+-   ⭐ [Minimum Time Difference](./minimumTimeDifference/)
+
+# 17-Sep-24
+
+-   [Uncommon Words from Two Sentences](./uncommonWordsfromTwoSentences/)
