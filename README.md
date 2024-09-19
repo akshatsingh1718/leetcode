@@ -746,3 +746,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 17-Sep-24
 
 -   [Uncommon Words from Two Sentences](./uncommonWordsfromTwoSentences/)
+
+# 18-Sep-24
+
+-   [Largest Number](./largestNumber/)
+
+# 19-Sep-24
+
+-   [Different Ways to Add Parentheses](./differentWaystoAddParentheses/)
