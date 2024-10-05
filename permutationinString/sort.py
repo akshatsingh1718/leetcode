@@ -114,71 +114,40 @@ Problem:
 Help:
 """
 
-class Node():
-    def __init__(self, freq: int = 0, _next=None, prv = None ) -> None:
-        self.freq = freq
-        self.next = _next 
-        self.prv = prv
-        self.store = set()
 
-class AllOne:
+class Solution:
+    """
+    ==========================
+    Time and space complexity:
+    ==========================
+    m = len(s2)
+    n = len(s1)
+    TC: O(m-n) [loop runs] * O(nlgon) [sort s2 size array of s1]
+    SC: O(n) [s1_list] + O(n) [s2_list]
 
-    def __init__(self):
-        self.dhead = Node(-1)
-        self.dtail = Node(float("inf"))
+    ==========================
+    Algorithm:
+    ==========================
+    """
 
-        self.dhead.next = self.dtail
-        self.dtail.prv = self.dhead
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        s1_list = [s for s in s1]
+        s1_list.sort()
 
-        self.map = dict()
+        for i in range(len(s2) - len(s1) + 1):
+            s2_list = [s for s in s2[i : i + len(s1)]]
+            s2_list.sort()
+            if s1_list == s2_list:
+                return True
 
-
-    def inc(self, key: str) -> None:
-        # increment the node till we find the word
-        node = self.dhead
-
-        while node is not None and key not in node.store and node is not self.dtail:
-            node = node.next
-
-        # here we get the node
-        if 
-
-
-    def dec(self, key: str) -> None:
-        if key not in self.store:
-            return
-
-        self.store[key] -= 1
-        if self.store[key] == 0:
-            del self.store[key]
-
-    def getMaxKey(self) -> str:
-        if len(self.store) == 0:
-            return ""
-
-        maxVal = max(self.store.values())
-        resp = ""
-        for key in self.store:
-            if self.store[key] == maxVal:
-                resp = key
-                break
-        return resp
-
-    def getMinKey(self) -> str:
-        if len(self.store) == 0:
-            return ""
-
-        maxVal = min(self.store.values())
-        resp = ""
-        for key in self.store:
-            if self.store[key] == maxVal:
-                resp = key
-                break
-        return resp
+        return False
 
 
 def main():
-    obj = AllOne()
+    obj = Solution()
+    s1 = "ab"
+    s2 = "eidbaooo"
+    print(obj.checkInclusion(s1, s2))
 
 
 if __name__ == "__main__":

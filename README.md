@@ -755,18 +755,27 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Different Ways to Add Parentheses](./differentWaystoAddParentheses/)
 
+# 29-Sep-24
+
+-   [All O`one Data Structure](./allOoneDataStructure/)
+
 # 30-Sep-24
 
 -   [Design a Stack With Increment Operation](./designaStackWithIncrementOperation/)
 
-# 1-oct-24
+# 1-Oct-24
 
 -   [Check If Array Pairs Are Divisible by k](./checkIfArrayPairsAreDivisiblebyk/)
 
-# 2-oct-24
+# 2-Oct-24
 
 -   [Rank Transform of an Array](./rankTransformofanArray/)
 
-# 4-oct-24
+# 4-Oct-24
 
 -   [Divide Players Into Teams of Equal Skill](./dividePlayersIntoTeamsofEqualSkill/)
+
+# 5-Oct-24
+
+-   [Permutations](./permutations/)
+-   [Permutation in String](./permutationinString/)

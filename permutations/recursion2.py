@@ -110,75 +110,50 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
-Help:
+Problem: https://leetcode.com/problems/permutations
+Help: https://www.youtube.com/watch?v=T8hqjK94Fig
 """
 
-class Node():
-    def __init__(self, freq: int = 0, _next=None, prv = None ) -> None:
-        self.freq = freq
-        self.next = _next 
-        self.prv = prv
-        self.store = set()
 
-class AllOne:
+class Solution:
+    """
+    ==========================
+    Time and space complexity:
+    ==========================
+    TC: O(n!) [find permutation] * O(n) [copy store to res]
+    SC: O(n) [store] + O(n) [temp set]
 
-    def __init__(self):
-        self.dhead = Node(-1)
-        self.dtail = Node(float("inf"))
+    ==========================
+    Algorithm:
+    ==========================
+    """
 
-        self.dhead.next = self.dtail
-        self.dtail.prv = self.dhead
+    def permute(self, nums: List[int]) -> List[List[int]]:
 
-        self.map = dict()
+        n = len(nums)
+        res = []
 
+        def solve(start: int, store: List[int]):
+            if start == n:
+                res.append(store[:])  # O(n) copy
+                return
 
-    def inc(self, key: str) -> None:
-        # increment the node till we find the word
-        node = self.dhead
+            for i in range(start, n):
+                # swap
+                store[i], store[start] = store[start], store[i]
+                solve(start + 1, store)
+                # un-swap
+                store[i], store[start] = store[start], store[i]
 
-        while node is not None and key not in node.store and node is not self.dtail:
-            node = node.next
-
-        # here we get the node
-        if 
-
-
-    def dec(self, key: str) -> None:
-        if key not in self.store:
-            return
-
-        self.store[key] -= 1
-        if self.store[key] == 0:
-            del self.store[key]
-
-    def getMaxKey(self) -> str:
-        if len(self.store) == 0:
-            return ""
-
-        maxVal = max(self.store.values())
-        resp = ""
-        for key in self.store:
-            if self.store[key] == maxVal:
-                resp = key
-                break
-        return resp
-
-    def getMinKey(self) -> str:
-        if len(self.store) == 0:
-            return ""
-
-        maxVal = min(self.store.values())
-        resp = ""
-        for key in self.store:
-            if self.store[key] == maxVal:
-                resp = key
-                break
-        return resp
+        solve(0, nums)
+        return res
 
 
 def main():
-    obj = AllOne()
+    obj = Solution()
+    nums = [1, 2, 3]
+    expected = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+    print(obj.permute(nums))
 
 
 if __name__ == "__main__":
