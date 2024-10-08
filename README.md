@@ -779,3 +779,15 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Permutations](./permutations/)
 -   [Permutation in String](./permutationinString/)
+
+# 6-Oct-24
+
+-   [Sentence Similarity III](./sentenceSimilarityIII/)
+
+# 7-Oct-24
+
+-   [Minimum String Length After Removing Substrings](./minimumStringLengthAfterRemovingSubstrings/)
+
+# 8-Oct-24
+
+-   [Minimum Number of Swaps to Make the String Balanced](./minimumNumberofSwapstoMaketheStringBalanced/)
