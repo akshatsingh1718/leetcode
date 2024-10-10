@@ -771,6 +771,10 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Rank Transform of an Array](./rankTransformofanArray/)
 
+# 3-Oct-24
+
+-   [Make Sum Divisible by P](./makeSumDivisiblebyP/)
+
 # 4-Oct-24
 
 -   [Divide Players Into Teams of Equal Skill](./dividePlayersIntoTeamsofEqualSkill/)
@@ -791,3 +795,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 8-Oct-24
 
 -   [Minimum Number of Swaps to Make the String Balanced](./minimumNumberofSwapstoMaketheStringBalanced/)
+
+# 9-Oct-24
+
+-   [Minimum Add to Make Parentheses Valid](./minimumAddtoMakeParenthesesValid/)
+
+# 10-Oct-24
+
+-   [Maximum Width Ramp](./maximumWidthRamp/)
