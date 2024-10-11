@@ -803,3 +803,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 10-Oct-24
 
 -   [Maximum Width Ramp](./maximumWidthRamp/)
+
+# 11-Oct-24
+
+-   [The Number of the Smallest Unoccupied Chair](./theNumberoftheSmallestUnoccupiedChair/)
