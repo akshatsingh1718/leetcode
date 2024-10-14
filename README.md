@@ -807,3 +807,15 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 11-Oct-24
 
 -   [The Number of the Smallest Unoccupied Chair](./theNumberoftheSmallestUnoccupiedChair/)
+
+# 12-Oct-24
+
+-   [Divide Intervals Into Minimum Number of Groups](./divideIntervalsIntoMinimumNumberofGroups/)
+
+# 13-Oct-24
+
+-   ⭐ [Smallest Range Covering Elements from K Lists](./smallestRangeCoveringElementsfromKLists/)
+
+# 14-Oct-24
+
+-   [Maximal Score After Applying K Operations](./maximalScoreAfterApplyingKOperations/)
