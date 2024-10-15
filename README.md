@@ -819,3 +819,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 14-Oct-24
 
 -   [Maximal Score After Applying K Operations](./maximalScoreAfterApplyingKOperations/)
+
+# 15-Oct-24
+
+-   [Separate Black and White Balls](./separateBlackandWhiteBalls)
