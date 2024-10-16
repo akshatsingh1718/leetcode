@@ -823,3 +823,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 15-Oct-24
 
 -   [Separate Black and White Balls](./separateBlackandWhiteBalls)
+
+# 16-Oct-24
+
+-   [Longest Happy String](./longestHappyString/) `heap`
