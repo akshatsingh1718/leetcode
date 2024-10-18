@@ -831,3 +831,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 17-Oct-24
 
 -   [Maximum Swap](./maximumSwap/) `greedy`
+
+# 18-Oct-24
+
+-   [Count Number of Maximum Bitwise-OR Subsets](./countNumberofMaximumBitwise-ORSubsets/) `subset`
