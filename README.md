@@ -835,3 +835,19 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 18-Oct-24
 
 -   [Count Number of Maximum Bitwise-OR Subsets](./countNumberofMaximumBitwise-ORSubsets/) `subset`
+
+# 19-Oct-24
+
+-   [Find Kth Bit in Nth Binary String](./findKthBitinNthBinaryString/)
+
+# 21-Oct-24
+
+-   [Split a String Into the Max Number of Unique Substrings](./splitaStringIntotheMaxNumberofUniqueSubstrings/) `subsequence`
+
+# 22-Oct-24
+
+-   [Kth Largest Sum in a Binary Tree](./kthLargestSuminaBinaryTree/)
+
+# 23-Oct-24
+
+-   [Cousins in Binary Tree II](./cousinsinBinaryTreeII/) `bfs`

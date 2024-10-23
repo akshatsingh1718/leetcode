@@ -89,3 +89,10 @@ all_ones = (1 << length) - 1
 ## Handling -ve remainders
 
 -   (num % k + k) % k
+
+# sequence
+
+## TC: 2^n \* n
+
+-   `2^n`: Since at every recursion call we are taking elements till n starting from i. So 2 ^ n like in subsets where we take two possibilities at a time copy or not copy.
+-   `n` : It is for the copy operation.
