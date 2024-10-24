@@ -840,6 +840,10 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Find Kth Bit in Nth Binary String](./findKthBitinNthBinaryString/)
 
+# 20-Oct-24
+
+-   [Parsing A Boolean Expression](./parsingABooleanExpression/)
+
 # 21-Oct-24
 
 -   [Split a String Into the Max Number of Unique Substrings](./splitaStringIntotheMaxNumberofUniqueSubstrings/) `subsequence`
@@ -851,3 +855,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 23-Oct-24
 
 -   [Cousins in Binary Tree II](./cousinsinBinaryTreeII/) `bfs`
+
+# 24-Oct-24
+
+-   [Flip Equivalent Binary Trees](./flipEquivalentBinaryTrees/) `dfs`
+-   [Diameter of Binary Tree](./diameterofBinaryTree/) `dfs`
+-   [Invert Binary Tree](./invertBinaryTree/) `dfs`
+-   [Same Tree](./sameTree/) `dfs`
+-   [Symmetric Tree](./symmetricTree/) `dfs`
