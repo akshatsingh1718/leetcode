@@ -863,3 +863,19 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 -   [Invert Binary Tree](./invertBinaryTree/) `dfs`
 -   [Same Tree](./sameTree/) `dfs`
 -   [Symmetric Tree](./symmetricTree/) `dfs`
+
+# 25-Oct-24
+
+-   [Remove Sub-Folders from the Filesystem](./removeSub-FoldersfromtheFilesystem/) `trie` `set`
+
+# 26-Oct-24
+
+-   [Height of Binary Tree After Subtree Removal Queries](./heightofBinaryTreeAfterSubtreeRemovalQueries/)
+
+# 27-Oct-24
+
+-   [Count Square Submatrices with All Ones](./countSquareSubmatriceswithAllOnes/) `dp`
+
+# 28-Oct-24
+
+-   [Longest Square Streak in an Array](./longestSquareStreakinanArray/) `set` `map` `bs`
