@@ -21,6 +21,7 @@
 -   `moore-voting-algo` : Moore Voting Algo for getting the majority element
 -   `khans-algo` : Graph traversal using BFS
 -   `simulation` : Perform simple simulation
+-   `lis` `lds` : Lowest increasing/decreasing subarray
 
 ## TODOS
 
@@ -870,7 +871,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 # 26-Oct-24
 
--   [Height of Binary Tree After Subtree Removal Queries](./heightofBinaryTreeAfterSubtreeRemovalQueries/)
+-   [Height of Binary Tree After Subtree Removal Queries](./heightofBinaryTreeAfterSubtreeRemovalQueries/) `dfs`
 
 # 27-Oct-24
 
@@ -879,3 +880,31 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 28-Oct-24
 
 -   [Longest Square Streak in an Array](./longestSquareStreakinanArray/) `set` `map` `bs`
+
+# 29-Oct-24
+
+-   [Maximum Number of Moves in a Grid](./maximumNumberofMovesinaGrid/) `dp`
+
+# 30-Oct-24
+
+-   ⭐ [Minimum Number of Removals to Make Mountain Array](./minimumNumberofRemovalstoMakeMountainArray/) `lis` `lds`
+
+# 31-Oct-24
+
+-   [Minimum Total Distance Traveled](./minimumTotalDistanceTraveled/) `dp`
+
+# 1-Nov-24
+
+-   [Delete Characters to Make Fancy String](./deleteCharacterstoMakeFancyString/) `basic`
+
+# 2-Nov-24
+
+-   [Circular Sentence](./circularSentence/) `basic`
+
+# 3-Nov-24
+
+-   [Rotate String](./rotateString/) `basic`
+
+# 4-Nov-24
+
+-   [String Compression III](./stringCompressionIII/) `basic`
