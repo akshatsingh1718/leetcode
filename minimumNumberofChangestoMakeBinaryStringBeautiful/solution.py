@@ -126,51 +126,49 @@ class Solution:
     ==========================
     Algorithm:
     ==========================
-    [NOTE: See lc editorial this is too complicated]
-    (optimized version of loop.py)
     """
 
-    def isCircularSentence(self, sentence: str) -> bool:
+    def minChanges(self, s: str) -> int:
+
+        # create substring of 2 if both bits are different
+        # else create larger groups if bits are same
+        changes = 0
+
         i = 0
-        n = len(sentence)
+        n = len(s)
+        streak = 0
+        ch = s[i]
 
-        while i < n:
-            # take word 1
-            char1 = ""
-            temp_i = i
-            while temp_i < n and sentence[temp_i] != " ":
-                char1 = sentence[temp_i]
-                temp_i += 1
+        for i in range(n):
+            # if the prv ch is equal to curr s[i]
+            # then only inc the streak
+            if ch == s[i]:
+                streak += 1
+                continue
 
-            # take word 2
-            char2 = ""
-            temp_i2 = 0 if (temp_i == n) else temp_i + 1
-            while temp_i2 < n and sentence[temp_i2] != " ":
-                if char2 == "":
-                    char2 = sentence[temp_i2]
-                temp_i2 += 1
+            # if cur char is not equal and
+            # we have already an even streak
+            # then start new streak for the curr char s[i]
+            if streak % 2 == 0:
+                streak = 1  # starting a new streak
+                # no need to inc changes as this is a new streak
+            else:
+                # if curr char is not equal and
+                # we have odd streak then we can use the
+                # curr char to make the even streak and change
+                # the curr char and reset the streak
+                changes += 1
+                streak = 0
 
-            if char1 != char2:
-                return False
-
-            i = temp_i + 1
-
-        return True
+            ch = s[i]
+        return changes
 
 
 def main():
     obj = Solution()
-    sentence = "leetcode exercises sound delightful"
-    expected = True
-
-    # TS 2
-    sentence = "leetcode"
-    expected = False
-
-    # TS 3
-    sentence = "OijvB BGPOXoJfEiYoghRcuOMJTeYPCpnMDVMvLwKfhNoXFTPArVFwjCkCVYBjqgtWfZYOmZBRfmztVwNShHayXzlfhbwEdWCaeTIPDjxTTlRw wlDurKQbfOtdacamikjewLDLGAOlXDfoJwoOdfxWQgkQzRuAlOffJmWdlpdYDmRjrBEFmgBxcuxSzRNzKUDdtdygHvXUmONPTekQgvKQHLazSREAOCKQSQSDgaEeIXAZvuqrbralKNmdkZxyJXEnKMowGAkRZklgvSadAYRBcmPVNBCKsKLUkvLFTHfLEgmHIweJi iDSzzphtFGTDCVrWsFtUnewZAWhne eniIozsaHYuzLoNiDymUxPMPiQORuMU UJRxN NNIbSgSZXKfqIH HrmpohKeCUMRnUhFQymdiYrxtyMlfayY YnLjeSnmMDqbZezTVFT TeOSX XUloFimWQxuaylfvJAUSPbLmAmVIdIHAjjfmNYPwYvOywUiWO"
-
-    print(obj.isCircularSentence(sentence))
+    s = "1001"
+    expected = 2
+    print(obj.minChanges(s))
 
 
 if __name__ == "__main__":

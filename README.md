@@ -13,6 +13,7 @@
 
 ## Tags:
 
+-   `basic` : basic logic needed
 -   `bs-on-answer`: binary search on the answer
 -   `heap`: Heap
 -   `two-pointers` : two pointers
@@ -908,3 +909,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 4-Nov-24
 
 -   [String Compression III](./stringCompressionIII/) `basic`
+
+# 5-Nov-24
+
+-   [Minimum Number of Changes to Make Binary String Beautiful](./minimumNumberofChangestoMakeBinaryStringBeautiful/) `basic`

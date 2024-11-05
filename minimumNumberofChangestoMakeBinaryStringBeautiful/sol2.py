@@ -126,51 +126,29 @@ class Solution:
     ==========================
     Algorithm:
     ==========================
-    [NOTE: See lc editorial this is too complicated]
-    (optimized version of loop.py)
     """
 
-    def isCircularSentence(self, sentence: str) -> bool:
-        i = 0
-        n = len(sentence)
+    def minChanges(self, s: str) -> int:
 
-        while i < n:
-            # take word 1
-            char1 = ""
-            temp_i = i
-            while temp_i < n and sentence[temp_i] != " ":
-                char1 = sentence[temp_i]
-                temp_i += 1
+        changes = 0
+        n = len(s)
 
-            # take word 2
-            char2 = ""
-            temp_i2 = 0 if (temp_i == n) else temp_i + 1
-            while temp_i2 < n and sentence[temp_i2] != " ":
-                if char2 == "":
-                    char2 = sentence[temp_i2]
-                temp_i2 += 1
+        for i in range(1, n, 2):
+            if s[i] != s[i - 1]:
+                changes += 1
 
-            if char1 != char2:
-                return False
+        return changes
 
-            i = temp_i + 1
+    def minChanges2(self, s: str) -> int:
 
-        return True
+        return sum(1 if (s[i] != s[i - 1]) else 0 for i in range(1, len(s), 2))
 
 
 def main():
     obj = Solution()
-    sentence = "leetcode exercises sound delightful"
-    expected = True
-
-    # TS 2
-    sentence = "leetcode"
-    expected = False
-
-    # TS 3
-    sentence = "OijvB BGPOXoJfEiYoghRcuOMJTeYPCpnMDVMvLwKfhNoXFTPArVFwjCkCVYBjqgtWfZYOmZBRfmztVwNShHayXzlfhbwEdWCaeTIPDjxTTlRw wlDurKQbfOtdacamikjewLDLGAOlXDfoJwoOdfxWQgkQzRuAlOffJmWdlpdYDmRjrBEFmgBxcuxSzRNzKUDdtdygHvXUmONPTekQgvKQHLazSREAOCKQSQSDgaEeIXAZvuqrbralKNmdkZxyJXEnKMowGAkRZklgvSadAYRBcmPVNBCKsKLUkvLFTHfLEgmHIweJi iDSzzphtFGTDCVrWsFtUnewZAWhne eniIozsaHYuzLoNiDymUxPMPiQORuMU UJRxN NNIbSgSZXKfqIH HrmpohKeCUMRnUhFQymdiYrxtyMlfayY YnLjeSnmMDqbZezTVFT TeOSX XUloFimWQxuaylfvJAUSPbLmAmVIdIHAjjfmNYPwYvOywUiWO"
-
-    print(obj.isCircularSentence(sentence))
+    s = "1001"
+    expected = 2
+    print(obj.minChanges(s))
 
 
 if __name__ == "__main__":
