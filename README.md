@@ -913,3 +913,7 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 5-Nov-24
 
 -   [Minimum Number of Changes to Make Binary String Beautiful](./minimumNumberofChangestoMakeBinaryStringBeautiful/) `basic`
+
+# 6-Nov-24
+
+-   [Find if Array Can Be Sorted](./findifArrayCanBeSorted/) `bubble-sort` `sort` `bit-manipulation`
