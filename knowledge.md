@@ -12,6 +12,10 @@
 
 A set bit is a bit in a binary number that has a value of 1
 
+## How to select bit range ?
+
+In practical terms, for numbers constrained to be less than or equal to 10^7 (requiring a maximum of 24 bits), we only need to check bit positions 0 to 23 when working with 32-bit integers. For larger numbers, like those up to 10^9, we would check up to 30 bits, since 2^30 =1,073,741,824.
+
 ## Count no of set bits / count no of 1's in a binary representation.
 
 -   brian kernighan’s algorithm
