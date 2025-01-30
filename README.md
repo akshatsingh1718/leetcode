@@ -921,3 +921,31 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 7-Nov-24
 
 -   [2275. Largest Combination With Bitwise AND Greater Than Zero](./largestCombinationWithBitwiseANDGreaterThanZero/)
+
+# 28-Nov-24
+
+-   [Minimum Obstacle Removal to Reach Corner](./minimumObstacleRemovaltoReachCorner/)
+
+# 29-Nov-24
+
+-   [Minimum Time to Visit a Cell In a Grid](./minimumTimetoVisitaCellInaGrid/)
+
+# 3-Dec-24
+
+-   [Adding Spaces to a String](./addingSpacestoaString/)
+
+# 16-Dec-24
+
+-   [Final Array State After K Multiplication Operations I](./finalArrayStateAfterKMultiplicationOperationsI/)
+
+# 16-Jan-25
+
+-   [Bitwise XOR of All Pairings](./bitwiseXORofAllPairings/)
+
+# 24-Jan-25
+
+-   [Find Eventual Safe States](./findEventualSafeStates/)
+
+# 30-Jan-25
+
+-   [Divide Nodes Into the Maximum Number of Groups](./divideNodesIntotheMaximumNumberofGroups/)
