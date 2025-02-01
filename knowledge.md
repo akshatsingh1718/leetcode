@@ -14,7 +14,7 @@ A set bit is a bit in a binary number that has a value of 1
 
 ## How to select bit range ?
 
-In practical terms, for numbers constrained to be less than or equal to 10^7 (requiring a maximum of 24 bits), we only need to check bit positions 0 to 23 when working with 32-bit integers. For larger numbers, like those up to 10^9, we would check up to 30 bits, since 2^30 =1,073,741,824.
+In practical terms, for numbers constrained to be less than or equal to 10^7 (requiring a maximum of 24 bits), we only need to check bit positions 0 to 23 when working with 32-bit integers. For larger numbers, like those up to 10^9, we would check up to 30 bits, since 2^30 =1,073,741,824.n
 
 ## Count no of set bits / count no of 1's in a binary representation.
 
@@ -100,3 +100,21 @@ all_ones = (1 << length) - 1
 
 -   `2^n`: Since at every recursion call we are taking elements till n starting from i. So 2 ^ n like in subsets where we take two possibilities at a time copy or not copy.
 -   `n` : It is for the copy operation.
+
+# Matrix
+
+## 2D -> 1D array
+
+-   if you want to change the array from 2d to 1d then use the following formula:
+    `i * no_of_cols + j`
+-   Why it works ?
+
+i starts from 0 so it's help in getting the row number, + j means add in which column the element is present
+
+for every i = 0, our answer would be simply j
+
+Now suppose i = 1 that means we have to add all the previous column element which is n
+
+If i = 2 that means we have to add 2 times previous column elements which is n\*2
+
+Hence n \* i + j is the formula

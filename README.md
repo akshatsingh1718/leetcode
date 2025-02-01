@@ -938,6 +938,10 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Final Array State After K Multiplication Operations I](./finalArrayStateAfterKMultiplicationOperationsI/)
 
+# 2-Jan-25
+
+-   [Count Vowel Strings in Ranges](./countVowelStringsinRanges/)
+
 # 16-Jan-25
 
 -   [Bitwise XOR of All Pairings](./bitwiseXORofAllPairings/)
@@ -946,6 +950,20 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Find Eventual Safe States](./findEventualSafeStates/)
 
+# 29-Jan-25
+
+-   [Redundant Connection](./redundantConnection/) `dsu` `dfs` `bfs`
+
 # 30-Jan-25
 
--   [Divide Nodes Into the Maximum Number of Groups](./divideNodesIntotheMaximumNumberofGroups/)
+-   [Divide Nodes Into the Maximum Number of Groups](./divideNodesIntotheMaximumNumberofGroups/) `dsu` `dfs` `bfs`
+-   [Undirected Graph Cycle](./undirectedGraphCycle/) `dsu` `dfs` `bfs`
+
+# 31-Jan-25
+
+-   [Making A Large Island](./makingALargeIsland/) `dsu` `dfs` `bfs`
+
+# 1-Feb-25
+
+-   [Special Array I](./specialArrayI/)
+-   [Rotting Oranges](./rottingOranges/)
