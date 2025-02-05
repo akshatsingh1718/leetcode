@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -119,44 +120,60 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(nlogn) [sort] + O(n * n)
+    SC: O(n)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def check(self, nums: List[int]) -> bool:
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        # find the max element idx
+        idx = 0
+        n = len(nums)
+        for i in range(n):
+            # FAILED: at TC: [6, 10, 6]; O: True
+            if nums[idx] > nums[i]:
+                # FAILED: at TC: [7,9,1,1,1,3]; O: True
+                # if nums[idx] >= nums[i]:
 
-            visited.add(node)
+                idx = i
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
+        print(idx)
+        # move from idx to n
+        for i in range(idx, n - 1):
+            # print(f"nums {i}={nums[i]} > nums {i + 1} = {nums[i+1]}")
+            if nums[i] > nums[i + 1]:
+                return False
+        # if rotated and last num is gt first num then return false
+        if idx > 0 and nums[n - 1] > nums[0]:
+            return False
 
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
+        # move from 0 -> idx
+        for i in range(0, idx - 1):
+            # print(f"nums {i}={nums[i]} > nums {i + 1} = {nums[i+1]}")
 
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+            if nums[i] > nums[i + 1]:
+                return False
+
+        return True
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    nums = [3, 4, 5, 1, 2]  # [1, 2, 3, 4, 5]
+    output = True
+
+    # TS 2
+    # nums = [2, 1, 3, 4]
+    # output = False
+
+    # TS 3
+    # nums = [6, 10, 6]
+    # output = True
+    print(obj.check(nums))
 
 
 if __name__ == "__main__":

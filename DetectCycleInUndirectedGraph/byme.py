@@ -27,6 +27,10 @@ class Solution:
                 if not visited[i]:
                     q.append((i, node))
                     visited[i] = 1
+                # if i is visited and i != parent
+                # meaning from node we are visiting its neighbors
+                # and if its neig is already visited and it is not
+                # its parent (since its a undirected graph) it means it is having a cycle
                 elif i != parent:
                     return True
         return False

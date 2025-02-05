@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -119,44 +120,61 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n) [dict] + O(n) [loop]
+    SC: O(n) [dict]
 
     ==========================
     Algorithm:
     ==========================
+    1. check length.
+    2. create freq dict from s1.
+    3. Create a differences var assigned to 0.
+    3. Move i from 0 -> len(s2) and check if s2[i] != s2[i] and increment differences by 1.
+    4. If some char freq goes to negative it means we cannot make s1 from s2.
+    5. After the loop if the differences is more than 2 it means there are more than 1 differences.
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def areAlmostEqual(self, s1: str, s2: str) -> bool:
+        if len(s1) != len(s2):
+            return False
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        freq = defaultdict(int)
+        for ch in s1:
+            freq[ch] += 1
 
-            visited.add(node)
+        differences = 0
+        for i in range(len(s2)):
+            ch = s2[i]
+            if s1[i] != s2[i]:
+                differences += 1
+            freq[ch] -= 1
+            if freq[ch] < 0:
+                return False
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
-
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
-
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        return differences <= 2
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    s1 = "bank"
+    s2 = "kanb"
+    output = True
+
+    # TS 2
+    # s1 = "attack"
+    # s2 = "defend"
+    # Output = False
+
+    # TS 3
+    # s1 = "kelb"
+    # s2 = "kelb"
+    # Output = True
+
+    # TS 4
+    s1 = "aa"
+    s2 = "ac"
+    output = False
+    print(obj.areAlmostEqual(s1, s2))
 
 
 if __name__ == "__main__":

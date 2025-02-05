@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -109,7 +110,7 @@ def list_to_binary_tree(lst: List[int]):
 ################# Code Goes Here ##################
 ###################################################
 """
-Problem:
+Problem: https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/?envType=daily-question&envId=2025-02-02
 Help:
 """
 
@@ -119,44 +120,44 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(1)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def check(self, nums: List[int]) -> bool:
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        n = len(nums)
 
-            visited.add(node)
+        hill_found = 0
+        for i in range(n):
+            if nums[i] <= nums[(i + 1) % n]:
+                pass
+            else:
+                hill_found += 1
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
+            if hill_found > 1:
+                return False
 
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
-
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        return True
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    nums = [3, 4, 5, 1, 2]  # [1, 2, 3, 4, 5]
+    output = True
+
+    # TS 2
+    # nums = [2, 1, 3, 4]
+    # output = False
+
+    # TS 3
+    # nums = [6, 10, 6]
+    # output = True
+    print(obj.check(nums))
 
 
 if __name__ == "__main__":

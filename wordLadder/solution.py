@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -119,44 +120,56 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    N = len(wordList)
+    M = AVG len of a word
+
+
+    TC: O(N * M * 26)
+    N: For while loop as this can only run for at max n words since we only add word to queue if it is present in our word list
+
+    SC: O(N) [set]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        word_set = set(wordList)
+        if endWord not in word_set:
+            return 0
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        queue = deque([(beginWord, 1)])  # (word, length)
+        word_set.remove(beginWord)
+        while queue:
 
-            visited.add(node)
+            # get the word from queue
+            word, length = queue.popleft()
+            if word == endWord:
+                return length
+            word_len = len(word)
+            # move over all the index of word and change it
+            for i in range(word_len):
+                # move over all the alphabets
+                for j in range(26):
+                    next_char = chr(ord("a") + j)
+                    next_word = word[:i] + next_char + word[i + 1 :]
+                    if next_char == word[i] or next_word not in word_set:
+                        continue
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
+                    queue.append((next_word, length + 1))
+                    word_set.remove(next_word)
 
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
-
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        return 0
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    beginWord = "hit"
+    endWord = "cog"
+    wordList = ["hot", "dot", "dog", "lot", "log", "cog"]
+    expected = 5
+    print(obj.ladderLength(beginWord, endWord, wordList))
 
 
 if __name__ == "__main__":

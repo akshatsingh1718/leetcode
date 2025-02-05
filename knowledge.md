@@ -118,3 +118,12 @@ Now suppose i = 1 that means we have to add all the previous column element whic
 If i = 2 that means we have to add 2 times previous column elements which is n\*2
 
 Hence n \* i + j is the formula
+
+# Algos
+
+## Dijkstra Algo
+
+-   Shortest algo.
+-   Use min heap to get the shortest path from starting node.
+-   Why do we use min heap ?
+    Because in our heap we add (distance i, node i). And to reach node i we may have different paths consisting of various distances. So our min heap could have same node but with different distance: [(d1, n1), (d2, n1)] and we need the shortest distance, hence we use min heap.

@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -119,44 +120,53 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(n)
+    SC: O(4) ~ O(1)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def longestMonotonicSubarray(self, nums: List[int]) -> int:
+        n = len(nums)
+        max_inc_len = 1
+        max_dec_len = 1
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        inc_len = 1
+        dec_len = 1
 
-            visited.add(node)
+        for i in range(1, n):
+            # for strictly inc
+            if nums[i] > nums[i - 1]:
+                inc_len += 1
+            else:
+                # take the max
+                max_inc_len = max(max_inc_len, inc_len)
+                # reset the inc
+                inc_len = 1
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
+            # for strictly dec
+            if nums[i] < nums[i - 1]:
+                dec_len += 1
+            else:
+                # take the max
+                max_dec_len = max(max_dec_len, dec_len)
+                # reset the inc
+                dec_len = 1
 
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
-
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        return max(max_inc_len, max_dec_len, inc_len, dec_len)
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    nums = [1, 4, 3, 3, 2]
+    output = 2
+
+    # TS 2
+    nums = [3, 2, 1]
+    output = 3
+    print(obj.longestMonotonicSubarray(nums))
 
 
 if __name__ == "__main__":

@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -115,48 +116,79 @@ Help:
 
 
 class Solution:
-    """
-    ==========================
-    Time and space complexity:
-    ==========================
-    TC:
-    SC:
+    def maxDistance(self, s: str, k: int) -> int:
+        # start at (0, 0)
+        # Moving N: (0, 1)
+        # Moving W: (-1, 0)
+        # Moving S: (0, -1)
+        # Moving E: (1, 0)
+        directions = {
+            "N": (0, 1),
+            "W": (-1, 0),
+            "S": (0, -1),
+            "E": (1, 0),
+        }
 
-    ==========================
-    Algorithm:
-    ==========================
-    """
+        curr_coords = (0, 0)
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+        def next_move(i: int, j: int, move: str):
+            return (i + directions[move][0], j + directions[move][1])
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        def next_move_dist(i: int, j: int):
+            return abs(i) + abs(j)
 
-            visited.add(node)
+        cache = dict()
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
+        def find_max(
+            i: int,
+            j: int,
+            k: int,
+            si: int,
+        ) -> int:
+            nonlocal curr_coords, directions, s
+            if si == len(s):
+                return 0
+            # move to next si
+            max_move_dist = 0
 
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
+            for direction in directions:
+                if direction != s[si] and k == 0:
+                    continue
 
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+                ni, nj = next_move(i, j, direction)
+
+                # use k value if k > 0 or direction chosen is not same as given one
+                if direction == s[si]:
+                    new_k = k
+                elif direction != s[si]:
+                    new_k = k - 1
+
+                max_move_dist = max(
+                    max_move_dist,
+                    find_max(ni, nj, new_k, si + 1),
+                    next_move_dist(ni, nj),
+                )
+            return max_move_dist
+
+        return find_max(0, 0, k, 0)
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    s = "NWSE"
+    k = 1
+    Output = 3
+
+    # TS 2
+    # s = "NSWWEW"
+    # k = 3
+    # Output = 6
+
+    # TS 3
+    # s = "SN"
+    # k = 0
+    # Output = 1
+    print(obj.maxDistance(s, k))
 
 
 if __name__ == "__main__":

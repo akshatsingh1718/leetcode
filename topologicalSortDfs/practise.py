@@ -125,31 +125,49 @@ class Solution:
     ==========================
     Algorithm:
     ==========================
+    Always runs on Directed acyclic graph
     """
+
+    # dfs
+    def dfs(
+        self, start: int, adj: Dict[int, List[int]], visited: Set[int], stack: List[int]
+    ):
+        # mark parent as visited
+        visited.add(start)
+
+        # first add the children and then the parent
+        for neig in adj[start]:
+            if neig in visited:
+                continue
+            visited.add(neig)
+            self.dfs(
+                neig,
+                adj,
+                visited,
+                stack,
+            )
+
+        # add the parent
+        stack.append(start)
 
     def topologicalSort(self, edgeList: List[List[int]], n: int):
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        # create adj list
+        adj = defaultdict(list)
+        for u, v in edgeList:
+            adj[u].append(v)
 
-            visited.add(node)
-
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
-
-        adj_list = create_adjacency_list(edgeList, directed=True)
         stack = []
         visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
 
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        for i in range(n):
+            if i in visited:
+                continue
+
+            self.dfs(i, adj, visited, stack)
+
+        stack.reverse()
+        return stack
 
 
 def main():

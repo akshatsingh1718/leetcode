@@ -967,3 +967,21 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Special Array I](./specialArrayI/)
 -   [Rotting Oranges](./rottingOranges/)
+-   [Word Ladder](./wordLadder/)
+-   [Course Schedule II](./courseScheduleII/)
+
+# 2-Feb-25
+
+-   [Check if Array Is Sorted and Rotated](./checkifArrayIsSortedandRotated/)
+
+# 2-Feb-25
+
+-   [Longest Strictly Increasing or Strictly Decreasing Subarray](./longestStrictlyIncreasingorStrictlyDecreasingSubarray/)
+
+# 4-Feb-25
+
+-   [Maximum Ascending Subarray Sum](./maximumAscendingSubarraySum/)
+
+# 5-Feb-25
+
+-   [Check if One String Swap Can Make Strings Equal](./checkifOneStringSwapCanMakeStringsEqual/)

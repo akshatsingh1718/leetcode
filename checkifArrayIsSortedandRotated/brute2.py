@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -119,44 +120,41 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    TC: O(nlogn) [sort] + O(n * n)
+    SC: O(n)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def check(self, nums: List[int]) -> bool:
+        sorted_arr = sorted(nums)
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        n = len(nums)
+        for r in range(n):
 
-            visited.add(node)
+            # compare the sorted_arr and nums arr
+            is_sorted = True
+            for i in range(n - 1):
+                if sorted_arr[i] != nums[(i + r) % n]:
+                    is_sorted = False
+                    break
+            if is_sorted:
+                return True
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
-
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
-
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        return False
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    nums = [3, 4, 5, 1, 2]
+    output = True
+
+    # TS 2
+    nums = [2, 1, 3, 4]
+    output = False
+    print(obj.check(nums))
 
 
 if __name__ == "__main__":

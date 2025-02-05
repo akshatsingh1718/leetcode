@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -119,44 +120,60 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC:
-    SC:
+    n =
+    TC: O(E) [adj] + O(V) [find zeros indegree] + O(E + V) [topo while]
+    SC: O(V) [indegrees] + O(V) [indegrees]
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        adj = defaultdict(list)
+        indegrees = [0] * numCourses
+        for u, v in prerequisites:
+            # to take course `u` we should first do `v`. so v -> u
+            adj[v].append(u)
+            indegrees[u] += 1
 
-            visited.add(node)
+        # get all the indegrees of 0
+        zero_indegrees = deque([])
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
-
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
+        for i in range(numCourses):
+            if indegrees[i] == 0:
+                zero_indegrees.append(i)
 
         res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        while zero_indegrees:
+
+            node = zero_indegrees.popleft()
+            res.append(node)
+
+            for neig in adj[node]:
+                indegrees[neig] -= 1
+                if indegrees[neig] == 0:
+                    zero_indegrees.append(neig)
+
+        return res if len(res) == numCourses else []
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    numCourses = 4
+    prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]]
+    output = [0, 2, 1, 3]
+    # TS 2
+    # numCourses = 3
+    # prerequisites = [[1, 0], [1, 2], [0, 1]]
+    # output = []
+
+    # TS 3
+    # numCourses = 4
+    # prerequisites = [[2, 0], [1, 0], [3, 1], [3, 2], [1, 3]]
+    # output = []
+    print(obj.findOrder(numCourses, prerequisites))
 
 
 if __name__ == "__main__":

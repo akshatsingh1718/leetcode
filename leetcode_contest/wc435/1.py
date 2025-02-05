@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -127,36 +128,37 @@ class Solution:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+class Solution:
+    def maxDifference(self, s: str) -> int:
+        freq = defaultdict(int)
+        for w in s:
+            freq[w] += 1
 
-            visited.add(node)
+        odds = []
+        evens = []
+        for k, v in freq.items():
+            if v % 2 == 0:  # even
+                evens.append(v)
+            else:
+                odds.append(v)
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
-
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
-
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        return max(odds) - min(evens)
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    s = "aaaaabbc"
+    Output = 3
+
+    # TS 2
+    # s = "abcabcab"
+    # Output = 1
+
+    # TS 3
+    # s = "tzt"
+    # Output = -1
+    print(obj.maxDifference(s))
 
 
 if __name__ == "__main__":

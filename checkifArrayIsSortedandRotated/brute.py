@@ -2,9 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-from math import floor, ceil
+from math import floor, ceil, gcd
+import heapq
 from heapq import heapify, heappop, heappush
-
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -127,36 +128,37 @@ class Solution:
     ==========================
     """
 
-    def topologicalSort(self, edgeList: List[List[int]], n: int):
+    def check(self, nums: List[int]) -> bool:
 
-        def dfs(node: int, stack: List[int], visited: Set[int]):
-            nonlocal edgeList, adj_list
+        n = len(nums)
+        for r in range(n):
 
-            visited.add(node)
+            rotated_arr = []
+            for i in range(r, n):
+                rotated_arr.append(nums[i])
 
-            for child in adj_list[node]:
-                if child not in visited:
-                    dfs(child, stack, visited)
-            stack.append(node)
+            for i in range(0, r):
+                rotated_arr.append(nums[i])
 
-        adj_list = create_adjacency_list(edgeList, directed=True)
-        stack = []
-        visited = set()
-        for node in range(n):
-            if node not in visited:
-                dfs(node, stack, visited)
+            # compare the sorted_arr and nums arr
+            for i in range(n - 1):
+                if rotated_arr[i] > rotated_arr[i + 1]:
+                    break
+            else:
+                return True
 
-        res = []
-        while stack:
-            res.append(stack.pop())
-        return res
+        return False
 
 
 def main():
     obj = Solution()
-    edgeList = [[0, 3], [0, 4], [1, 3], [2, 4], [2, 7], [3, 5], [3, 6], [3, 7], [4, 6]]
-    n = 8
-    print(obj.topologicalSort(edgeList, n))
+    nums = [3, 4, 5, 1, 2]
+    output = True
+    # TS 2
+    # nums = [2, 1, 3, 4]
+
+    # output = False
+    print(obj.check(nums))
 
 
 if __name__ == "__main__":
