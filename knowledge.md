@@ -127,3 +127,15 @@ Hence n \* i + j is the formula
 -   Use min heap to get the shortest path from starting node.
 -   Why do we use min heap ?
     Because in our heap we add (distance i, node i). And to reach node i we may have different paths consisting of various distances. So our min heap could have same node but with different distance: [(d1, n1), (d2, n1)] and we need the shortest distance, hence we use min heap.
+
+-   Why do we not use simple queue ?
+    It will still work but the Time and space complexity will increase gradually. Suppose from point a to b we have multiple distances, so it will be super optimize if we add the smallest dist first so that when larger dist come they will straight away gets discarded. But if the larger distances comes first we will add them to the queue and explore their paths/neighbors and extra pop and insert will be done for queue.
+-   Cons
+    -   Cant work with -ve edges.
+    -   obviously cant work with -ve cycles. Neg cycles are those whose distances sum comes out be in -ve.
+
+## Bellman-Ford Algo
+
+-   only directed graphs.
+-   If undirected graph is given then convert it to directed.
+-   Find shortest path in -ve path directed graphs as well !

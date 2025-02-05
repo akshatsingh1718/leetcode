@@ -985,3 +985,6 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 5-Feb-25
 
 -   [Check if One String Swap Can Make Strings Equal](./checkifOneStringSwapCanMakeStringsEqual/)
+-   [Djisktra's Algorithm](./dijkstraAlgorithm/) `graph` `djikstra`
+-   [Shortest Path in Weighted undirected graph](./shortestPathinWeightedundirectedgraph/) `graph` `djikstra`
+-   [Cheapest Flights Within K Stops](./cheapestFlightsWithinKStops/)
