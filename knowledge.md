@@ -137,5 +137,48 @@ Hence n \* i + j is the formula
 ## Bellman-Ford Algo
 
 -   only directed graphs.
--   If undirected graph is given then convert it to directed.
+-   Works best for sparse graphs/less connections between different vertices.
+-   If undirected graph is given then convert it to directed but wont work for -ve edges. take an example of edges (a, b, -1) and (b, a, -1) they are forming -ve cycle.
 -   Find shortest path in -ve path directed graphs as well !
+
+### How Algo works ?
+
+    - Iterates V-1 times, relaxing all edges in each iteration.
+    - A final iteration detects negative weight cycles.
+
+### How It Works on Undirected Graphs
+
+-   In an undirected graph, each edge (u,v,w) implies that there is also an edge (v,u,w).
+-   If there are only positive or zero-weight edges, Bellman-Ford runs as expected.
+-   If negative weights are present, the algorithm might fail or incorrectly detect negative cycles where none exist.
+
+### Challenges with Undirected Graphs
+
+1. Double Relaxation Issue
+
+-   Since every edge (u,v,w) is bidirectional, both u→v and v→u are relaxed separately.
+-   This increases the number of relaxations and could cause unnecessary updates.
+
+2. False Negative Cycle Detection
+
+-   If an undirected graph contains a negative weight edge (e.g., (u,v,−5)), a cycle is automatically formed:
+    -   u→v with weight -5
+    -   v→u with weight -5
+    -   The total cycle weight = -10, leading Bellman-Ford to incorrectly detect a negative weight cycle.
+    -   However, this is not a real cycle in the sense of traversal—it’s just the nature of an undirected edge.
+
+## Floyd Warshall
+
+### What is the Floyd-Warshall Algorithm?
+
+The Floyd-Warshall algorithm is a dynamic programming approach used to find the shortest paths between all pairs of vertices in a weighted graph.
+
+-   Works for both directed and undirected graphs (as long as they have no negative cycles).
+-   Time Complexity: O(V^3)
+-   Space Complexity: O(V^2) (for storing distances)
+
+### ✅ When to use Floyd-Warshall?
+
+When we need the shortest path between every pair of vertices.
+When the graph is dense (many edges).
+When we need a simple, iterative approach instead of running Dijkstra’s multiple times.

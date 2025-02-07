@@ -988,3 +988,10 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 -   [Djisktra's Algorithm](./dijkstraAlgorithm/) `graph` `djikstra`
 -   [Shortest Path in Weighted undirected graph](./shortestPathinWeightedundirectedgraph/) `graph` `djikstra`
 -   [Cheapest Flights Within K Stops](./cheapestFlightsWithinKStops/)
+
+# 6-Feb-25
+
+-   [Tuple with Same Product](./tuplewithSameProduct/)
+-   [Bellman Ford](./bellman-ford/)
+-   [Floyd Warshall](./floydWarshall/)
+-   [Find the Number of Distinct Colors Among the Balls](./findtheNumberofDistinctColorsAmongtheBalls/)
