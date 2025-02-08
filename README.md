@@ -995,3 +995,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 -   [Bellman Ford](./bellman-ford/)
 -   [Floyd Warshall](./floydWarshall/)
 -   [Find the Number of Distinct Colors Among the Balls](./findtheNumberofDistinctColorsAmongtheBalls/)
+
+# 7-Feb-25
+
+-   [Find the Number of Distinct Colors Among the Balls](./findtheNumberofDistinctColorsAmongtheBalls/)
+
+# 8-Feb-25
+
+-   [Design a Number Container System](./designaNumberContainerSystem/)
