@@ -2,7 +2,10 @@ from typing import List, Optional, Union, Dict, Tuple, Set
 from bisect import bisect, bisect_left, bisect_right
 from collections import Counter, defaultdict, deque
 from functools import cache
-
+from math import floor, ceil, gcd
+import heapq
+from heapq import heapify, heappop, heappush
+import itertools as it
 import sys
 
 # Check the current recursion limit
@@ -47,8 +50,10 @@ def printList(head: ListNode):
 
 
 # Graph utils
-def create_adjacency_list(edges: List[tuple]):
-    adjacency_list = {}
+def create_adjacency_list(edges: List[tuple], directed=False):
+    # When n nodes is told but graph does not have all the nodes present
+    # this will prevent it from keyerror
+    adjacency_list = defaultdict(lambda: [])
 
     for edge in edges:
         u, v = edge
@@ -56,8 +61,10 @@ def create_adjacency_list(edges: List[tuple]):
             adjacency_list[u] = []
         if v not in adjacency_list:
             adjacency_list[v] = []
+
         adjacency_list[u].append(v)
-        adjacency_list[v].append(u)
+        if not directed:
+            adjacency_list[v].append(u)
 
     return adjacency_list
 
@@ -114,26 +121,33 @@ class Solution:
     Time and space complexity:
     ==========================
     TC: O(n)
-    SC: O(n)
+    SC: O(2n) ~ O(n)
 
     ==========================
     Algorithm:
     ==========================
     """
 
-    def clearDigits(self, s: str) -> str:
-        stack = []
-        for _, char in enumerate(s):
-            if stack and "0" <= char <= "9":
-                stack.pop()
-            if "a" <= char <= "z":
-                stack.append(char)
+    def countBadPairs(self, nums: List[int]) -> int:
+        count = 0
+        visited_count = defaultdict(int)  # SC: O(n)
+        n = len(nums)
 
-        return "".join(stack)
+        # create nums2 which has nums[i] - i
+        nums2 = [nums[i] - i for i in range(n)]  # SC: O(n)
+
+        for i in range(n):
+            count += i - visited_count[nums2[i]]
+            visited_count[nums2[i]] += 1
+        return count
+
+
+def main():
+    obj = Solution()
+    nums = [4, 1, 3, 3]
+    output = 5
+    print(obj.countBadPairs(nums))
 
 
 if __name__ == "__main__":
-    obj = Solution()
-    s = "cb34"
-    s = "cv2"
-    print("->", obj.clearDigits(s))
+    main()

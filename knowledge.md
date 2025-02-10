@@ -1,3 +1,7 @@
+# In General
+
+-   If in question you have been given relation between two indices like `nums[j] - nums[i] != j -1` is a bad pairs so try to make it simple and move like terms with each other `nums[j] - j != nums[i] - i` this can make your problem simple and approachable. See LC 2364.
+
 # sliding window
 
 -   Whenever question states about continuous subarray think if sliding window can be used or not using any type of prefix hashmap algo.
@@ -119,6 +123,10 @@ If i = 2 that means we have to add 2 times previous column elements which is n\*
 
 Hence n \* i + j is the formula
 
+# Tree
+
+## Spanning Tree
+
 # Algos
 
 ## Dijkstra Algo
@@ -171,7 +179,8 @@ Hence n \* i + j is the formula
 
 ### What is the Floyd-Warshall Algorithm?
 
-The Floyd-Warshall algorithm is a dynamic programming approach used to find the shortest paths between all pairs of vertices in a weighted graph.
+-   Easiest way to find out distance of each node from all other nodes.
+-   The Floyd-Warshall algorithm is a dynamic programming approach used to find the shortest paths between all pairs of vertices in a weighted graph.
 
 -   Works for both directed and undirected graphs (as long as they have no negative cycles).
 -   Time Complexity: O(V^3)
@@ -182,3 +191,5 @@ The Floyd-Warshall algorithm is a dynamic programming approach used to find the 
 When we need the shortest path between every pair of vertices.
 When the graph is dense (many edges).
 When we need a simple, iterative approach instead of running Dijkstra’s multiple times.
+
+## Kruskal's algo

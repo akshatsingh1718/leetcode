@@ -113,8 +113,8 @@ class Solution:
     ==========================
     Time and space complexity:
     ==========================
-    TC: O(n)
-    SC: O(n)
+    TC:
+    SC:
 
     ==========================
     Algorithm:
@@ -122,18 +122,35 @@ class Solution:
     """
 
     def clearDigits(self, s: str) -> str:
-        stack = []
-        for _, char in enumerate(s):
-            if stack and "0" <= char <= "9":
-                stack.pop()
-            if "a" <= char <= "z":
-                stack.append(char)
 
-        return "".join(stack)
+        s = list(s)
+        n = len(s)
+        while True:
 
+            # for i, char in enumerate(s):
+            i = 0
+            is_digit_found = False
+            while i < len(s):
+                char = s[i]
+                if "0" <= char <= "9":
+                    is_digit_found = True
+                    if i > 0:
+                        del s[i]
+                        del s[i - 1]
+                        break
 
-if __name__ == "__main__":
-    obj = Solution()
-    s = "cb34"
-    s = "cv2"
-    print("->", obj.clearDigits(s))
+                    else:
+                        del s[i]
+                        # check for non digit
+                        for j in range(n):
+                            if "a" <= s[j] <= "z":
+                                del s[j]
+                                break
+
+                if is_digit_found:
+                    break
+                i += 1
+            if not is_digit_found:
+                break
+
+        return "".join(s)

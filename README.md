@@ -1003,3 +1003,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 8-Feb-25
 
 -   [Design a Number Container System](./designaNumberContainerSystem/)
+
+# 9-Feb-25
+
+-   [Count Number of Bad Pairs](./countNumberofBadPairs/)
+
+# 10-Feb-25
+
+-   [Clear Digits](./clearDigits/) `stack`
