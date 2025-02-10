@@ -1011,3 +1011,5 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 10-Feb-25
 
 -   [Clear Digits](./clearDigits/) `stack`
+-   [Minimum Spanning Tree](./minimumSpanningTree/) `prims-algo` `kruskal-algo`
+-   [Min Cost to Connect All Points](./minCosttoConnectAllPoints/) `prims-algo`

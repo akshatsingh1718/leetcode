@@ -131,7 +131,7 @@ Hence n \* i + j is the formula
 
 ## Dijkstra Algo
 
--   Shortest algo.
+-   Shortest algo from given start node to all other nodes.
 -   Use min heap to get the shortest path from starting node.
 -   Why do we use min heap ?
     Because in our heap we add (distance i, node i). And to reach node i we may have different paths consisting of various distances. So our min heap could have same node but with different distance: [(d1, n1), (d2, n1)] and we need the shortest distance, hence we use min heap.
@@ -144,6 +144,8 @@ Hence n \* i + j is the formula
 
 ## Bellman-Ford Algo
 
+-   Same as dijkstra but also works for -ve edges.
+-   find the shortest path from given start node to all other nodes even in -ve path edges also.
 -   only directed graphs.
 -   Works best for sparse graphs/less connections between different vertices.
 -   If undirected graph is given then convert it to directed but wont work for -ve edges. take an example of edges (a, b, -1) and (b, a, -1) they are forming -ve cycle.
@@ -177,6 +179,8 @@ Hence n \* i + j is the formula
 
 ## Floyd Warshall
 
+-   Goal is same as dijkstra and bellman but used to find distance from each node to every other node.
+
 ### What is the Floyd-Warshall Algorithm?
 
 -   Easiest way to find out distance of each node from all other nodes.
@@ -192,4 +196,17 @@ When we need the shortest path between every pair of vertices.
 When the graph is dense (many edges).
 When we need a simple, iterative approach instead of running Dijkstra’s multiple times.
 
+## Prim's algo
+
+-   OBJECTIVE: To find Minimum spanning tree (MST).
+-   Given the Graph (V, E) having V vertices/nodes and E edges we need to find out the minimum weight path edges that connects all the nodes with (v-1) edges.
+-   Some questions ask only the minimum sum which the mst have and some question also ask about the path we build. To solve the path problem we take a parent vector to return the parent of each node which makes our mst.
+
+### Code walkthrough
+
+-   Here unlike dijkstra we first check visit status in the while loop after getting the top min element from the heap and then visits its neighbors no matter if they are already visited or not since in while loop we are taking care of the visited status and unlike dij we are not maintaining any distance vector so all the child/neigh will be added.
+
 ## Kruskal's algo
+
+-   Objective is same as prims algo.
+-   OBJECTIVE: To find Minimum spanning tree (MST).
