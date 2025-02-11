@@ -1012,4 +1012,9 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Clear Digits](./clearDigits/) `stack`
 -   [Minimum Spanning Tree](./minimumSpanningTree/) `prims-algo` `kruskal-algo`
--   [Min Cost to Connect All Points](./minCosttoConnectAllPoints/) `prims-algo`
+-   [Min Cost to Connect All Points](./minCosttoConnectAllPoints/) `prims-algo` `kruskal-algo`
+
+# 11-Feb-25
+
+-   [Remove All Occurrences of a Substring](./removeAllOccurrencesofaSubstring/) `stack` `string`
+-   [Accounts Merge](./accountsMerge)

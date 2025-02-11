@@ -210,3 +210,9 @@ When we need a simple, iterative approach instead of running Dijkstra’s multip
 
 -   Objective is same as prims algo.
 -   OBJECTIVE: To find Minimum spanning tree (MST).
+
+### code walkthrough
+
+-   Create an edges list (w, u, v) and sort it in ascending order.
+-   Iterate over the edges list and check if current u and v are connected or not. If not connected then add take the union of both using `dsu` else continue.
+-   At the end we will have our MST.
