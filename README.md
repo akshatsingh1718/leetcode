@@ -1018,3 +1018,18 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Remove All Occurrences of a Substring](./removeAllOccurrencesofaSubstring/) `stack` `string`
 -   [Accounts Merge](./accountsMerge)
+
+# 12-Feb-25
+
+-   [Max Sum of a Pair With Equal Sum of Digits](./maxSumofaPairWithEqualSumofDigits/)
+
+-   [Kosaraju Algorithm](./kosarajuAlgorithm)
+
+# 13-Feb-25
+
+-   [Minimum Operations to Exceed Threshold Value II](./minimumOperationstoExceedThresholdValueII/)
+
+# 14-Feb-25
+
+-   [Product of the Last K Numbers](./productoftheLastKNumbers/)
+-   [Critical Connections in a Network](./criticalConnectionsinaNetwork/) `tarjan-algo`

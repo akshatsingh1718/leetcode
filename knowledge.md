@@ -123,11 +123,58 @@ If i = 2 that means we have to add 2 times previous column elements which is n\*
 
 Hence n \* i + j is the formula
 
-# Tree
+# Graphs
 
-## Spanning Tree
+## Graph Facts
 
-# Algos
+-   This is what is think but if you want to convert an unidrected graph to a directed graph then do not consider the edge u -> v where u > v then we are just considering the edge again.
+
+## Graph terminologies
+
+-   Bridge in a graph: If a connection is broken and it broke the graph into two or more components is called a bridge in a graph.
+-   SCC (Strongly connected components): where any node can be visited by every other node even if one link is broken.
+
+## Topological sort
+
+### Key Properties:
+
+-   Only applicable to DAGs (Directed Acyclic Graphs).
+-   There can be multiple valid topological orderings for a given DAG.
+-   Used in scenarios where tasks have dependencies, like scheduling, course prerequisites, and build systems.
+
+### How to Find Topological Order?
+
+Two common approaches:
+
+#### Kahn’s Algorithm (BFS-based)
+
+-   Find all nodes with in-degree = 0 (no dependencies).
+-   Remove them from the graph and reduce in-degrees of neighbors.
+-   Repeat until all nodes are processed.
+-   If there’s a cycle, the algorithm detects it.
+
+#### DFS-based Approach
+
+-   Perform DFS and push nodes to a stack after processing all descendants.
+-   Pop from the stack to get the topological order.
+
+### Time Complexity:
+
+Both algorithms run in O(V+E), where V is the number of vertices and E is the number of edges.
+
+### Cyclic graph using topo sort ?
+
+topological sort is not possible for cyclic graphs because a topological sort requires a Directed Acyclic Graph (DAG). If a graph contains a cycle, at least one node will always have an unresolved dependency, preventing a valid linear ordering.
+
+#### Why Not in Cyclic Graphs?
+
+In a cycle, there exists a sequence of nodes where each node depends on the next one, eventually leading back to the starting node.
+This creates a deadlock, making it impossible to determine a valid order.
+
+#### How to Detect Cycles Before Sorting?
+
+Kahn’s Algorithm (BFS): If the algorithm processes fewer nodes than the total count (V), a cycle exists.
+DFS Approach: If a node is visited while it’s still in the recursion stack, a cycle is detected.
 
 ## Dijkstra Algo
 
@@ -216,3 +263,25 @@ When we need a simple, iterative approach instead of running Dijkstra’s multip
 -   Create an edges list (w, u, v) and sort it in ascending order.
 -   Iterate over the edges list and check if current u and v are connected or not. If not connected then add take the union of both using `dsu` else continue.
 -   At the end we will have our MST.
+
+## Kosaraju Algo
+
+-   Find the strongly connected components.
+-   Works in DAG.
+
+### Code walkthrough
+
+-   Find the topological sort order.
+-   Reverse all the edges.
+-   Start the dfs again in reverse graph and check how many times we need to start dfs. The total counts of dfs run is the connected edges.
+
+## Tarjan's algo
+
+-   Helps to find the bridge in graph.
+
+## Code walkthrough
+
+-   Start the DfS and assign each node its time of insertion and lowest time.
+-   Initially the insertion time and lowest time will both be same. The insertion time is just the time t at which node has been visited.
+-   The low will be updated from the neighbors of the node. If a cycle is there then a previously visited node with lesser time of insertion can update its parent low time (since time of insertion will not be changed for parent as well as neig).
+-   The only thing which is prohibited is that we cannot take low time from any node's parent and only from its other child/neighbors.
