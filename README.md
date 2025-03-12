@@ -1033,3 +1033,31 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 
 -   [Product of the Last K Numbers](./productoftheLastKNumbers/)
 -   [Critical Connections in a Network](./criticalConnectionsinaNetwork/) `tarjan-algo`
+
+# 16-Feb-25
+
+-   [Find the Punishment Number of an Integer](./findthePunishmentNumberofanInteger/)
+
+# 18-Feb-25
+
+-   ⭐ [Construct Smallest Number From DI String](./constructSmallestNumberFromDIString/) `string` `stack` `bit-manipulation`
+
+# 19-Feb-25
+
+-   [The k-th Lexicographical String of All Happy Strings of Length n](./thek-thLexicographicalStringofAllHappyStringsofLengthn/)
+
+# 20-Feb-25
+
+-   []()
+
+# 21-Feb-25
+
+-   [Find Elements in a Contaminated Binary Tree](./findElementsinaContaminatedBinaryTree/) `dfs`
+
+# 11-Mar-25
+
+-   [Number of Substrings Containing All Three Characters](./numberofSubstringsContainingAllThreeCharacters/)
+
+# 12-Mar-25
+
+-   [Maximum Count of Positive Integer and Negative Integer](./maximumCountofPositiveIntegerandNegativeInteger/)

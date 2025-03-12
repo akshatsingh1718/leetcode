@@ -56,6 +56,10 @@ all_ones = (1 << length) - 1
 
 # Numbers
 
+## How many digits in a number
+
+-   Approx if we need to find out the approx digits in number then we can take log10(n). See lc 2698 for question reference.
+
 ## Powers of 2
 
 -   All the numbers which are powers of 2 when divided by 2 will give even numbers.
