@@ -2,6 +2,8 @@
 
 -   If in question you have been given relation between two indices like `nums[j] - nums[i] != j -1` is a bad pairs so try to make it simple and move like terms with each other `nums[j] - j != nums[i] - i` this can make your problem simple and approachable. See LC 2364.
 
+-   When ever you want to minimize the maximum or maximize the minimum then use binary search. see LC: 2560
+
 # sliding window
 
 -   Whenever question states about continuous subarray think if sliding window can be used or not using any type of prefix hashmap algo.

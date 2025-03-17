@@ -1061,3 +1061,11 @@ TODO: https://leetcode.com/problems/longest-palindromic-substring/description/
 # 12-Mar-25
 
 -   [Maximum Count of Positive Integer and Negative Integer](./maximumCountofPositiveIntegerandNegativeInteger/)
+
+# 17-Mar-25
+
+-   [Minimum Time to Repair Cars](./minimumTimetoRepairCars/)
+
+# 18-Mar-25
+
+-   [Divide Array Into Equal Pairs](./divideArrayIntoEqualPairs/)
